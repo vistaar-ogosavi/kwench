@@ -1,0 +1,111 @@
+{% include 'LS_5906464808_global' %}
+<div class="wrapper">
+  <div class="page-width feature-row">
+    {% capture image_layout %}
+      <div class="feature-row__item">
+        {% capture LS_locales_settings_key %}{{ section.id }}.image{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.image != blank or LS_5906464808_settings_value != blank %}
+          <noscript>
+            {% capture LS_locales_settings_key %}{{ section.id }}.image{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.image | img_url: '600x600' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}{% else %}{{ LS_5906464808_settings_value  | img_tag: section.settings.image.alt, 'feature-row__image-no-js'  }}{% endif %}
+          </noscript>
+          <div class="feature-row__image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
+            {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+            <img class="feature-row__image lazyload"
+              src="{% capture LS_locales_settings_key %}{{ section.id }}.image{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.image | img_url: '300x300' }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %}"
+              data-src="{{ img_url }}"
+              data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+              data-aspectratio="{% capture LS_locales_settings_key %}{{ section.id }}.image.aspect_ratio{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.image.aspect_ratio }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %}"
+              data-sizes="auto"
+              alt="{% capture LS_locales_settings_key %}{{ section.id }}.image.alt{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.image.alt | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}">
+        </div>
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    {% endcapture %}
+
+    <div class="feature-row">
+      {% if section.settings.layout == 'left' %}
+        {{ image_layout }}
+      {% endif %}
+
+      <div class="feature-row__item feature-row__text feature-row__text--{% capture LS_locales_settings_key %}{{ section.id }}.layout{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.layout }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %}">
+        {% capture LS_locales_settings_key %}{{ section.id }}.title{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.title != blank or LS_5906464808_settings_value != blank %}
+          <h2 class="h3">{% capture LS_locales_settings_key %}{{ section.id }}.title{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.title | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}</h2>
+        {% endif %}
+        {% capture LS_locales_settings_key %}{{ section.id }}.text{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.text != blank or LS_5906464808_settings_value != blank %}
+          <div class="rte-setting featured-row__subtext">{% capture LS_locales_settings_key %}{{ section.id }}.text{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.text }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %}</div>
+        {% endif %}
+        {% capture LS_locales_settings_key %}{{ section.id }}.button_label{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.button_label != blank or LS_5906464808_settings_value != blank %}
+          <a href="{% capture LS_locales_settings_key %}{{ section.id }}.button_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.button_link }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %}" class="btn">
+            {% capture LS_locales_settings_key %}{{ section.id }}.button_label{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.button_label | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}
+          </a>
+        {% endif %}
+      </div>
+
+      {% if section.settings.layout == 'right' %}
+        {{ image_layout }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Image with text",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Image alignment",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with text",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,532 @@
+
+{% comment %} {% assign menu = linklists.footer %}
+{{ menu.title }}: {{ menu.levels }}
+<div class="feature-row">
+{% for link in linklists.footer.links %}
+  <div class="feature-row__item feature-row__item_mobile_half custom_row flip_row ">
+     <a href="{{ link.url }}">{{ link.title }}</a>
+  </div>
+{% endfor %} 
+</div> {% endcomment %}
+
+
+{% comment %} <div class="contain-wrapper">
+<div class="feature-row">
+  <div class="feature-row__item feature-row__item_mobile_full custom_row ">
+  <div class="foot-wrap">
+          <ul class="no-bullets site-footer__linklist">
+              <li class="logo-img"><img src="//cdn.shopify.com/s/files/1/0077/8649/6080/files/kwenchwear_dark_logo_200x.jpg?v=1543494120" srcset="//cdn.shopify.com/s/files/1/0077/8649/6080/files/kwenchwear_dark_logo_200x.jpg?v=1543494120 1x, //cdn.shopify.com/s/files/1/0077/8649/6080/files/kwenchwear_dark_logo_200x@2x.jpg?v=1543494120 2x" alt="stage.kwenchwear" itemprop="logo"></li>
+              <li class="logo-caption">Kwenchwear</li>
+              <li><a href="#">About US</a></li>
+          </ul>
+  </div>
+  </div>
+   <div class="feature-row__item feature-row__item_mobile_full custom_row ">
+     <div class="foot-wrap">
+          <h3 class="footer-title">CONTACT US</h3>
+          <ul class="no-bullets site-footer__linklist">
+                 <li class="footer_links"><a href="">Email Support</a></li>
+          </ul>
+         <h3 class="footer-title">HELP</h3>
+         <ul class="no-bullets site-footer__linklist">
+           <li class="footer_links"><a href="">Email Support</a></li>
+           <li class="footer_links"><a href="">Delivery & Returns</a></li>
+           <li class="footer_links"><a href="">Size Guides</a></li>
+           <li class="footer_links"><a href="">FAQs</a></li>
+           <li class="footer_links"><a href="">Orders</a></li>
+        </ul>
+    </div>
+  </div>
+   <div class="feature-row__item feature-row__item_mobile_full custom_row flip_row ">
+         <div class="foot-wrap">
+          <h3 class="footer-title"><ls-static-8442813> MY ACCOUNT</ls-static-8442813></h3>
+          <ul class="no-bullets site-footer__linklist">
+                 <li class="footer_links"><a href="">LOGIN</a></li>    
+                 <li class="footer_links"><a href="">REGISTER</a></li>
+         </ul>
+        <h3 class="footer-title"><ls-static-8442813> SOCIAL MEDIA</ls-static-8442813></h3>
+                                          <ul class="no-bullets social-icons">
+                                    {% capture LS_locales_settings_key %}social_facebook_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+                      {%  if settings.social_facebook_link != blank or LS_5906464808_settings_value != blank %}
+                                      <li class="footer_links">
+                                        <a href="{% capture LS_locales_settings_key %}social_facebook_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_facebook_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Facebook'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Facebook' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                                          <span class="icon icon-facebook" aria-hidden="true"></span>
+                                          <ls-static-8081806>Facebook</ls-static-8081806>
+                                        </a>
+                                      </li>
+                                    {% endif %}
+                                    {% capture LS_locales_settings_key %}social_twitter_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+                      {%  if settings.social_twitter_link != blank or LS_5906464808_settings_value != blank %}
+                                      <li class="footer_links">
+                                        <a href="{% capture LS_locales_settings_key %}social_twitter_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_twitter_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Twitter'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Twitter' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                                          <span class="icon icon-twitter" aria-hidden="true"></span>
+                                          <ls-static-1855062>Twitter</ls-static-1855062>
+                                        </a>
+                                      </li>
+                                    {% endif %}
+                                    {% capture LS_locales_settings_key %}social_pinterest_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+                      {%  if settings.social_pinterest_link != blank or LS_5906464808_settings_value != blank %}
+                                      <li class="footer_links">
+                                        <a href="{% capture LS_locales_settings_key %}social_pinterest_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_pinterest_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Pinterest'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Pinterest' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                                          <span class="icon icon-pinterest" aria-hidden="true"></span>
+                                          <ls-static-9270983>Pinterest</ls-static-9270983>
+                                        </a>
+                                      </li>
+                                    {% endif %}
+                                    {% capture LS_locales_settings_key %}social_instagram_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+                      {%  if settings.social_instagram_link != blank or LS_5906464808_settings_value != blank %}
+                                      <li class="footer_links">
+                                        <a href="{% capture LS_locales_settings_key %}social_instagram_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_instagram_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Instagram'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Instagram' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                                          <span class="icon icon-instagram" aria-hidden="true"></span>
+                                          <ls-static-1983851>Instagram</ls-static-1983851>
+                                        </a>
+                                      </li>
+                                    {% endif %}
+                                    {% capture LS_locales_settings_key %}social_snapchat_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+                      {%  if settings.social_snapchat_link != blank or LS_5906464808_settings_value != blank %}
+                                      <li class="footer_links">
+                                        <a href="{% capture LS_locales_settings_key %}social_snapchat_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_snapchat_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Snapchat'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Snapchat' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                                          <span class="icon icon-snapchat" aria-hidden="true"></span>
+                                          <ls-static-9483151>Snapchat</ls-static-9483151>
+                                        </a>
+                                      </li>
+                                    {% endif %}
+                                    {% capture LS_locales_settings_key %}social_google_plus_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+                      {%  if settings.social_google_plus_link != blank or LS_5906464808_settings_value != blank %}
+                                      <li class="footer_links">
+                                        <a href="{% capture LS_locales_settings_key %}social_google_plus_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_google_plus_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" rel="publisher" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Google Plus'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Google Plus' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                                          <span class="icon icon-google_plus" aria-hidden="true"></span>
+                                          <ls-static-5382400>Google Plus</ls-static-5382400>
+                                        </a>
+                                      </li >
+                                    {% endif %}
+                                    {% capture LS_locales_settings_key %}social_tumblr_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+                      {%  if settings.social_tumblr_link != blank or LS_5906464808_settings_value != blank %}
+                                      <li class="footer_links">
+                                        <a href="{% capture LS_locales_settings_key %}social_tumblr_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_tumblr_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Tumblr'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Tumblr' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                                          <span class="icon icon-tumblr" aria-hidden="true"></span>
+                                          <ls-static-5418236>Tumblr</ls-static-5418236>
+                                        </a>
+                                      </li>
+                                    {% endif %}
+                                    {% capture LS_locales_settings_key %}social_youtube_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+                      {%  if settings.social_youtube_link != blank or LS_5906464808_settings_value != blank %}
+                                      <li class="footer_links">
+                                        <a href="{% capture LS_locales_settings_key %}social_youtube_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_youtube_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'YouTube'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'YouTube' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                                          <span class="icon icon-youtube" aria-hidden="true"></span>
+                                          <ls-static-1506831>YouTube</ls-static-1506831>
+                                        </a>
+                                      </li>
+                                    {% endif %}
+                                    {% capture LS_locales_settings_key %}social_vimeo_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+                      {%  if settings.social_vimeo_link != blank or LS_5906464808_settings_value != blank %}
+                                      <li class="footer_links">
+                                        <a href="{% capture LS_locales_settings_key %}social_vimeo_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_vimeo_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Vimeo'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Vimeo' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                                          <span class="icon icon-vimeo" aria-hidden="true"></span>
+                                          <ls-static-6429734>Vimeo</ls-static-6429734>
+                                        </a>
+                                      </li>
+                                    {% endif %}
+                                    {% capture LS_locales_settings_key %}social_fancy_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+                      {%  if settings.social_fancy_link != blank or LS_5906464808_settings_value != blank %}
+                                      <li class="footer_links">
+                                        <a href="{% capture LS_locales_settings_key %}social_fancy_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_fancy_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Fancy'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Fancy' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                                          <span class="icon icon-fancy" aria-hidden="true"></span>
+                                          <ls-static-3912064>Fancy</ls-static-3912064>
+                                        </a>
+                                      </li>
+                                    {% endif %}
+                                  </ul>
+     </div>
+  </div>
+   <div class="feature-row__item feature-row__item_mobile_full custom_row flip_row ">
+            <div class="foot-wrap">
+                <h3 class="footer-title"><ls-static-9233480>Subscribe To Our Newsletter</ls-static-9233480></h3>
+                  <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="contact-form"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓">
+                
+                
+                  <label for="Email" class="newsletter__label hidden-label">Sign up to our mailing list</label>
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <div class="newsletter--form">
+                    <div class="input-group">
+                      <input type="email" value="" placeholder="Email" name="contact[email]" id="Email" class="input-group-field newsletter__input" autocorrect="off" autocapitalize="off">
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
+                          <span class="newsletter__submit-text--large">Subscribe</span>
+                          <span class="newsletter__submit-text--small">
+                            <span class="icon icon-arrow-right" aria-hidden="true"></span>
+                          </span>
+                        </button>
+                      </span>
+                    </div>
+                  </div>         
+                  </form>
+            </div>
+  </div>
+  </div>
+</div> {% endcomment %}
+
+
+
+{% comment %} <ul id="main-menu" class="sm sm-blue">
+  {% if menu1.items %} 
+	{% for i in menu1.items %}
+  	<li><a href="{{i.url}}">{{i.label}}</a> 
+			{% if i.items %}
+     		<ul>
+			{% for j in i.items %}
+				<li><a href="{{j.url}}">{{j.label}}</a> 
+					{% if j.items %}
+        			<ul>
+					{% for k in j.items %}
+						<li>
+            				<a href="{{k.url}}">{{k.label}}</a>
+						</li>
+					{% endfor %} 
+        			</ul>
+        			{% endif %}
+				</li>
+			{% endfor %}
+    		</ul>
+    		{% endif %}
+  	</li>
+   {% endfor %} 
+  {% endif %}
+</ul> {% endcomment %}
+
+
+{% include 'LS_5906464808_global' %}
+<footer class="site-footer small--text-center" role="contentinfo">
+              <ul>
+                <li class="logo-img" style="list-style-type:none; text-align:center;"><img src="//cdn.shopify.com/s/files/1/0077/8649/6080/files/kwenchwear_dark_logo_200x.jpg?v=1543494120" srcset="//cdn.shopify.com/s/files/1/0077/8649/6080/files/kwenchwear_dark_logo_200x.jpg?v=1543494120 1x, //cdn.shopify.com/s/files/1/0077/8649/6080/files/kwenchwear_dark_logo_200x@2x.jpg?v=1543494120 2x" alt="stage.kwenchwear" itemprop="logo"></li>
+              </ul>
+  <div class="wrapper">
+
+    <div class="grid-uniform">
+    
+     
+      {% comment %}
+        Default to 1 footer column (copyright/powered_by/payment_types)
+      {% endcomment %}
+      {% assign num_footer_columns = 1 %}
+
+      {% comment %}
+        Create an extra menu column if link list has more than 5 links
+      {% endcomment %}
+      {% if linklists[section.settings.footer_link_list].links.size > 0 %}
+        {% comment %}
+          We have a Footer menu that isn't empty, we will need another column
+        {% endcomment %}
+        {% assign num_footer_columns = num_footer_columns | plus: 1 %}
+        {% assign extra_footer_linklist_column = false %}
+        {% assign footer_linklist_count = linklists[section.settings.footer_link_list].links.size %}
+        {% if footer_linklist_count > 5 %}
+          {% assign extra_footer_linklist_column = true %}
+          {% comment %}
+            We split the links so we'll need another column
+          {% endcomment %}
+          {% assign num_footer_columns = num_footer_columns | plus: 1 %}
+        {% endif %}
+        {% comment %}
+          If we have an odd amount of links, we need to show 1 more link in 1st column
+        {% endcomment %}
+        {% assign extra_link = footer_linklist_count | modulo: 2 %}
+        {% comment %}
+          We start with a 2nd column after first column is filled up.
+        {% endcomment %}
+        {% assign footer_linklist_split = footer_linklist_count | divided_by: 2 | plus: extra_link | plus: 1 %}
+      {% endif %}
+
+      {% comment %}
+        Determine whether there are social links
+      {% endcomment %}
+      {% assign footer_social_enable = false %}
+      {% capture LS_locales_settings_key %}social_twitter_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if
+        settings.social_twitter_link != blank or LS_5906464808_settings_value != blank %}
+        {% assign footer_social_enable = true %}
+      {% endif %}
+
+      {% comment %}
+        Calculate the number of footer columns shown. Default to 1.
+      {% endcomment %}
+      {% if footer_social_enable %}
+        {% assign num_footer_columns = num_footer_columns | plus: 1 %}
+      {% endif %}
+
+      {% case num_footer_columns %}
+        {% when 0 %}
+        {% when 1 %}
+          {% assign footer_column_width = '' %}
+        {% when 2 %}
+          {% assign footer_column_width = 'one-half small--one-whole' %}
+        {% when 3 %}
+          {% assign footer_column_width = 'one-third small--one-whole' %}
+        {% when 4 %}
+          {% assign footer_column_width = 'large--one-quarter medium--one-half' %}
+      {% endcase %}
+
+      {% assign footer_column_width = 'large--one-quarter medium--one-half' %}
+
+      {% if linklists[section.settings.footer_link_list].links.size > 0 %}
+        <div class="grid__item {{ footer_column_width }} text-center">
+          {% comment %} <h3 class="footer-title"><ls-static-5050140></ls-static-5050140></h3> {% endcomment %}
+         <div class="footer-title"> SHOP</div>
+           <li class="footer_links"><a href="">MEN</a></li>
+           <li class="footer_links"><a href="">WOMEN</a></li>
+          {% comment %} <ul class="no-bullets site-footer__linklist">
+              <li class="logo-img"><img src="//cdn.shopify.com/s/files/1/0077/8649/6080/files/kwenchwear_dark_logo_200x.jpg?v=1543494120" srcset="//cdn.shopify.com/s/files/1/0077/8649/6080/files/kwenchwear_dark_logo_200x.jpg?v=1543494120 1x, //cdn.shopify.com/s/files/1/0077/8649/6080/files/kwenchwear_dark_logo_200x@2x.jpg?v=1543494120 2x" alt="stage.kwenchwear" itemprop="logo"></li>
+
+          </ul> {% endcomment %}
+          <ul class="no-bullets site-footer__linklist">
+            
+            {% for link in linklists[section.settings.footer_link_list].links %}
+
+      {% comment %}
+        Create a second column
+      {% endcomment %}
+      {% if extra_footer_linklist_column and forloop.index == footer_linklist_split %}
+          </ul>
+        </div>
+        <div class="grid__item {{ footer_column_width }}">
+          
+          <ul class="no-bullets site-footer__linklist">
+      {% endif %}
+            
+           
+<!--             commented for while -->
+
+<!--               <li><a href="{{ link.url }}">{% include 'LS_5906464808_nav_title', item: link %}{{ LS_5906464808_link_title  }}</a></li> -->
+
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      <div class="grid__item {{ footer_column_width }} {% if num_footer_columns == 1 %}text-center{% endif %} text-center">
+        <div class="footer-title"><ls-static-3072308> USER EXPERIENCE</ls-static-3072308></div>
+        <ul class="no-bullets site-footer__linklist">
+                 <li class="footer_links"><a href="">CONTACT</a></li>
+                 <li class="footer_links"><a href="">SHIPPING</a></li>
+                 <li class="footer_links"><a href="">RETURNS</a></li>
+                 <li class="footer_links"><a href="">FAQ</a></li>
+        </ul>
+     
+        
+        <ul class="no-bullets site-footer__linklist">
+            {% for link in linklists['footer2'].links %}
+
+            {% comment %}
+              Create a second column
+            {% endcomment %}
+            {% if extra_footer_linklist_column and forloop.index == footer_linklist_split %}
+                </ul>
+              </div>
+              <div class="grid__item {{ footer_column_width }}">
+                <ul class="no-bullets site-footer__linklist">
+            {% endif %}
+                
+  <!--             commented for while -->
+
+<!--               <li><a href="{{ link.url }}">{% include 'LS_5906464808_nav_title', item: link %}{{ LS_5906464808_link_title  }}</a></li> -->
+
+            {% endfor %}
+          </ul>
+      </div>
+
+      {% if footer_social_enable %}
+        <div class="grid__item {{ footer_column_width }} text-center">
+<!--             <h3 class="footer-title"><ls-static-8442813></ls-static-8442813></h3> -->
+
+         <div class="footer-title"><ls-static-8442813>SOCIAL </ls-static-8442813></div>
+<!--          <ul class="no-bullets site-footer__linklist">
+                    <li class="footer_links"><a href="">Email Support</a></li>
+           <li class="footer_links"><a href="">Delivery & Returns</a></li>
+           <li class="footer_links"><a href="">Size Guides</a></li>
+           <li class="footer_links"><a href="">FAQs</a></li>
+           <li class="footer_links"><a href="">Orders</a></li>
+
+        </ul> -->
+            <ul class="no-bullets social-icons">
+              {% capture LS_locales_settings_key %}social_facebook_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.social_facebook_link != blank or LS_5906464808_settings_value != blank %}
+                <li class="footer_links">
+                  <a href="{% capture LS_locales_settings_key %}social_facebook_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_facebook_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Facebook'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Facebook' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                    <span class="icon icon-facebook" aria-hidden="true"></span>
+                    <ls-static-8081806>Facebook</ls-static-8081806>
+                  </a>
+                </li>
+              {% endif %}
+              {% capture LS_locales_settings_key %}social_twitter_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.social_twitter_link != blank or LS_5906464808_settings_value != blank %}
+                <li class="footer_links">
+                  <a href="{% capture LS_locales_settings_key %}social_twitter_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_twitter_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Twitter'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Twitter' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                    <span class="icon icon-twitter" aria-hidden="true"></span>
+                    <ls-static-1855062>Twitter</ls-static-1855062>
+                  </a>
+                </li>
+              {% endif %}
+              {% capture LS_locales_settings_key %}social_pinterest_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.social_pinterest_link != blank or LS_5906464808_settings_value != blank %}
+                <li class="footer_links">
+                  <a href="{% capture LS_locales_settings_key %}social_pinterest_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_pinterest_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Pinterest'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Pinterest' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                    <span class="icon icon-pinterest" aria-hidden="true"></span>
+                    <ls-static-9270983>Pinterest</ls-static-9270983>
+                  </a>
+                </li>
+              {% endif %}
+              {% capture LS_locales_settings_key %}social_instagram_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.social_instagram_link != blank or LS_5906464808_settings_value != blank %}
+                <li class="footer_links">
+                  <a href="{% capture LS_locales_settings_key %}social_instagram_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_instagram_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Instagram'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Instagram' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                    <span class="icon icon-instagram" aria-hidden="true"></span>
+                    <ls-static-1983851>Instagram</ls-static-1983851>
+                  </a>
+                </li>
+              {% endif %}
+              {% capture LS_locales_settings_key %}social_snapchat_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.social_snapchat_link != blank or LS_5906464808_settings_value != blank %}
+                <li class="footer_links">
+                  <a href="{% capture LS_locales_settings_key %}social_snapchat_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_snapchat_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Snapchat'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Snapchat' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                    <span class="icon icon-snapchat" aria-hidden="true"></span>
+                    <ls-static-9483151>Snapchat</ls-static-9483151>
+                  </a>
+                </li>
+              {% endif %}
+              {% capture LS_locales_settings_key %}social_google_plus_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.social_google_plus_link != blank or LS_5906464808_settings_value != blank %}
+                <li class="footer_links">
+                  <a href="{% capture LS_locales_settings_key %}social_google_plus_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_google_plus_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" rel="publisher" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Google Plus'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Google Plus' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                    <span class="icon icon-google_plus" aria-hidden="true"></span>
+                    <ls-static-5382400>Google Plus</ls-static-5382400>
+                  </a>
+                </li >
+              {% endif %}
+              {% capture LS_locales_settings_key %}social_tumblr_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.social_tumblr_link != blank or LS_5906464808_settings_value != blank %}
+                <li class="footer_links">
+                  <a href="{% capture LS_locales_settings_key %}social_tumblr_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_tumblr_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Tumblr'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Tumblr' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                    <span class="icon icon-tumblr" aria-hidden="true"></span>
+                    <ls-static-5418236>Tumblr</ls-static-5418236>
+                  </a>
+                </li>
+              {% endif %}
+              {% capture LS_locales_settings_key %}social_youtube_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.social_youtube_link != blank or LS_5906464808_settings_value != blank %}
+                <li class="footer_links">
+                  <a href="{% capture LS_locales_settings_key %}social_youtube_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_youtube_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'YouTube'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'YouTube' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                    <span class="icon icon-youtube" aria-hidden="true"></span>
+                    <ls-static-1506831>YouTube</ls-static-1506831>
+                  </a>
+                </li>
+              {% endif %}
+              {% capture LS_locales_settings_key %}social_vimeo_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.social_vimeo_link != blank or LS_5906464808_settings_value != blank %}
+                <li class="footer_links">
+                  <a href="{% capture LS_locales_settings_key %}social_vimeo_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_vimeo_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Vimeo'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Vimeo' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                    <span class="icon icon-vimeo" aria-hidden="true"></span>
+                    <ls-static-6429734>Vimeo</ls-static-6429734>
+                  </a>
+                </li>
+              {% endif %}
+              {% capture LS_locales_settings_key %}social_fancy_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.social_fancy_link != blank or LS_5906464808_settings_value != blank %}
+                <li class="footer_links">
+                  <a href="{% capture LS_locales_settings_key %}social_fancy_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_fancy_link | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}" title="{% include 'LS_5906464808_locales', LS_locales_item: 'layout.footer.social_platform',  name: shop.name, platform: 'Fancy'  %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Fancy' }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                    <span class="icon icon-fancy" aria-hidden="true"></span>
+                    <ls-static-3912064>Fancy</ls-static-3912064>
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+        </div>
+      {% endif %}
+
+      <div class="grid__item {{ footer_column_width }} {% if num_footer_columns == 1 %}text-center{% endif %} text-center">
+       <ul class="no-bullets site-footer__linklist">
+       {% include 'gtranslate' %}
+        <div class="footer-title"><ls-static-9233480>MORE ABOUT KWENCH</ls-static-9233480></div>
+         <ul class="no-bullets site-footer__linklist">
+                 <li class="footer_links"><a href="">ABOUT US</a></li>    
+                 <li class="footer_links"><a href="">Impressum</a></li>
+                 <li class="footer_links"><a href="">Dataprotection</a></li>
+
+         </ul>
+        
+        {% comment %} commented for while {% endcomment %}
+      {% comment %} <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="contact-form"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓">
+      
+      
+        <label for="Email" class="newsletter__label hidden-label">Sign up to our mailing list</label>
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="newsletter--form">
+          <div class="input-group">
+            <input type="email" value="" placeholder="Email" name="contact[email]" id="Email" class="input-group-field newsletter__input" autocorrect="off" autocapitalize="off">
+            <span class="input-group-btn">
+              <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
+                <span class="newsletter__submit-text--large">Subscribe</span>
+                <span class="newsletter__submit-text--small">
+                  <span class="icon icon-arrow-right" aria-hidden="true"></span>
+                </span>
+              </button>
+            </span>
+          </div>
+        </div>         
+      </form> {% endcomment %}
+        </ul>
+        <ul class="no-bullets site-footer__linklist">
+            {% for link in linklists['footer3'].links %}
+
+            {% comment %}
+              Create a fourth column
+            {% endcomment %}
+            {% if extra_footer_linklist_column and forloop.index == footer_linklist_split %}
+                </ul>
+              </div>
+              <div class="grid__item {{ footer_column_width }}">
+                <ul class="no-bullets site-footer__linklist">
+            {% endif %}
+
+              <li><a href="{{ link.url }}">{% include 'LS_5906464808_nav_title', item: link %}{{ LS_5906464808_link_title  }}</a></li>
+
+            {% endfor %}
+            <li> {% include 'LS_5906464808_switcher' %}</li>
+          </ul>
+      </div>
+
+      <div class="grid__item text-center">
+        {% unless shop.enabled_payment_types == empty %}
+          {% assign payment_icons_available = 'amazon_payments,american_express,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' %}
+          <ul class="inline-list payment-icons">
+            {% for type in shop.enabled_payment_types %}
+              {% if payment_icons_available contains type %}
+                <li>
+                  <span class="icon-fallback-text">
+                    <span class="icon icon-{{ type }}" aria-hidden="true"></span>
+                    <span class="fallback-text">{{ type | replace: '_',' ' }}</span>
+                  </span>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endunless %}
+        <p>&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: '/' }} - {{ powered_by_link }}</p>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_link_list",
+        "label": "Footer menu",
+        "default": "footer"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,41 @@
+{% include 'LS_5906464808_global' %}
+<!-- /templates/customers/register.liquid -->
+
+<div class="grid">
+
+  <div class="grid__item large--one-third push--large--one-third text-center">
+
+    <header class="section-header">
+      <h1>{% include 'LS_5906464808_locales', LS_locales_item: 'customer.register.title',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.register.title' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</h1>
+      <hr class="hr--small">
+    </header>
+
+    <div class="form-vertical">
+      {% form 'create_customer' %}
+
+        {{ form.errors | default_errors }}
+
+        <label for="FirstName" class="hidden-label">{% include 'LS_5906464808_locales', LS_locales_item: 'customer.register.first_name',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.register.first_name' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</label>
+        <input type="text" name="customer[first_name]" id="FirstName" class="input-full" placeholder="{% include 'LS_5906464808_locales', LS_locales_item: 'customer.register.first_name',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.register.first_name' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+
+        <label for="LastName" class="hidden-label">{% include 'LS_5906464808_locales', LS_locales_item: 'customer.register.last_name',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.register.last_name' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</label>
+        <input type="text" name="customer[last_name]" id="LastName" class="input-full" placeholder="{% include 'LS_5906464808_locales', LS_locales_item: 'customer.register.last_name',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.register.last_name' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
+
+        <label for="Email" class="hidden-label">{% include 'LS_5906464808_locales', LS_locales_item: 'customer.register.email',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.register.email' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</label>
+        <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{% include 'LS_5906464808_locales', LS_locales_item: 'customer.register.email',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.register.email' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+
+        <label for="CreatePassword" class="hidden-label">{% include 'LS_5906464808_locales', LS_locales_item: 'customer.register.password',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.register.password' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</label>
+        <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{% include 'LS_5906464808_locales', LS_locales_item: 'customer.register.password',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.register.password' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+
+        <p>
+          <input type="submit" value="{% include 'LS_5906464808_locales', LS_locales_item: 'customer.register.submit',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.register.submit' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}" class="btn btn--full">
+        </p>
+        <a href="{{ shop.url }}">{% include 'LS_5906464808_locales', LS_locales_item: 'customer.register.cancel',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.register.cancel' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</a>
+
+      <input type='hidden' name='customer[tags]' value='ls~{% if cart.attributes.LS_language %}{{ cart.attributes.LS_language }}{% else %}{{ shop.metafields.langshop['lang_default'] }}{% endif %}ls~'/> 
+ {% endform %}
+    </div>
+
+  </div>
+
+</div>

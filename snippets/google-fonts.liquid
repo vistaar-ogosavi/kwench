@@ -1,0 +1,20 @@
+{% include 'LS_5906464808_global' %}
+{% if settings.type_base_family contains 'Google' %}
+  {% capture LS_locales_settings_key %}type_base_family{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{% assign type_base_parts = settings.type_base_family | split: '_' %}{% else %}{% assign type_base_parts = LS_5906464808_settings_value | split: '_'  %}{% endif %}
+  {% capture baseGoogleUrl %}{{ type_base_parts[1] }}:{{ type_base_parts[2] }}{% endcapture %}
+  {{ '//fonts.googleapis.com/css?family=' | append: baseGoogleUrl | stylesheet_tag }}
+{% endif %}
+{% if settings.type_header_family contains 'Google' %}
+  {% unless settings.type_header_family contains type_base_parts[1] %}
+    {% capture LS_locales_settings_key %}type_header_family{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{% assign type_header_parts = settings.type_header_family | split: '_' %}{% else %}{% assign type_header_parts = LS_5906464808_settings_value | split: '_'  %}{% endif %}
+    {% capture headerGoogleUrl %}{{ type_header_parts[1] }}:{{ type_header_parts[2] }}{% endcapture %}
+    {{ '//fonts.googleapis.com/css?family=' | append: headerGoogleUrl | stylesheet_tag }}
+  {% endunless %}
+{% endif %}
+{% if settings.type_accent_family contains 'Google' %}
+  {% unless settings.type_accent_family contains type_base_parts[1] %}
+    {% capture LS_locales_settings_key %}type_accent_family{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{% assign type_accent_parts = settings.type_accent_family | split: '_' %}{% else %}{% assign type_accent_parts = LS_5906464808_settings_value | split: '_'  %}{% endif %}
+    {% capture headerGoogleUrl %}{{ type_accent_parts[1] }}:{{ type_accent_parts[2] }}{% endcapture %}
+    {{ '//fonts.googleapis.com/css?family=' | append: headerGoogleUrl | stylesheet_tag }}
+  {% endunless %}
+{% endif %}

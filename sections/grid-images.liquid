@@ -1,0 +1,126 @@
+<div class="grid-image scrtion">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4 no-padding-center" >
+            <div class="part-image-wrap">
+                <img src="{{ section.settings.first_grid_image | img_url: 'master' }}">
+            </div>
+            </div>
+            <div class="col-sm-4 no-padding-center grid-iamge-text" style="background:url('{{ section.settings.grid_bg  | img_url: 'master'}}')" >
+            <div class="text-content-wrap">
+            <h2>Women's Sportswear</h2>
+                <p>
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
+                </p>
+                <a href="/collections/women" class="btn slideshow__btn grid_btn" data-theme-editor-setting="" tabindex="0" style="background:#1ea5de;">
+                Shop Now
+                </a>
+            </div>
+            </div>
+            <div class="col-sm-4 no-padding-center" >
+            <div class="part-image-wrap">
+                <img src="{{ section.settings.side_grid_image | img_url: 'master' }}">
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 no-padding-center grid-iamge-text"    style="background:url('{{ section.settings.grid_bg  | img_url: 'master'}}')" >
+            <div class="text-content-wrap">
+                <h2>Mens's Sportswear</h2>
+                    <p>
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
+                    </p>
+                    <a href="/collections/women" class="btn slideshow__btn grid_btn" data-theme-editor-setting="" tabindex="0" style="background:#1ea5de;">
+                    Shop Now
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4 no-padding-center" >
+            <div class="part-image-wrap">
+                <img src="{{ section.settings.second_grid_image | img_url: 'master' }}">
+            </div>
+            </div>
+            <div class="col-sm-4 no-padding-center grid-iamge-text"    style="background:#1ea5de;" >
+            <div class="text-content-wrap">
+                <h2>#MADEFROMSTRENGTH</h2>
+                <p style="color:#fff">We define Strength as the  journey that takes us from being the individuals we are born as, to becoming the achievers we want to be. The individuals we are born as may be made from flesh, blood and bones. But the achievers we want to become are Made from Strength.
+                </p>
+                    <a href="/collections/women" class="btn slideshow__btn grid_btn" data-theme-editor-setting="" tabindex="0">
+                    Get to know us better
+                    </a>
+                </div>
+                </div>
+        </div>
+    </div>
+</div>
+{% schema %} 
+{
+  "name": " Grid image text",
+  "settings":[
+          {
+            "id":"first_grid_image",
+            "type":"image_picker",
+            "label":"First grid image"
+          },          
+            {
+            "id":"second_grid_image",
+            "type":"image_picker",
+             "label":"Second grid image"
+          },
+             {
+            "id":"side_grid_image",
+            "type":"image_picker",
+             "label":"Side grid image"
+          },
+          {
+            "id":"grid_bg",
+            "type":"image_picker",
+             "label":"Background"
+          }
+
+     
+          
+         ],
+  "presets": [{
+      "name": "Grid image text",
+      "category": "Collection"      
+    }]
+}
+{% endschema %}
+
+
+<style>
+.grid-iamge-text{
+    padding:5%;
+    text-align:center;  
+
+}
+.grid-iamge-text h2 ,.grid-iamge-text p{
+ color:#fff;
+ 
+}
+.grid-iamge-text h2{
+font-family: 'Righteous', cursive;
+}
+
+.grid-iamge-text p{
+    font-weight: 100;
+    font-size: 16px;
+    color:#a09c9c;
+}
+.grid_btn{
+    padding: 12px 45px;
+}
+.no-padding-center{
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.text-content-wrap{
+ padding:20px;
+ margin:0 auto;
+}
+}
+</style>

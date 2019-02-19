@@ -1,0 +1,381 @@
+{% capture LS_THEME_HTML %}{% include 'LS_5906464808_global' %}
+<!doctype html>
+<!--[if lt IE 7]><html lang='{{LS_5906464808_lang}}'  {{ LS_5906464808_RTL }}  class="no-js lt-ie9 lt-ie8 lt-ie7" lang="{{LS_5906464808_lang}}"> <![endif]-->
+<!--[if IE 7]><html lang='{{LS_5906464808_lang}}'  {{ LS_5906464808_RTL }}  class="no-js lt-ie9 lt-ie8" lang="{{LS_5906464808_lang}}"> <![endif]-->
+<!--[if IE 8]><html lang='{{LS_5906464808_lang}}'  {{ LS_5906464808_RTL }}  class="no-js lt-ie9" lang="{{LS_5906464808_lang}}"> <![endif]-->
+<!--[if IE 9 ]><html lang='{{LS_5906464808_lang}}'  {{ LS_5906464808_RTL }}  class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang='{{LS_5906464808_lang}}'  {{ LS_5906464808_RTL }}  class="no-js"> <!--<![endif]-->
+
+<!--LangShop-Assets-->
+{% include 'LS_5906464808_main_js_obj' %}
+<!--/LangShop-Assets-->
+
+
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  {% capture LS_locales_settings_key %}favicon{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.favicon  or LS_5906464808_settings_value != blank %}
+    <link rel="shortcut icon" href="{% capture LS_locales_settings_key %}favicon{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.favicon | img_url: '32x32' }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %}" type="image/png" />
+  {% endif %}
+
+  <!-- Title and description ================================================== -->
+  {% capture LS_SEO_TITLE %}
+ <title>
+  {% if template contains 'article' %}{% include 'LS_5906464808_title', item: article %}{{ LS_5906464808_item_title  }}{% elsif template contains 'blog' %}{% include 'LS_5906464808_title', item: blog %}{{ LS_5906464808_item_title  }}{% elsif template contains 'product' %}{% include 'LS_5906464808_title', item: product %}{{ LS_5906464808_item_title  }}{% elsif template contains 'page' %}{% include 'LS_5906464808_title', item: page %}{{ LS_5906464808_item_title  }}{% elsif template contains 'collection' and collection.handle != blank and collection.handle != "all" %}{% include 'LS_5906464808_title', item: collection %}{{ LS_5906464808_item_title  }}{% else %}{{ page_title }}{% endif %}{% if current_tags %}{% capture LS_tags_translated %}{% for tag in current_tags %}{% if template contains 'article' or template contains 'blog' %}{% include 'LS_5906464808_article_tags', search_tag: tag %}{% else %}{% include 'LS_5906464808_product_tags', search_tag: tag %}{% endif %}{% if forloop.first != true %},{% endif %}{{LS_5906464808_tag_item}}{% endfor %}{% endcapture %}{% assign LS_tags_translated = LS_tags_translated | split: ',' %}{% assign meta_tags =  LS_tags_translated  | join: ', ' %} &ndash; {% include 'LS_5906464808_locales', LS_locales_item: 'general.meta.tags',  tags: meta_tags  %}{% if LS_5906464808_locales_value == '' %}{{ 'general.meta.tags' | t: tags: meta_tags }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}{% endif %}{% if current_page != 1 %} &ndash; {% include 'LS_5906464808_locales', LS_locales_item: 'general.meta.page',  page: current_page  %}{% if LS_5906464808_locales_value == '' %}{{ 'general.meta.page' | t: page: current_page }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+ </title> 
+{% endcapture %}
+{% capture LS_SEO_TRANSLATED %}
+{% include 'LS_5906464808_seo_title', theme_default_title: LS_SEO_TITLE %}
+{% include 'LS_5906464808_seo_global' %}
+{% include 'LS_5906464808_seo_ogimage' %}
+{% include 'LS_5906464808_seo_keywords' %}
+{% include 'LS_5906464808_seo_description' %}
+{% endcapture %}{{ LS_SEO_TRANSLATED | strip | strip_newlines | remove: '	' | remove: '   ' }}
+
+  {% if page_description %}
+  {% comment %}<meta name="description" content="{{ page_description | escape }}">{% endcomment %}
+  {% endif %}
+
+  <!-- Helpers ================================================== -->
+  {% include 'social-meta-tags' %}
+  {% comment %}<link rel="canonical" href="{{ canonical_url }}">{% endcomment %}
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="theme-color" content="{% capture LS_locales_settings_key %}color_primary{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.color_primary }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+  <!--   Google Fonts ================================================== -->
+  
+  <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+
+  <!--   jquery ================================================== -->
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+  <!-- CSS ================================================== -->
+  {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  {% include 'google-fonts' %}
+
+  <!-- Sections ================================================== -->
+  <script>
+    window.theme = window.theme || {};
+    theme.strings = {
+      zoomClose: {% include 'LS_5906464808_locales', LS_locales_item: 'products.zoom.close',   %}{% if LS_5906464808_locales_value == '' %}{{ "products.zoom.close" | t | json }}{% else %}{{ LS_5906464808_locales_value | json  }}{% endif %},
+      zoomPrev: {% include 'LS_5906464808_locales', LS_locales_item: 'products.zoom.prev',   %}{% if LS_5906464808_locales_value == '' %}{{ "products.zoom.prev" | t | json }}{% else %}{{ LS_5906464808_locales_value | json  }}{% endif %},
+      zoomNext: {% include 'LS_5906464808_locales', LS_locales_item: 'products.zoom.next',   %}{% if LS_5906464808_locales_value == '' %}{{ "products.zoom.next" | t | json }}{% else %}{{ LS_5906464808_locales_value | json  }}{% endif %},
+      moneyFormat: {{ shop.money_format | json }},
+      addressError: {% include 'LS_5906464808_locales', LS_locales_item: 'home_page.map.address_error',   %}{% if LS_5906464808_locales_value == '' %}{{ 'home_page.map.address_error' | t | json }}{% else %}{{ LS_5906464808_locales_value | json  }}{% endif %},
+      addressNoResults: {% include 'LS_5906464808_locales', LS_locales_item: 'home_page.map.address_no_results',   %}{% if LS_5906464808_locales_value == '' %}{{ 'home_page.map.address_no_results' | t | json }}{% else %}{{ LS_5906464808_locales_value | json  }}{% endif %},
+      addressQueryLimit: {% include 'LS_5906464808_locales', LS_locales_item: 'home_page.map.address_query_limit_html',   %}{% if LS_5906464808_locales_value == '' %}{{ 'home_page.map.address_query_limit_html' | t | json }}{% else %}{{ LS_5906464808_locales_value | json  }}{% endif %},
+      authError: {% include 'LS_5906464808_locales', LS_locales_item: 'home_page.map.auth_error_html',   %}{% if LS_5906464808_locales_value == '' %}{{ 'home_page.map.auth_error_html' | t | json }}{% else %}{{ LS_5906464808_locales_value | json  }}{% endif %},
+      cartEmpty: {% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.empty',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.empty' | t | json }}{% else %}{{ LS_5906464808_locales_value | json  }}{% endif %},
+      cartCookie: {% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.cookies_required',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.cookies_required' | t | json }}{% else %}{{ LS_5906464808_locales_value | json  }}{% endif %},
+      cartSavings: {% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.savings_html',  price: '[savings]'  %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.savings_html' | t: price: '[savings]' | json }}{% else %}{{ LS_5906464808_locales_value | json  }}{% endif %}
+    };
+    theme.settings = {
+      cartType: {% capture LS_locales_settings_key %}cart_type{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.cart_type | json }}{% else %}{{ LS_5906464808_settings_value | json  }}{% endif %},
+      gridType: {% capture LS_locales_settings_key %}collection_products_grid{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.collection_products_grid | json }}{% else %}{{ LS_5906464808_settings_value | json  }}{% endif %}
+    };
+  </script>
+
+  {{ 'jquery-2.2.3.min.js' | asset_url | script_tag }}
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'lazysizes.min.js' | asset_url }}" async="async"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'lazysizes.min.js' | asset_url }}"></script><![endif]-->
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'theme.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
+
+  <!-- Header hook for plugins ================================================== -->
+ 
+ 
+  {% include 'buddha-megamenu-before' %}
+  {% include 'buddha-megamenu' %}
+  {{ content_for_header }}
+  {% include 'oldIE-js' %}
+
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
+
+  {% comment %}
+    If you store has customer accounts disabled, you can remove the following JS file
+  {% endcomment %}
+  {% if template.directory == 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {% endif %}
+
+</head>
+
+{% comment %}
+  Add the page template as a class for easy page or template specific styling.
+{% endcomment %}
+<body id="{% if template contains 'article' %}{% include 'LS_5906464808_title', item: article %}{{ LS_5906464808_item_title | handle  }}{% elsif template contains 'blog' %}{% include 'LS_5906464808_title', item: blog %}{{ LS_5906464808_item_title | handle  }}{% elsif template contains 'product' %}{% include 'LS_5906464808_title', item: product %}{{ LS_5906464808_item_title | handle  }}{% elsif template contains 'page' %}{% include 'LS_5906464808_title', item: page %}{{ LS_5906464808_item_title | handle  }}{% elsif template contains 'collection' and collection.handle != blank and collection.handle != "all" %}{% include 'LS_5906464808_title', item: collection %}{{ LS_5906464808_item_title | handle  }}{% else %}{{ page_title | handle }}{% endif %}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
+  {% include 'buddha-megamenu-wireframe' %}
+{% capture the_snippet_content %}{% include 'socialshopwave-helper' %}{% endcapture %}
+            {% unless the_snippet_content contains 'Liquid error' %}
+              {{ the_snippet_content }}
+            {% endunless %}
+<div id="languageDialogBoxContainer"></div>
+  <div id="languageDialogBox" style="">
+    <div id="languageDialog" align="center">
+      <h4 style="margin: 20px;">
+      Wählen Sie Ihre Sprache / Choose your language
+      </h4>
+      <table align="center" style="text-align: center; max-width: 300px;">
+        <tr align="center" style="text-align: center;">
+          <td align="center" style="text-align: center;" class="dialogColumn">
+            <a href="#" onclick="goToGermanShop();">Deutsch</a>
+          </td>
+          <td align="center" style="text-align: center;" class="dialogColumn">
+              <a href="#" onclick="goToGermanShop();">German</a>
+          </td>
+        </tr>
+        <tr align="center" style="text-align: center;">
+          <td align="center" style="text-align: center;" class="dialogColumn">
+            <a href="#" onclick="goToEnglishShop();">English</a>
+          </td>
+          <td align="center" style="text-align: center;" class="dialogColumn">
+             <a href="#" onclick="goToEnglishShop();">Englisch</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="NavDrawer" class="drawer drawer--left">
+    {% section 'drawer-menu' %}
+  </div>
+  <div id="CartDrawer" class="drawer drawer--right drawer--has-fixed-footer">
+    <div class="drawer__fixed-header">
+      <div class="drawer__header">
+        <div class="drawer__title">{% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.title',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.title' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</div>
+        <div class="drawer__close">
+          <button type="button" class="icon-fallback-text drawer__close-button js-drawer-close">
+            <span class="icon icon-x" aria-hidden="true"></span>
+            <span class="fallback-text">{% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.close_cart',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.close_cart' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer__inner">
+      <div id="CartContainer" class="drawer__cart"></div>
+    </div>
+  </div>
+  <div id="PageContainer" class="page-container">
+
+    {% section 'header' %}
+
+    {% if template.name == "index" %}
+      {% section 'slideshow' %}
+    {% endif %}
+
+    <main class="main-content" role="main">
+      
+        {% include 'breadcrumbs' %}
+      {% unless template.name == "index" or template == "collection.image" %}
+      {% comment %} side-sticky content {% endcomment %}
+        <div class="wrapper">
+      {% endunless %}
+        {{ content_for_layout }}
+      {% unless template.name == "index" or template == "collection.image" %}
+        </div>
+      {% endunless %}
+    </main>
+
+    <hr class="hr--large">
+    {% section 'footer' %}
+
+  </div>
+
+  {% comment %}
+    Template-specific js
+  {% endcomment %}
+  <script>
+    {% if resetPassword %}
+      $(function() {
+        timber.resetPasswordSuccess();
+      });
+    {% endif %}
+  </script>
+
+  {% comment %}
+    Ajaxify your cart with this plugin.
+    Documentation:
+      - http://shopify.com/timber#ajax-cart
+  {% endcomment %}
+  {% if settings.cart_type == 'drawer' %}
+    {% include 'ajax-cart-template' %}
+  {% endif %}
+
+  {% if template.name == 'product' or template.name == 'index' %}
+      <script>
+        // Override default values of shop.strings for each template.
+        // Alternate product templates can change values of
+        // add to cart button, sold out, and unavailable states here.
+        theme.productStrings = {
+          addToCart: {% include 'LS_5906464808_locales', LS_locales_item: 'products.product.add_to_cart',   %}{% if LS_5906464808_locales_value == '' %}{{ 'products.product.add_to_cart' | t | json }}{% else %}{{ LS_5906464808_locales_value | json  }}{% endif %},
+          soldOut: {% include 'LS_5906464808_locales', LS_locales_item: 'products.product.sold_out',   %}{% if LS_5906464808_locales_value == '' %}{{ 'products.product.sold_out' | t | json }}{% else %}{{ LS_5906464808_locales_value | json  }}{% endif %},
+          unavailable: {% include 'LS_5906464808_locales', LS_locales_item: 'products.product.unavailable',   %}{% if LS_5906464808_locales_value == '' %}{{ 'products.product.unavailable' | t | json }}{% else %}{{ LS_5906464808_locales_value | json  }}{% endif %}
+        }
+      </script>
+    {% endif %}
+
+  <div id="SearchModal" class="mfp-hide">
+    {% include 'search-bar', search_btn_style: 'btn', search_bar_location: 'search-bar--modal' %}
+  </div>
+
+<script>
+var ip = '23.227.38.32'
+var access_key = '5c32ab90b29a205c9eea0db156e96911';
+
+/*
+
+jQuery.ajax( {
+  url: 'http://api.ipstack.com/' + ip + '?access_key=' + access_key,
+  type: 'POST',
+  dataType: 'jsonp',
+  success: function(json) {
+    var cookie_read = document.cookie;
+
+    console.log(json.country_code);
+    console.log(json);
+
+    if (getCookie("geo_redirection") != "false") {
+      if (((json.country_code !== 'DE' && json.country_code !== 'AT' && json.country_code !== 'CH') && window.top.location.href.includes("de.")) ||
+        ((json.country_code == 'DE' || json.country_code == 'AT' || json.country_code == 'CH') && window.top.location.href.includes("en."))) {
+        $("#languageDialogBoxContainer").show()
+        $("#languageDialogBox").show()
+      } else {
+      }
+      
+    } else {
+      $("#languageDialogBoxContainer").hide()
+      $("#languageDialogBox").hide()
+    }
+  }
+});
+
+*/
+
+console.log(window.top.location.href);
+if (window.top.location.href.includes("https://kwenchwear.com")) {
+  console.log("Going to german shop");
+  goToGermanShop();
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function goToEnglishShop() {
+  var url = 'https://en.kwenchwear.com'
+  setCookie('geo_redirection', 'false', 1);
+
+  if (window.top.location.href !== url)
+    window.top.location.href = url;
+
+  $("#languageDialogBoxContainer").hide()
+      $("#languageDialogBox").hide()
+}
+
+function goToGermanShop() {
+  var url = 'https://de.kwenchwear.com';
+  setCookie('geo_redirection', 'false', 1);
+
+  if (window.top.location.href !== url)
+    window.top.location.href = url;
+
+  $("#languageDialogBoxContainer").hide()
+      $("#languageDialogBox").hide()
+}
+</script>
+
+{% include 'ajaxify-cart' %}
+
+<!-- LangShop: Currency switcher snippet -->
+{% include 'LS_5906464808_currencies' %}
+<!-- BEEKETINGSCRIPT CODE START -->{% include 'bk-tracking' %}<!-- BEEKETINGSCRIPT CODE END -->
+
+
+
+<script>
+  /* Product Tag Filters - Good for any number of filters on any type of collection pages */
+  var collFilters = jQuery('.coll-filter');
+  collFilters.change(function() {
+    var newTags = [];
+    collFilters.each(function() {
+      if (jQuery(this).val()) {
+        newTags.push(jQuery(this).val());
+      }
+    });
+    if (newTags.length) {
+      var query = newTags.join('+');
+      window.location.href = jQuery('{{ 'tag' | link_to_tag: 'tag' }}').attr('href').replace('/' + 'tag', '/' + query);
+    }
+    else {
+      {% if collection.handle %}
+      window.location.href = '/collections/{{ collection.handle }}';
+      {% elsif collection.products.first.type == collection.title %}
+      window.location.href = '{{ collection.title | url_for_type }}';
+      {% elsif collection.products.first.vendor == collection.title %}
+      window.location.href = '{{ collection.title | url_for_vendor }}';
+      {% endif %}
+    }
+  });
+
+
+</script>
+
+
+
+</body>
+<style>
+.stick-content{
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script >
+  function checkOffset() {
+  var a=$(document).scrollTop()+window.innerHeight;
+  var b=$('#shopify-section-footer').offset().top;
+  if (a<b) {
+    $('.stick-content').css('bottom', '10px');
+  } else {
+    $('.stick-content').css('bottom', (10+(a-b))+'px');
+  }
+}
+$(document).ready(checkOffset);
+$(document).scroll(checkOffset);
+
+</script>
+
+</html>
+{% endcapture %}{% include 'LS_5906464808_dynamic_translate' with LS_THEME_HTML %}

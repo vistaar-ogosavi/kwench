@@ -1,0 +1,156 @@
+<style>
+#section1 .banner{
+    {% comment %} background:url("{{ section.settings.image_banner | img_url: 'master' }}"); {% endcomment %}
+}
+.section1 .banner_btn_wrapper {
+    {% comment %} {{ section.settings.content_position}}: 5%; {% endcomment %}
+
+}
+.btn-mobile{
+  background:#1ea5de;
+}
+</style>
+
+
+
+ <div class="section1">
+    <div class="container-fluid banner" >
+      <img class="image-banner-deskstop" src="{{ section.settings.image_banner | img_url: 'master' }}" style="width:100%"/>
+      <img class="image-banner-mobile" src="{{ section.settings.image_banner_mobile | img_url: 'master' }}" style="width:100%"/>
+
+      {% comment %} <div class="banner_text_heading">
+        <h1 class="top_head" style="">
+            {{ section.settings.top_heading}}
+       </h1>  
+      <p class="description_banner" > {{section.settings.banner_description}}</p>
+      </div> {% endcomment %}
+
+     
+        <div class="banner_btn_wrapper" style="{{section.settings.content_position}}:11%;top:{{section.settings.vertical_position}}%;" >
+          
+            <div class="banner_head" style="color:{{ section.settings.heading_color}}">
+           {{ section.settings.main-head}}
+            </div>
+            <br>
+            <div class="banner_caption" style="color:{{ section.settings.banner_caption_color}}">  {{ section.settings.banner_caption}}</div>
+            <br>
+            <div class="btn" style="background:{{section.settings.banner_btn_bg_color}}">
+            <a href="{{ section.settings.banner_btn_link }}" style="color:{{section.settings.banner_btn_color}}" >{{ section.settings.banner_btn_text}}</a> 
+            </div>
+        </div>
+    </div>
+</div>
+<div class="banner_btn_wrapper_mobile">
+    <div class="banner_head">
+    {{ section.settings.main-head}}
+    </div>
+    <br class="break">
+    <div class="banner_caption">{{ section.settings.banner_caption}}</div>
+    <div class="btn btn-mobile">
+    <a href="{{ section.settings.banner_btn_link }}"> {{ section.settings.banner_btn_text}}</a> 
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name": " Image Banner section",
+  "settings":[
+
+          {
+            "id":"image_banner",
+            "type":"image_picker",
+            "label":"Image"
+          },
+          
+          {
+            "id":"image_banner_mobile",
+            "type":"image_picker",
+            "label":"Image"
+          },
+          {
+            "id":"main-head",
+            "type":"text",
+            "label":"Heading",
+            "default":"Banner Head"
+          },
+          
+           {
+            "id":"heading_color",
+            "type":"color",
+            "label":"Heading color"
+          },
+          {
+            "id":"banner_caption",
+            "type":"text",
+            "label":"button caption",
+            "default":"Banner caption"  
+          },
+          {
+            "id":"banner_caption_color",
+            "type":"color",
+            "label":"Text color"
+ 
+          },
+          {
+            "id":"banner_btn_link",
+            "type":"url",
+            "label":"button url"
+          },
+         {
+            "id":"banner_btn_color",
+            "type":"color",
+            "label":"button text color"
+          },
+          {
+            "id":"banner_btn_text",
+            "type":"text",
+            "label":"Text"
+     
+          },
+             {
+            "id":"banner_btn_bg_color",
+            "type":"color",
+            "label":"button background color"
+          },
+            {
+            "id":"vertical_position",
+            "type":"text",
+            "label":"Content vertical position"
+          },
+           {
+            "type":      "select",
+                "id":        "content_position",
+                "label":     "position",
+                "options": [
+                    {
+                    "group": "value",
+                    "value": "left",
+                    "label": "left"
+                    },
+                    {
+                    "group": "value",
+                    "value": "right",
+                    "label": "right"
+                    }
+                ],
+                "default":   "left",
+                "info":      "Text"
+          }
+
+
+         ],
+
+  "presets": [{
+      "name": "Banner",
+      "category": "Collection"
+      
+    }]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

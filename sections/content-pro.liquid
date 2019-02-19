@@ -1,0 +1,76 @@
+
+<div id="textsection">
+  <div class="simpletext">
+  <h1>{{ section.settings.main-head}}</h1>
+
+  {% for block in section.blocks %}
+    
+  <h1>{{ block.settings.text-box-title}}</h1>
+   <h3>{{ block.settings.text-box-content}}</h1>
+  <img src="{{ block.settings.image | img_url: 'master' }}" />
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "omkar's section",
+  "settings":[
+          {
+            "id":"main-head",
+            "type":"text",
+            "label":"heading",
+            "default":"Main-Heading"
+          }
+         ],
+   "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings":[
+          {
+            "id":"text-box-title",
+            "type":"text",
+            "label":"heading",
+            "default":"title1"
+          },
+          {
+            "id":"text-box-content",
+            "type":"richtext",
+            "label":"content",
+            "default":"<p>content</p>"
+
+          },
+           {
+            "id":"image",
+            "type":"image_picker",
+            "label":"image"
+
+          }
+
+        ]
+
+      }
+    ],
+    
+  "presets": [{
+      "name": "omkar's section",
+      "category": "Collection",
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ] 
+      
+    }]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,62 @@
+{% include 'LS_5906464808_global' %}
+<!-- /snippets/social-meta-tags.liquid -->
+{%- assign og_title = page_title -%}
+{%- assign og_url = canonical_url -%}
+{%- assign og_type = 'website' -%}
+{%- assign og_description = page_description | default: shop.description | default: shop.name -%}
+{% capture LS_locales_settings_key %}share_image{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.share_image  or LS_5906464808_settings_value != blank %}
+  {%- capture og_image_tags -%}{% comment %}<meta property="og:image" content="http:{% capture LS_locales_settings_key %}share_image{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.share_image | img_url: '1200x1200' }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %}">{% endcomment %}{%- endcapture -%}
+  {%- capture og_image_secure_url_tags -%}{% comment %}<meta property="og:image:secure_url" content="https:{% capture LS_locales_settings_key %}share_image{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.share_image | img_url: '1200x1200' }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %}">{% endcomment %}{%- endcapture -%}
+{% endif %}
+
+{% comment %} Template specific overides {% endcomment %}
+{% if template.name == 'product' %}
+  {% include 'LS_5906464808_title', item: product %}{% assign og_title = LS_5906464808_item_title | strip_html  %}
+  {%- assign og_type = 'product' -%}
+  {% if product.images.size > 0 %}
+    {%- capture og_image_tags -%}{% for image in product.images limit:3 -%}{% comment %}<meta property="og:image" content="http:{{ image.src | product_img_url: '1200x1200' }}">{% endcomment %}{% endfor -%}{% endcapture -%}
+    {%- capture og_image_secure_url_tags -%}{% for image in product.images limit:3 -%}{% comment %}<meta property="og:image:secure_url" content="https:{{ image.src | product_img_url: '1200x1200' }}">{% endcomment %}{% endfor -%}{% endcapture -%}
+  {% endif %}
+
+{% elsif template.name == 'article' %}
+  {% include 'LS_5906464808_title', item: article %}{% assign og_title = LS_5906464808_item_title | strip_html  %}
+  {%- assign og_type = 'article' -%}
+  {%- assign og_description = article.excerpt_or_content | strip_html -%}
+  {% if article.image %}
+    {%- capture og_image_tags -%}{% comment %}<meta property="og:image" content="http:{{ article.image | img_url: '1200x1200' }}">{% endcomment %}{%- endcapture -%}
+    {%- capture og_image_secure_url_tags -%}{% comment %}<meta property="og:image:secure_url" content="https:{{ article.image | img_url: '1200x1200' }}">{% endcomment %}{%- endcapture -%}
+  {% endif %}
+
+{% elsif template.name == 'collection' %}
+  {%- assign og_title = collection.title | strip_html -%}
+  {%- assign og_type = 'product.group' -%}
+  {% if collection.image %}
+    {%- capture og_image_tags -%}{% comment %}<meta property="og:image" content="http:{{ collection.image | img_url: '1200x1200' }}">{% endcomment %}{%- endcapture -%}
+    {%- capture og_image_secure_url_tags -%}{% comment %}<meta property="og:image:secure_url" content="https:{{ collection.image | img_url: '1200x1200' }}">{% endcomment %}{%- endcapture -%}
+  {% endif %}
+
+{% elsif template.name == 'password' %}
+  {%- assign og_title = shop.name -%}
+  {%- assign og_url = shop.url -%}
+  {%- assign og_description = shop.description | default: shop.name -%}
+{% endif %}
+
+{% comment %}<meta property="og:site_name" content="{{ shop.name }}">{% endcomment %}
+{% comment %}<meta property="og:url" content="{{ og_url }}">{% endcomment %}
+{% comment %}<meta property="og:title" content="{{ og_title }}">{% endcomment %}
+{% comment %}<meta property="og:type" content="{{ og_type }}">{% endcomment %}
+{% comment %}<meta property="og:description" content="{{ og_description }}">{% endcomment %}
+{% if template.name == 'product' %}
+  {% comment %}<meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html }}">{% endcomment %}
+  {% comment %}<meta property="og:price:currency" content="{{ shop.currency }}">{% endcomment %}
+{% endif %}
+{{ og_image_tags }}
+{{ og_image_secure_url_tags }}
+
+{% unless settings.social_twitter_link == blank %}
+  <meta name="twitter:site" content="{% capture LS_locales_settings_key %}social_twitter_link{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.social_twitter_link | split: 'twitter.com/' | last | prepend: '@' }}{% else %}{{ LS_5906464808_settings_value | split: 'twitter.com/' | last | prepend: '@'  }}{% endif %}">
+{% endunless %}
+{% comment %}<meta name="twitter:card" content="summary_large_image">{% endcomment %}
+{% comment %}<meta name="twitter:title" content="{{ og_title }}">{% endcomment %}
+{% comment %}<meta name="twitter:description" content="{{ og_description }}">{% endcomment %}

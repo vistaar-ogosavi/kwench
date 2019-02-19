@@ -1,0 +1,191 @@
+{% include 'LS_5906464808_global' %}
+<!-- /templates/cart.liquid -->
+{% comment %}
+
+  For info on test orders:
+    - General http://docs.shopify.com/manual/your-store/orders/test-orders
+    - Shopify Payments - http://docs.shopify.com/manual/more/shopify-payments/testing-shopify-payments
+
+{% endcomment %}
+<div class="grid">
+  <div class="grid__item large--five-sixths push--large--one-twelfth">
+    {% if cart.item_count > 0 %}
+      <header class="section-header text-center">
+        <h1 class="text-center">{% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.title',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.title' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</h1>
+        <hr class="hr--small">
+      </header>
+
+      <form action="/cart?locale={{ LS_5906464808_lang }}" method="post" novalidate class="cart">
+
+        <div class="cart__row medium-down--hide cart__header-labels">
+          <div class="grid--full">
+            <div class="grid__item large--two-fifths push--large--three-fifths">
+              <div class="grid--full">
+                <div class="grid__item one-third medium-down--half text-center">
+                  {% include 'LS_5906464808_locales', LS_locales_item: 'cart.label.quantity',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.label.quantity' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}
+                </div>
+                <div class="grid__item two-thirds medium-down--half text-right">
+                  {% include 'LS_5906464808_locales', LS_locales_item: 'cart.label.total',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.label.total' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% comment %}
+          Loop through products in the cart
+        {% endcomment %}
+        {% for item in cart.items %}
+          <div class="cart__row">
+            <div class="grid--full cart__row--table-large">
+
+              <div class="grid__item large--three-fifths">
+                <div class="grid">
+
+                  <div class="grid__item one-third">
+                    <a href="{{ item.url | within: collections.all }}" class="cart__image">
+
+                      {% comment %}
+                        More image size options at:
+                          - http://docs.shopify.com/themes/filters/product-img-url
+                      {% endcomment %}
+                      <img src="{{ item | img_url: 'medium' }}" alt="{% include 'LS_5906464808_cart', item: item, handle: item.product.handle, paramkey: '' %}{{ LS_5906464808_item_val | escape  }}">
+                    </a>
+                  </div>
+
+                  <div class="grid__item two-thirds">
+                    <a href="{{ item.url }}" class="h4 cart__product-name">
+                      {% include 'LS_5906464808_cart', item: item, handle: item.product.handle, paramkey: 'product' %}{{ LS_5906464808_item_val  }}
+                    </a>
+                    {% unless item.variant.title contains 'Default' %}
+                      <p class="cart__product-meta">
+                        {% include 'LS_5906464808_cart', item: item, handle: item.product.handle, paramkey: 'variant' %}{{ LS_5906464808_item_val  }}
+                      </p>
+                    {% endunless %}
+
+                    {% capture LS_locales_settings_key %}product_vendor_enable{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.product_vendor_enable  or LS_5906464808_settings_value != blank %}
+                      <p class="cart__product-meta">{{ item.vendor }}</p>
+                    {% endif %}
+
+                    {% assign property_size = item.properties | size %}
+                    {% if property_size > 0 %}
+                      {% for p in item.properties %}
+                        {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                        {% unless p.last == blank or first_character_in_key == '_' %}
+                          {{ p.first }}:
+
+                          {% if p.last contains '/uploads/' %}
+                            <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                          {% else %}
+                            {{ p.last }}
+                          {% endif %}
+
+                          <br>
+                        {% endunless %}
+                      {% endfor %}
+                    {% endif %}
+
+                    <p class="cart__product-meta">
+                      <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+                        {% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.remove',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.remove' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}
+                      </a>
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="grid__item large--two-fifths">
+                <div class="grid--full cart__row--table">
+
+                  <div class="grid__item one-third text-center">
+
+                    <label for="updates_{{ item.key }}" class="visually-hidden">{% include 'LS_5906464808_locales', LS_locales_item: 'cart.label.quantity',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.label.quantity' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</label>
+                    <input type="number" name="updates[]" id="updates_{{ item.key }}" class="cart__product-qty" value="{{ item.quantity }}" min="0" data-id="{{ item.key }}">
+
+                  </div>
+
+                  <div class="grid__item two-thirds text-right">
+                    {% if item.original_line_price != item.line_price %}
+                      <small class="cart__price cart__price--strikethrough">{% if LS_5906464808_curr and shop.metafields.langshop['currSwitcherType'] and shop.metafields.langshop['currSwitcherType'] != "disabled" %}{% include 'LS_5906464808_curr_converter', LS_price: item.original_line_price, LS_format: 'money' %}{{ LS_5906464808_curr_converter }}{% else %}{{ item.original_line_price | money }}{% endif %}</small>
+                    {% endif %}
+
+                    <span class="cart__price">{% if LS_5906464808_curr and shop.metafields.langshop['currSwitcherType'] and shop.metafields.langshop['currSwitcherType'] != "disabled" %}{% include 'LS_5906464808_curr_converter', LS_price: item.line_price, LS_format: 'money' %}{{ LS_5906464808_curr_converter }}{% else %}{{ item.line_price | money }}{% endif %}</span>
+
+                    {% assign discounts_size = item.discounts | size %}
+                    {% if discounts_size > 0 %}
+                      {% for discount in item.discounts %}
+                        <small class="cart__discount">{{ discount.title }}</small>
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        {% endfor %}
+
+        <div class="cart__row">
+          <div class="grid--full cart__row--table-large">
+            {% comment %}
+              Optional, add a textarea for special notes
+                - Your theme settings can turn this on or off. Default is on.
+                - Make sure you have name="note" for the message to be submitted properly
+            {% endcomment %}
+            {% capture LS_locales_settings_key %}cart_notes_enable{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.cart_notes_enable  or LS_5906464808_settings_value != blank %}
+              <div class="grid__item large--seven-twelfths">
+                <div class="cart__note">
+                  <label for="CartSpecialInstructions">{% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.note',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.note' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</label>
+                  <textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+                </div>
+              </div>
+            {% endif %}
+            <div class="grid__item large--five-twelfths text-center large--text-right{% unless settings.cart_notes_enable %} push--large--seven-twelfths{% endunless %}">
+              <div class="grid--full cart__row--table">
+                <div class="grid__item one-half large--two-thirds large--text-center">
+                  <p class="cart__subtotal">{% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.subtotal',   %}{% if LS_5906464808_locales_value == '' %}<span id="bk-cart-subtotal-label">{{ 'cart.general.subtotal' | t }}</span>{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</p>
+                </div>
+                <div class="grid__item one-half large--one-third">
+                  <p class="cart__subtotal">{% if LS_5906464808_curr and shop.metafields.langshop['currSwitcherType'] and shop.metafields.langshop['currSwitcherType'] != "disabled" %}{% include 'LS_5906464808_curr_converter', LS_price: cart.total_price, LS_format: 'money' %}{{ LS_5906464808_curr_converter }}{% else %}<span id="bk-cart-subtotal-price">{{ cart.total_price | money }}</span>{% endif %}</p>
+                </div>
+              </div>
+
+              {% if cart.total_discounts > 0 %}
+                {% if LS_5906464808_curr and shop.metafields.langshop['currSwitcherType'] and shop.metafields.langshop['currSwitcherType'] != "disabled" %}{% include 'LS_5906464808_curr_converter', LS_price: cart.total_discounts, LS_format: 'money' %}{% assign cartTotalDiscounts = LS_5906464808_curr_converter %}{% else %}{% assign cartTotalDiscounts = cart.total_discounts | money %}{% endif %}
+                <p class="cart__savings">{% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.savings_html',  savings: cartTotalDiscounts  %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.savings_html' | t: savings: cartTotalDiscounts }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</p>
+              {% endif %}
+              <p><em>{% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.shipping_at_checkout',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.shipping_at_checkout' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</em></p>
+              <button type="submit" name="update" class="btn--secondary update-cart">{% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.update',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.update' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</button>
+              <button type="submit" name="checkout" class="btn cart__checkout">
+                {% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.checkout',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.checkout' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %} <span class="icon icon-arrow-right" aria-hidden="true"></span>
+              </button>
+
+              {% if additional_checkout_buttons and settings.cart_type != 'drawer' %}
+                <div class="additional_checkout_buttons">{{ content_for_additional_checkout_buttons }}</div>
+              {% endif %}
+            </div>
+          </div>
+
+        </div>
+
+      </form>
+
+    {% else %}
+      {% comment %}
+        The cart is empty
+      {% endcomment %}
+      <header class="section-header text-center">
+        <h1 class="text-center">{% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.title',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.title' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</h1>
+        <hr class="hr--small">
+        <p class="cart--empty-message">{% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.empty',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.empty' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</p>
+        <p class="cart--continue-browsing">{% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.continue_browsing_html',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.continue_browsing_html' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</p>
+        <p class="cookie-message">{% include 'LS_5906464808_locales', LS_locales_item: 'cart.general.cookies_required',   %}{% if LS_5906464808_locales_value == '' %}{{ 'cart.general.cookies_required' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</p>
+      </header>
+
+    {% endif %}
+  </div>
+</div>
+{% section 'content-pro' %}

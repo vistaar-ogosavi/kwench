@@ -1,0 +1,17 @@
+{% include 'LS_5906464808_global' %}
+<!-- /snippets/pagination.liquid -->
+{% capture previous_label %}
+  <span class="icon-fallback-text">
+    <span class="icon icon-arrow-left" aria-hidden="true"></span>
+    <span class="fallback-text">{% include 'LS_5906464808_locales', LS_locales_item: 'general.pagination.previous',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.pagination.previous' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+  </span>
+{% endcapture %}
+{% capture next_label %}
+  <span class="icon-fallback-text">
+    <span class="icon icon-arrow-right" aria-hidden="true"></span>
+    <span class="fallback-text">{% include 'LS_5906464808_locales', LS_locales_item: 'general.pagination.next',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.pagination.next' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+  </span>
+{% endcapture %}
+<div class="pagination">
+  {{ paginate | default_pagination: previous: previous_label, next: next_label }}
+</div>

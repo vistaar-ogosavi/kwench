@@ -1,0 +1,133 @@
+ {% if template == 'index' %}
+  {{ 'slick.css' | asset_url | stylesheet_tag }}
+  {{ 'slick.min.js' | asset_url | script_tag }}
+  {% endif %}				
+<style>
+.slick-prev:before, .slick-next:before{
+    color:red;
+}
+.section_tag{
+
+}
+.section_tag_wrapper{
+    margin: 60px auto;
+    width: 600px;
+    margin-top: 0;
+    margin-bottom: 9px;
+}
+.section_tag_text_content{
+    font-weight: 555;
+    letter-spacing: .25px;
+    font-size: 14px;
+    line-height: 18px;
+    height: 18px;
+    font-family: "Work Sans",sans-serif;
+}
+@media screen and (max-width:768px){
+   .section_tag_text_content{
+     font-size:12px;
+   }
+   .section_tag_wrapper{
+     width:auto;
+     display:none;
+   }
+}
+.tag-content{
+
+}
+/* added the following to give the background color of the arrows as red for visibility, the default which can be found in the slick-theme.css was white */
+
+.slick-prev:before, .slick-next:before{
+    color:#000;
+}
+
+</style>
+
+<div id="section_tag"> 
+            <div class="section_tag_wrapper">
+             <a href="#">
+              <div class="tag-content">
+                 <div class="section_tag_text_content" style="color:{{section.settings.color_text1}}">
+                    {{ section.settings.tag1_text}} 
+               </div>
+                 <div class="section_tag_text_content" style="color:{{section.settings.color_text2}}">
+                    {{ section.settings.tag2_text}} 
+               </div>
+                 <div class="section_tag_text_content" style="color:{{section.settings.color_text3}}">
+                    {{ section.settings.tag3_text}} 
+               </div>
+              </div>
+                
+            </a>
+         </div>
+        
+        
+ </div>
+
+
+
+{% schema %}
+{
+  "name": "Tagline",
+  "settings":[
+        
+          {
+            "id":"tag1_text",
+            "type":"text",
+            "label":"Tag 1",
+            "default":"Banner Head"
+          },
+           {
+            "id":"color_text1",
+            "type":"color",
+            "label":"color"
+          },
+          {
+            "id":"tag2_text",
+            "type":"text",
+            "label":"Tag 2",
+            "default":"Banner Head"
+          },
+           {
+            "id":"color_text2",
+            "type":"color",
+            "label":"color"
+          },
+          {
+            "id":"tag3_text",
+            "type":"text",
+            "label":"Tag 3",
+            "default":"Banner Head"
+          },
+           {
+            "id":"color_text3",
+            "type":"color",
+            "label":"color"
+          }
+
+          
+  ],
+
+  "presets": [{
+      "name": "Tagline",
+      "category": "Collection"      
+    }]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+<script>
+$('.tag-content').slick({
+  arrows: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  speed:2000,
+  infinite: true,
+ 
+});
+
+</script>

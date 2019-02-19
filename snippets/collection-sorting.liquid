@@ -1,0 +1,20 @@
+{% include 'LS_5906464808_global' %}
+<div class="filter-dropdown__wrapper text-center collection-filters">
+  <div class="filter-dropdown">
+    <label class="filter-dropdown__label" for="sortBy">
+      <span class="filter-dropdown__label--title">{% include 'LS_5906464808_locales', LS_locales_item: 'collections.sorting.title',   %}{% if LS_5906464808_locales_value == '' %}{{ 'collections.sorting.title' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+      <span class="filter-dropdown__label--active"></span>
+    </label>
+    {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
+    <select name="sortBy" id="sortBy" class="filter-dropdown__select">
+      <option value="manual"{% if sort_by == "manual" %} selected="selected"{% endif %}>{% include 'LS_5906464808_locales', LS_locales_item: 'collections.sorting.featured',   %}{% if LS_5906464808_locales_value == '' %}{{ 'collections.sorting.featured' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</option>
+      <option value="best-selling"{% if sort_by == "best-selling" %} selected="selected"{% endif %}>{% include 'LS_5906464808_locales', LS_locales_item: 'collections.sorting.best_selling',   %}{% if LS_5906464808_locales_value == '' %}{{ 'collections.sorting.best_selling' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</option>
+      <option value="title-ascending"{% if sort_by == "title-ascending"  %}selected="selected"{% endif %}>{% include 'LS_5906464808_locales', LS_locales_item: 'collections.sorting.az',   %}{% if LS_5906464808_locales_value == '' %}{{ 'collections.sorting.az' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</option>
+      <option value="title-descending"{% if sort_by == "title-descending" %} selected="selected"{% endif %}>{% include 'LS_5906464808_locales', LS_locales_item: 'collections.sorting.za',   %}{% if LS_5906464808_locales_value == '' %}{{ 'collections.sorting.za' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</option>
+      <option value="price-ascending"{% if sort_by == "price-ascending" %} selected="selected"{% endif %}>{% include 'LS_5906464808_locales', LS_locales_item: 'collections.sorting.price_ascending',   %}{% if LS_5906464808_locales_value == '' %}{{ 'collections.sorting.price_ascending' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</option>
+      <option value="price-descending"{% if sort_by == "price-descending" %} selected="selected"{% endif %}>{% include 'LS_5906464808_locales', LS_locales_item: 'collections.sorting.price_descending',   %}{% if LS_5906464808_locales_value == '' %}{{ 'collections.sorting.price_descending' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</option>
+      <option value="created-descending"{% if sort_by == "created-descending" %} selected="selected"{% endif %}>{% include 'LS_5906464808_locales', LS_locales_item: 'collections.sorting.date_descending',   %}{% if LS_5906464808_locales_value == '' %}{{ 'collections.sorting.date_descending' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</option>
+      <option value="created-ascending"{% if sort_by == "created-ascending" %} selected="selected"{% endif %}>{% include 'LS_5906464808_locales', LS_locales_item: 'collections.sorting.date_ascending',   %}{% if LS_5906464808_locales_value == '' %}{{ 'collections.sorting.date_ascending' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</option>
+    </select>
+  </div>
+</div>

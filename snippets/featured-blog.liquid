@@ -1,0 +1,29 @@
+{% include 'LS_5906464808_global' %}
+<!-- snippets/featured-blog.liquid -->
+{% if section.settings.blog_show_author or section.settings.blog_show_date %}
+  <div class="featured-blog__meta">
+    {% capture LS_locales_settings_key %}{{ section.id }}.blog_show_author{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.blog_show_author  or LS_5906464808_settings_value != blank %}
+      <span class="featured-blog__author">
+        {{ article.author }}
+      </span>
+    {% endif %}
+    {% capture LS_locales_settings_key %}{{ section.id }}.blog_show_date{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.blog_show_date  or LS_5906464808_settings_value != blank %}
+      <div class="featured-blog__date">
+        <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}" class="date">{{ article.published_at | date: format: 'month_day_year' }}</time>
+      </div>
+    {% endif %}
+    <hr class="hr--small {% if section.settings.post_limit == 1 and section.settings.blog_show_image == false %}hr--middle{% else %}hr--left{% endif %}">
+  </div>
+{% endif %}
+<h2 class="h3{% if section.settings.post_limit == 1 and section.settings.blog_show_image == false %} title--one-post{% endif %}"><a href="{{ article.url }}">{% include 'LS_5906464808_title', item: article %}{{ LS_5906464808_item_title  }}</a></h2>
+{% capture LS_locales_settings_key %}{{ section.id }}.blog_show_excerpt{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.blog_show_excerpt  or LS_5906464808_settings_value != blank %}
+  <div class="rte rte--indented-images">
+    {% include 'LS_5906464808_eoc', item: article %}{{ LS_5906464808_item_excerpt_or_content }}
+  </div>
+{% endif %}
+<p>
+  <a href="{{ article.url }}" class="text-link">{% include 'LS_5906464808_locales', LS_locales_item: 'blogs.article.read_more',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.article.read_more' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %} <span class="icon icon-arrow-right" aria-hidden="true"></span></a>
+</p>

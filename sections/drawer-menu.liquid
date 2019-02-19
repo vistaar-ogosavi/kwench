@@ -1,0 +1,108 @@
+{% include 'LS_5906464808_global' %}
+<div data-section-id="{{ section.id }}" data-section-type="drawer-menu-section">
+  <div class="drawer__inner drawer-left__inner">
+
+    {% capture LS_locales_settings_key %}{{ section.id }}.drawer_search_enable{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.drawer_search_enable  or LS_5906464808_settings_value != blank %}
+      {% include 'search-bar', search_btn_style: 'btn--secondary', search_bar_location: 'search-bar--drawer' %}
+    {% endif %}
+
+    <!-- begin mobile-nav -->
+    <ul class="mobile-nav">
+      {% for link in linklists[section.settings.drawer_top_link_list].links %}
+        {% comment %}
+          Create a dropdown menu by naming a linklist the same as a link in the parent nav
+
+          More info on dropdowns:
+            - http://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu
+        {% endcomment %}
+        {% assign child_list_handle = link.title | handleize %}
+        {% if linklists[child_list_handle].links != blank %}
+          <li class="mobile-nav__item{% if link.title == 'Sale' %} sale-item{% endif %}{% unless template.name == 'index' %}{% if link.active %} mobile-nav__item--active{% endif %}{% endunless %}">
+            <div class="mobile-nav__has-sublist">
+              <a href="{{ link.url }}" class="mobile-nav__link" id="Label-{{ child_list_handle }}">{% include 'LS_5906464808_nav_title', item: link %}{{ LS_5906464808_link_title  }}</a>
+              <div class="mobile-nav__toggle">
+                <button type="button" class="mobile-nav__toggle-btn icon-fallback-text" data-aria-controls="Linklist-{{ child_list_handle }}">
+                  <span class="icon-fallback-text mobile-nav__toggle-open">
+                    <span class="icon icon-plus" aria-hidden="true"></span>
+                    <span class="fallback-text">{% include 'LS_5906464808_locales', LS_locales_item: 'general.drawers.expand_submenu',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.drawers.expand_submenu' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+                  </span>
+                  <span class="icon-fallback-text mobile-nav__toggle-close">
+                    <span class="icon icon-minus" aria-hidden="true"></span>
+                    <span class="fallback-text">{% include 'LS_5906464808_locales', LS_locales_item: 'general.drawers.collapse_submenu',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.drawers.collapse_submenu' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <ul class="mobile-nav__sublist" id="Linklist-{{ child_list_handle }}" aria-labelledby="Label-{{ child_list_handle }}" role="navigation">
+              {% for childlink in linklists[child_list_handle].links %}
+                <li class="mobile-nav__item{% unless template.name == 'index' %}{% if childlink.active %} mobile-nav__item--active{% endif %}{% endunless %}">
+                  <a href="{{ childlink.url }}" class="mobile-nav__link">{% include 'LS_5906464808_nav_title', item: childlink %}{{ LS_5906464808_link_title | escape  }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li class="mobile-nav__item{% if link.title == 'Sale' %} sale-item{% endif %}{% unless template.name == 'index' %}{% if link.active %} mobile-nav__item--active{% endif %}{% endunless %}">
+            <a href="{{ link.url }}" class="mobile-nav__link">{% include 'LS_5906464808_nav_title', item: link %}{{ LS_5906464808_link_title  }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+
+      {% comment %}
+        Spacer element
+      {% endcomment %}
+      <li class="mobile-nav__spacer"></li>
+
+      {% comment %}
+        If customer accounts are enabled, provide login and create account links
+      {% endcomment %}
+      {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+          <li class="mobile-nav__item mobile-nav__item--secondary">
+            <a href="/account">{% include 'LS_5906464808_locales', LS_locales_item: 'layout.customer.account',   %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.customer.account' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</a>
+          </li>
+          <li class="mobile-nav__item mobile-nav__item--secondary">
+            {% include 'LS_5906464808_locales', LS_locales_item: 'layout.customer.log_out',   %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.customer.log_out' | t | customer_logout_link }}{% else %}{{ LS_5906464808_locales_value | customer_logout_link  }}{% endif %}
+          </li>
+        {% else %}
+          <li class="mobile-nav__item mobile-nav__item--secondary">
+            {% include 'LS_5906464808_locales', LS_locales_item: 'layout.customer.log_in',   %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.customer.log_in' | t | customer_login_link }}{% else %}{{ LS_5906464808_locales_value | customer_login_link  }}{% endif %}
+          </li>
+          <li class="mobile-nav__item mobile-nav__item--secondary">
+            {% include 'LS_5906464808_locales', LS_locales_item: 'layout.customer.create_account',   %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.customer.create_account' | t | customer_register_link }}{% else %}{{ LS_5906464808_locales_value | customer_register_link  }}{% endif %}
+          </li>
+        {% endif %}
+      {% endif %}
+      {% for link in linklists[section.settings.drawer_bottom_link_list].links %}
+        <li class="mobile-nav__item mobile-nav__item--secondary"><a href="{{ link.url }}">{% include 'LS_5906464808_nav_title', item: link %}{{ LS_5906464808_link_title  }}</a></li>
+      {% endfor %}
+    </ul>
+    <!-- //mobile-nav -->
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Sidebar menu",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "drawer_top_link_list",
+        "label": "Primary menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "link_list",
+        "id": "drawer_bottom_link_list",
+        "label": "Additional menu",
+        "default": "footer"
+      },
+      {
+        "type": "checkbox",
+        "id": "drawer_search_enable",
+        "label": "Enable search"
+      }
+    ]
+  }
+{% endschema %}

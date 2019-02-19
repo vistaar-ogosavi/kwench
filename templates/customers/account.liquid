@@ -1,0 +1,77 @@
+{% include 'LS_5906464808_global' %}
+<!-- /templates/customers/account.liquid -->
+{% comment %}
+
+  For all available customer liquid tags:
+    - http://docs.shopify.com/themes/liquid-variables/customer
+
+{% endcomment %}
+
+{% paginate customer.orders by 20 %}
+
+<header class="section-header text-center">
+  <h1>{% include 'LS_5906464808_locales', LS_locales_item: 'customer.account.title',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.account.title' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</h1>
+  {% include 'LS_5906464808_locales', LS_locales_item: 'layout.customer.log_out',   %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.customer.log_out'| t | customer_logout_link }}{% else %}{{ LS_5906464808_locales_value | customer_logout_link  }}{% endif %}
+  <hr class="hr--small">
+</header>
+
+<div class="grid">
+
+  <div class="grid__item two-thirds medium-down--one-whole">
+    <h2 class="h3">{% include 'LS_5906464808_locales', LS_locales_item: 'customer.orders.title',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.orders.title' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</h2>
+
+    {% comment %}
+      If we have past orders, loop through each one
+    {% endcomment %}
+    {% if customer.orders.size != 0 %}
+
+      <div class="table-wrap">
+        <table class="full table--responsive">
+          <thead>
+            <tr>
+              <th>{% include 'LS_5906464808_locales', LS_locales_item: 'customer.orders.order_number',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.orders.order_number' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</th>
+              <th>{% include 'LS_5906464808_locales', LS_locales_item: 'customer.orders.date',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.orders.date' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</th>
+              <th>{% include 'LS_5906464808_locales', LS_locales_item: 'customer.orders.payment_status',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.orders.payment_status' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</th>
+              <th>{% include 'LS_5906464808_locales', LS_locales_item: 'customer.orders.fulfillment_status',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.orders.fulfillment_status' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</th>
+              <th>{% include 'LS_5906464808_locales', LS_locales_item: 'customer.orders.total',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.orders.total' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+              <tr class="table__section">
+                <td data-label="{% include 'LS_5906464808_locales', LS_locales_item: 'customer.orders.order_number',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.orders.order_number' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">{{ order.name | link_to: order.customer_url }}</td>
+                <td data-label="{% include 'LS_5906464808_locales', LS_locales_item: 'customer.orders.date',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.orders.date' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">{{ order.created_at | date: format: 'month_day_year' }}</td>
+                <td data-label="{% include 'LS_5906464808_locales', LS_locales_item: 'customer.orders.payment_status',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.orders.payment_status' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">{{ order.financial_status_label }}</td>
+                <td data-label="{% include 'LS_5906464808_locales', LS_locales_item: 'customer.orders.fulfillment_status',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.orders.fulfillment_status' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">{{ order.fulfillment_status_label }}</td>
+                <td data-label="{% include 'LS_5906464808_locales', LS_locales_item: 'customer.orders.total',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.orders.total' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">{% if LS_5906464808_curr and shop.metafields.langshop['currSwitcherType'] and shop.metafields.langshop['currSwitcherType'] != "disabled" %}{% include 'LS_5906464808_curr_converter', LS_price: order.total_price, LS_format: 'money' %}{{ LS_5906464808_curr_converter }}{% else %}{{ order.total_price | money }}{% endif %}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="hr--clear">
+
+    {% else %}
+
+      <p>{% include 'LS_5906464808_locales', LS_locales_item: 'customer.orders.none',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.orders.none' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</p>
+
+    {% endif %}
+  </div>
+
+  <div class="grid__item one-third medium-down--one-whole">
+    <h3>{% include 'LS_5906464808_locales', LS_locales_item: 'customer.account.details',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.account.details' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</h3>
+
+    <p class="h5">{{ customer.name }}</p>
+
+    {{ customer.default_address | format_address }}
+
+    <p><a href="/account/addresses" class="text-link">{% include 'LS_5906464808_locales', LS_locales_item: 'customer.account.view_addresses',   %}{% if LS_5906464808_locales_value == '' %}{{ 'customer.account.view_addresses' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %} ({{ customer.addresses_count }})</a></p>
+  </div>
+
+</div>
+
+{% if paginate.pages > 1 %}
+  {% include 'pagination' %}
+{% endif %}
+{% endpaginate %}

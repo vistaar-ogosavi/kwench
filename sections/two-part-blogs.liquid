@@ -1,0 +1,204 @@
+
+<div class="container-fluid container-half-text ">
+    <div class="row">
+        <div class="blog-section-heading">
+            #Madefromstrenth
+        </div>
+    </div>
+    
+
+    <div class="row row-half-text" >
+    
+        <div class="col-sm-12 col-md-6 col-lg-6 left-col" style="background:url('{{ section.settings.main_image | img_url: 'master' }}')" >
+             <div class="first-half-text-container  text-container">
+                  <h5>{{ articles[section.settings.article_id].author }}</h5>                
+                   <div class="mega-title">{{ articles[section.settings.article_id].title }} </div>
+                    <span>{{ articles[section.settings.article_id].content }}</span><br>
+                    <a href="{{ articles[section.settings.article_id].url }}" class="btn hero__btn"> Read More </a>
+             </div>
+             
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 ml-auto">
+              <div class="second-half-text-container text-container">
+                 <h5>{{ articles[section.settings.article_id2].author }}</h5>                
+                   <div class="mega-title">{{ articles[section.settings.article_id2].title }} </div>
+                    <span>{{ articles[section.settings.article_id2].content }}</span><br>
+                    <a href="{{ articles[section.settings.article_id2].url }}" class="btn hero__btn"> Read More </a>                 
+             </div>
+              
+        </div>       
+    </div>
+</div>
+
+
+{% schema %} 
+{
+  "name": " Two part Blog section",
+  "settings":[
+          {
+            "id":"main_image",
+            "type":"image_picker",
+            "label":" Main image"
+          },          
+          {
+            "id":"article_id",
+            "type":"article",
+            "label":"article"
+          },
+          {
+            "id":"article_id2",
+            "type":"article",
+            "label":"article"
+          }      
+         ],
+  "presets": [{
+      "name": "Two part Text",
+      "category": "Collection"
+      
+    }]
+}
+{% endschema %}
+<style>
+.mega-title {
+    transform: scale(1, 1);
+    color: #fff;
+    text-shadow: none;
+    font-size: 38px;
+    font-family: 'Righteous', cursive;
+    font-weight:500;
+}
+.blog-section-heading{
+    letter-spacing: .5px;
+    line-height: 38px;
+    display: inline-block;
+    padding-bottom: 20px;
+    padding-top:20px;
+    font-weight: 500;
+    transform: scale(1, 1);
+    text-shadow: none;
+    font-size: 38px;
+    font-family: 'Righteous', cursive;
+    text-transform: uppercase;
+    text-align:center;
+    font-weight: 500;
+    margin:0 auto;
+}
+.container-half-text-wrapper{
+ padding:0 30PX;
+}
+.container-half-text{
+    {% comment %} padding-left:0;
+    padding-right:0; {% endcomment %}
+}
+.second-half-text-container{
+    padding:11%;
+  
+}
+.first-half-text-container h1{
+    color:#fff;
+}
+.first-half-text-container h5,.first-half-text-container span,.first-half-text-container span p{
+    transform: scale(1, 1);
+    color:#fff;
+    z-index:999;
+  font-family: "Work Sans",sans-serif;
+  
+    
+}
+.second-half-text-container h5, .second-half-text-container span,.second-half-text-container span p {
+    transform: scale(1, 1);
+    z-index:999;
+    color:#000;
+   font-family: "Work Sans",sans-serif;
+}
+.second-half-text-container .mega-title{
+     color:#000;
+}
+.text-container h3{
+    font-size:40px;
+    color:#fff;
+}
+.second-half-text-container h1{
+    color:#1EA5DE;
+}
+.text-container span{
+    font-size:16px;
+    font-weight:100;
+}
+.second-half-text-container span{
+    color:#000;
+}
+.row-half-text{
+   background:#deddd1;
+  
+}
+.first-half-text-container{
+      padding:11%;
+     transform: scale(1, 1);
+}
+.left-col{
+
+    position:relative;
+    background-size:cover !important;
+}
+.left-col:before{
+ content:'';
+ position:absolute;
+ left:0;
+ right:0;
+ top:0;
+ bottom:0;
+ background:#1ea5deab;
+ z-index:0;
+}
+.left-col:after {
+  display:none;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 150px 150px;
+  border-color: transparent transparent #deddd1  #00000059;
+}
+.hero__btn{
+    margin-top:20px;
+    font-weight:400;
+    padding:12px 45px;
+
+}
+@media screen and (max-width:768px){
+    .mega-title{
+        font-size:25px;
+    }
+    .blog-section-heading{
+        font-size:22px;
+    }
+}
+</style>
+{% stylesheet %}
+<style>
+
+</style>
+{% endstylesheet %}
+
+{% javascript %}
+
+{% endjavascript %}
+<script>
+function truncateText(selector, maxLength) {
+    var element = document.querySelector(selector),
+        truncated = element.innerText;
+
+    if (truncated.length > maxLength) {
+        truncated = truncated.substr(0,maxLength) + '...';
+    }
+    return truncated;
+}
+//You can then call the function with something like what i have below.
+document.querySelector('.first-half-text-container span').innerText = truncateText('.first-half-text-container span p', 100);
+document.querySelector('.second-half-text-container span').innerText = truncateText('.second-half-text-container span p', 100);
+
+</script>

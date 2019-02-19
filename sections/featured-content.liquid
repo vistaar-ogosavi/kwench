@@ -1,0 +1,73 @@
+{% include 'LS_5906464808_global' %}
+<div data-section-id="{{ section.id }}" data-section-type="featured-content-section">
+  <div class="rich-text wrapper">
+    <div class="grid">
+      <div class="grid__item text-center{% unless section.settings.home_page_full_width %} large--two-thirds medium--two-thirds push--large--one-sixth push--medium--one-sixth{% endunless %}">
+        {% capture LS_locales_settings_key %}{{ section.id }}.section_title{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.section_title != blank or LS_5906464808_settings_value != blank %}
+          <div class="section-header">
+            <h2 class="rich-text__heading--{% capture LS_locales_settings_key %}{{ section.id }}.text_size{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.text_size }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %} section-header__title h1">{% capture LS_locales_settings_key %}{{ section.id }}.section_title{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.section_title | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}</h2>
+          </div>
+        {% endif %}
+        {% capture LS_locales_settings_key %}{{ section.id }}.text{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.text != blank or LS_5906464808_settings_value != blank %}
+          <div class="rte rich-text__text--{% capture LS_locales_settings_key %}{{ section.id }}.text_size{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.text_size }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %}">
+            {% capture LS_locales_settings_key %}{{ section.id }}.text{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.text }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Rich text",
+    "class": "index-section rich-text-section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "home_page_full_width",
+        "label": "Wide display"
+      },
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Heading",
+        "default": "Talk about your brand"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      },
+      {
+        "type": "select",
+        "id": "text_size",
+        "label": "Size",
+        "default": "medium",
+        "options": [
+          {
+            "label": "Small",
+            "value": "small"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "Large",
+            "value": "large"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Rich text",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

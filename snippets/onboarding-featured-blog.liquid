@@ -1,0 +1,47 @@
+{% include 'LS_5906464808_global' %}
+<!-- snippets/onboarding-featured-blog.liquid -->
+<div class="grid-uniform">
+  {% for i in (1..section.settings.post_limit)  %}
+    <div class="grid__item {{ width }}{% if forloop.index > 3 %} hide-post__mobile{% endif %}">
+      <div class="featured-blog__post">
+        {% capture LS_locales_settings_key %}{{ section.id }}.blog_show_image{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.blog_show_image  or LS_5906464808_settings_value != blank %}
+          <div class="article__featured-link">
+            {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+            {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {% endif %}
+        {% unless section.settings.post_limit == 1 and section.settings.blog_show_image %}
+          <h2 class="h3{% if section.settings.post_limit == 1 and section.settings.blog_show_image == false %} title--one-post{% endif %}"><a href="{{ article.url }}">{% include 'LS_5906464808_locales', LS_locales_item: 'home_page.onboarding.blog_title',   %}{% if LS_5906464808_locales_value == '' %}{{ 'home_page.onboarding.blog_title' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</a></h2>
+          {% capture LS_locales_settings_key %}{{ section.id }}.blog_show_excerpt{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.blog_show_excerpt  or LS_5906464808_settings_value != blank %}
+            <div class="rte rte--indented-images">
+              {% include 'LS_5906464808_locales', LS_locales_item: 'home_page.onboarding.blog_excerpt',   %}{% if LS_5906464808_locales_value == '' %}{{ 'home_page.onboarding.blog_excerpt' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}
+            </div>
+          {% endif %}
+          <p>
+            <a href="{{ article.url }}" class="text-link">{% include 'LS_5906464808_locales', LS_locales_item: 'blogs.article.read_more',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.article.read_more' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %} <span class="icon icon-arrow-right" aria-hidden="true"></span></a>
+          </p>
+        {% endunless %}
+      </div>
+    </div>
+
+    {% if section.settings.post_limit == 1 and section.settings.blog_show_image %}
+      <div class="grid__item {{ width }}">
+        <div class="featured-blog__post">
+          <h2 class="h3{% if section.settings.post_limit == 1 and section.settings.blog_show_image == false %} title--one-post{% endif %}"><a href="{{ article.url }}">{% include 'LS_5906464808_locales', LS_locales_item: 'home_page.onboarding.blog_title',   %}{% if LS_5906464808_locales_value == '' %}{{ 'home_page.onboarding.blog_title' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</a></h2>
+          {% capture LS_locales_settings_key %}{{ section.id }}.blog_show_excerpt{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.blog_show_excerpt  or LS_5906464808_settings_value != blank %}
+            <div class="rte rte--indented-images">
+              {% include 'LS_5906464808_locales', LS_locales_item: 'home_page.onboarding.blog_excerpt',   %}{% if LS_5906464808_locales_value == '' %}{{ 'home_page.onboarding.blog_excerpt' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}
+            </div>
+          {% endif %}
+          <p>
+            <a href="{{ article.url }}" class="text-link">{% include 'LS_5906464808_locales', LS_locales_item: 'blogs.article.read_more',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.article.read_more' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %} <span class="icon icon-arrow-right" aria-hidden="true"></span></a>
+          </p>
+        </div>
+      </div>
+    {% endif %}
+
+  {% endfor %}
+</div>

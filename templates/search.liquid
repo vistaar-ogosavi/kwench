@@ -1,0 +1,80 @@
+{% include 'LS_5906464808_global' %}
+<!-- /templates/search.liquid -->
+{% comment %}
+
+  To return only products or pages in results:
+    - http://docs.shopify.com/manual/configuration/store-customization/return-only-product-in-storefront-search-results
+    - Or manually add type=product or type=page to the search URL as a parameter
+
+{% endcomment %}
+
+{% comment %}
+  Check to enforce respond.js
+{% endcomment %}
+{% assign respond_js_secret_key = shop.domain | md5 %}
+{% unless search.terms == respond_js_secret_key %}
+
+{% comment %}
+  Avoid accessing search.results before the opening paginate tag.
+  If you do, the pagination of results will be broken.
+{% endcomment %}
+{% paginate search.results by 12 %}
+
+  <div class="grid">
+    <div class="grid__item">
+      <header class="section-header text-center">
+        {% if search.performed %}
+          {% if search.results_count == 0 %}
+            <h1 class="text-center">{% include 'LS_5906464808_locales', LS_locales_item: 'general.search.no_results_html',  terms: search.terms  %}{% if LS_5906464808_locales_value == '' %}{{ 'general.search.no_results_html' | t: terms: search.terms }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</h1>
+          {% else %}
+            <h1 class="text-center">{% include 'LS_5906464808_locales', LS_locales_item: 'general.search.results_for_html',  terms: search.terms  %}{% if LS_5906464808_locales_value == '' %}{{ 'general.search.results_for_html' | t: terms: search.terms }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</h1>
+          {% endif %}
+        {% else %}
+          <h1 class="text-center">{% include 'LS_5906464808_locales', LS_locales_item: 'general.search.title',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.search.title' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</h1>
+        {% endif %}
+        <hr class="hr--small">
+      </header>
+
+      {% include 'search-bar', search_btn_style: 'btn', search_bar_location: 'search-bar--page' %}
+
+      {% if search.performed %}
+
+        <hr class="hr--medium hr--clear">
+
+        <div class="grid-uniform">
+          {% for item in search.results %}
+
+            {% if item.object_type == 'product' %}
+              {% assign product = item %}
+              {% include 'product-grid-item' %}
+            {% else %}
+              <div class="grid__item grid-search large--one-third medium--one-half">
+                <div class="grid-search__page">
+                  <a href="{{ item.url }}" class="grid-search__page-link">
+                    <span class="grid-search__page-content">
+                      <span class="h4 text-center">{% if LS_5906464808_lang == LS_5906464808_default_lang %}{% assign LS_5906464808_item_val = item.title %}{% else %}{% capture LS_5906464808_locales_item %}{% if 'title' == 'title' %}{{ LS_5906464808_lang }}_title{% else %}{{ LS_5906464808_lang }}_body_html{% endif %}{% endcapture %}{% if item.metafields.langshop[LS_5906464808_locales_item] %}{% assign LS_5906464808_item_val = item.metafields.langshop[LS_5906464808_locales_item] %}{% else %}{% assign LS_5906464808_item_val = item.title %}{% endif %}{% endif %}{{ LS_5906464808_item_val }}</span>
+                      {% if LS_5906464808_lang == LS_5906464808_default_lang %}{% assign LS_5906464808_item_val = item.content %}{% else %}{% capture LS_5906464808_locales_item %}{% if 'title' == 'content' %}{{ LS_5906464808_lang }}_title{% else %}{{ LS_5906464808_lang }}_body_html{% endif %}{% endcapture %}{% if item.metafields.langshop[LS_5906464808_locales_item] %}{% assign LS_5906464808_item_val = item.metafields.langshop[LS_5906464808_locales_item] %}{% else %}{% assign LS_5906464808_item_val = item.content %}{% endif %}{% endif %}{{ LS_5906464808_item_val | strip_html | truncatewords: 60 }}
+                    </span>
+                  </a>
+                </div>
+              </div>
+            {% endif %}
+
+          {% endfor %}
+        </div>
+
+        {% if paginate.pages > 1 %}
+          {% include 'pagination' %}
+        {% endif %}
+
+      {% endif %}
+
+    </div>
+  </div>
+
+{% endpaginate %}
+
+{% else %}
+  {% include 'respond' %}
+  {% layout none %}
+{% endunless %}

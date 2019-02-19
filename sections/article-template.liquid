@@ -1,0 +1,160 @@
+{% include 'LS_5906464808_global' %}
+<!-- /templates/article.liquid -->
+{% assign number_of_comments = article.comments_count %}
+
+{% if comment and comment.created_at %}
+  {% assign number_of_comments = article.comments_count | plus: 1 %}
+{% endif %}
+
+<div class="grid">
+  <article class="grid__item large--five-sixths push--large--one-twelfth article" itemscope itemtype="http://schema.org/Article">
+
+    <header class="section-header text-center">
+      <h1>{% include 'LS_5906464808_title', item: article %}{{ LS_5906464808_item_title  }}</h1>
+      <hr class="hr--small">
+      <p>
+        <span class="date"><time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time></span>
+      </p>
+    </header>
+
+    <div class="grid">
+      <div class="grid__item large--four-fifths push--large--one-tenth">
+
+        <div class="rte rte--indented-images" itemprop="articleBody">
+          {% include 'LS_5906464808_content', item: article %}{{ LS_5906464808_item_content  }}
+        </div>
+
+        <ul class="tags tags--article inline-list">
+          {% include 'tags-article' %}
+        </ul>
+
+        {% capture LS_locales_settings_key %}{{ section.id }}.social_sharing_blog{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.social_sharing_blog  or LS_5906464808_settings_value != blank %}
+          {% include 'LS_5906464808_title', item: article %}{% include 'social-sharing', share_title:  LS_5906464808_item_title , share_permalink: article.url, share_image: article.image %}
+        {% endif %}
+
+        {% if blog.comments_enabled? %}
+
+          {% if number_of_comments > 0 %}
+            <hr class="hr--large">
+            <h2 class="h3 text-center">
+           	{% include 'LS_5906464808_count_one_other', , LS_locales_item: 'blogs.comments.with_count' %}
+				{% if LS_5906464808_count_val == '' %}
+					{{ 'blogs.comments.with_count' | t: count: number_of_comments }}
+				{% else %}
+					{{ LS_5906464808_count_val }}
+				{% endif %}            
+			</h2>
+            <hr class="hr--small hr--clear">
+          {% endif %}
+
+          {% paginate article.comments by 5 %}
+            {% comment %}
+              #comments is required, it is used as an anchor link by Shopify.
+            {% endcomment %}
+            <div id="comments">
+
+              {% if comment and comment.created_at %}
+                <p class="note form-success">
+                  {% if blog.moderated? %}
+                    {% include 'LS_5906464808_locales', LS_locales_item: 'blogs.comments.success_moderated',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.comments.success_moderated' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}
+                  {% else %}
+                    {% include 'LS_5906464808_locales', LS_locales_item: 'blogs.comments.success',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.comments.success' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}
+                  {% endif %}
+                </p>
+              {% endif %}
+
+              {% if number_of_comments > 0 %}
+                <ul class="no-bullets">
+                  {% comment %}
+                    If a comment was just submitted with no blank field, show it.
+                  {% endcomment %}
+                  {% if comment and comment.created_at %}
+                    <li id="{{ comment.id }}" class="comment first{% if article.comments_count == 0 %} last{% endif %}">
+                      {% include 'comment' %}
+                    </li>
+                  {% endif %}
+
+                  {% comment %}
+                    Showing the rest of the comments.
+                  {% endcomment %}
+                  {% for comment in article.comments %}
+                    <li id="{{ comment.id }}" class="comment{% unless number_of_comments > article.comments_count %}{% if forloop.first %} first{% endif %}{% endunless %}{% if forloop.last %} last {% endif %}">
+                      {% include 'comment' %}
+                    </li>
+
+                    {% unless forloop.last %}
+                      <li><hr class="hr--clear"></li>
+                    {% endunless %}
+                  {% endfor %}
+                </ul>
+
+                {% if paginate.pages > 1 %}
+                  {% include 'pagination' %}
+                {% endif %}
+
+              {% endif %}
+
+              <hr class="hr--large">
+
+              <h2 class="h3 text-center">{% include 'LS_5906464808_locales', LS_locales_item: 'blogs.comments.title',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.comments.title' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</h2>
+              <hr class="hr--small hr--clear">
+
+              <div class="form-vertical">
+                {% form 'new_comment', article %}
+
+                  {{ form.errors | default_errors }}
+
+                  <div class="grid grid--small">
+                    <div class="grid__item large--one-half">
+                      <label for="CommentAuthor" class="hidden-label">{% include 'LS_5906464808_locales', LS_locales_item: 'blogs.comments.name',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.comments.name' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</label>
+                      <input class="input-full{% if form.errors contains 'author' %} error{% endif %}" type="text" name="comment[author]" placeholder="{% include 'LS_5906464808_locales', LS_locales_item: 'blogs.comments.name',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.comments.name' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}" id="CommentAuthor" value="{{ form.author }}" autocapitalize="words">
+                    </div>
+                    <div class="grid__item large--one-half">
+                      <label for="CommentEmail" class="hidden-label">{% include 'LS_5906464808_locales', LS_locales_item: 'blogs.comments.email',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.comments.email' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</label>
+                      <input class="input-full{% if form.errors contains 'email' %} error{% endif %}" type="email" name="comment[email]" placeholder="{% include 'LS_5906464808_locales', LS_locales_item: 'blogs.comments.email',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.comments.email' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}" id="CommentEmail" value="{{ form.email }}" autocorrect="off" autocapitalize="off">
+                    </div>
+                  </div>
+
+                  <label for="CommentBody" class="hidden-label">{% include 'LS_5906464808_locales', LS_locales_item: 'blogs.comments.message',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.comments.message' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</label>
+                  <textarea class="input-full{% if form.errors contains 'body' %} error{% endif %}" name="comment[body]" id="CommentBody" placeholder="{% include 'LS_5906464808_locales', LS_locales_item: 'blogs.comments.message',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.comments.message' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">{{ form.body }}</textarea>
+
+                  <div class="text-center">
+                    {% if blog.moderated? %}
+                      <p>{% include 'LS_5906464808_locales', LS_locales_item: 'blogs.comments.moderated',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.comments.moderated' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</p>
+                    {% endif %}
+
+                    <input type="submit" class="btn" value="{% include 'LS_5906464808_locales', LS_locales_item: 'blogs.comments.post',   %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.comments.post' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+                  </div>
+
+                {% endform %}
+              </div>
+
+            </div>
+          {% endpaginate %}
+        {% endif %}
+
+      </div>
+    </div>
+
+  </article>
+</div>
+
+<hr class="hr--medium hr--clear">
+<div class="text-center">
+  <a href="{{ blog.url }}" class="return-link">&larr; {% include 'LS_5906464808_title', item: blog %}{% include 'LS_5906464808_locales', LS_locales_item: 'blogs.article.back_to_blog',  title:  LS_5906464808_item_title %}{% if LS_5906464808_locales_value == '' %}{{ 'blogs.article.back_to_blog' | t: title: blog.title }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</a>
+</div>
+
+{% schema %}
+  {
+    "name": "Article pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "social_sharing_blog",
+        "label": "Show social sharing buttons",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

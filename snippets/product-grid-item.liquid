@@ -1,0 +1,195 @@
+{% include 'LS_5906464808_global' %}
+<!-- /snippets/product-grid-item.liquid -->
+{% comment %}
+
+  This snippet is used to showcase each product during the loop,
+  'for product in collection.products' in collection.liquid.
+
+  A liquid variable (grid_item_width) is set just before the this
+  snippet is included to change the size of the container.
+  Once the variable is set on a page, all future instances of this
+  snippet will use that width. Overwrite the variable to adjust this.
+
+  Example
+    - assign grid_item_width = 'large--one-quarter medium--one-half'
+
+{% endcomment %}
+
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'large--one-third medium--one-half' %}
+{% endunless %}
+
+{% unless width %}
+  {%- assign width = 310 -%}
+{% endunless %}
+{% unless height %}
+  {%- assign height = 415 -%}
+{% endunless %}
+
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+{% capture img_id_class %}ProductImage-{{ product.featured_image.id }}{% endcapture %}
+{% capture img_wrapper_id %}ProductImageWrapper-{{ product.featured_image.id }}{% endcapture %}
+{%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+<div class="grid__item grid-product {{ grid_item_width }}{% if sold_out %} is-sold-out{% endif %} grid__item__override">
+  <div class="grid-product__wrapper">
+    <div class="grid-product__image-wrapper">
+      <a class="grid-product__image-link" href="{{ product.url | within: collection }}">
+        {% if product.featured_image.src == blank %}
+        <div class="reveal">
+          <img class="grid-product__image" src="{{ product.featured_image.src | img_url: '1024x' }}" alt="{{ product.featured_image.alt | escape }}">
+        </div>
+        {% else %}
+          {% include 'image-style' with image: product.featured_image, small_style: true, width: width, height: height, wrapper_id: img_wrapper_id, img_id_class: img_id_class %}
+          <div id="{{ img_wrapper_id }}" class="product--wrapper">
+            <div class="reveal" style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100 }}%;">
+              <img class="product--image lazyload {{ img_id_class }}"
+                   src="{{ product.featured_image | img_url: '150x150' }}"
+                   data-src="{{ img_url }}"
+                   data-widths="[180, 370, 590, 740, 900, 1080, 1296, 1512, 1728, 2048]"
+                   data-aspectratio="{{ product.featured_image.aspect_ratio }}"
+                   data-sizes="auto"
+                   alt="{{ product.featured_image.alt | escape }}">
+               <div class="hidden">
+                    {% assign image_index = product.images.size | minus: 1 %}
+                    <img src="{{ product.images[image_index] | img_url: 'large' }}" alt="{{ product.images.last.alt | escape }}" />
+                    <div class="caption">
+                      <div class="centered" style="position: relative; bottom: 5px; padding: 5px; vertical-align: bottom;">
+                        {% for option in product.options %}
+                        {% if option == 'Größe' %}
+                        <table id="hover_table"><tr class=size-row">
+                          {% assign index = forloop.index0 %}
+                          {% assign sizelist = '' %}
+                          {% assign size = '' %}
+                          {% for variant in product.variants %}
+                            {% capture size %}{{ variant.options[index] }}{% endcapture %}
+                            {% unless sizelist contains size %}
+                              {% if variant.available == false %}
+                                {% assign available = false %}
+                              {% else %}
+                                {% assign available = true %}
+                              {% endif %}
+                              <!-- <a class="grid-product__image-link" href="{{ product.url | within: collection }}"> -->
+                              <!-- <p class="grid__item__hover-size{% if available == false %} grid__item__hover-size_out_of_stock{% endif %}">
+                                {{ size }}
+                              </p> -->
+                              <!-- </a> -->
+                              <!-- Add to card button -->
+                              <td class="size_button"><form method="post" action="/cart/add">
+                                <input type="hidden" name="id" value="{{ variant.id }}" />
+                                <input type="button" onClick="Submit()" value="{{ size }}" class="btn direct_size_buy_button" {% if available == false %}disabled="disabled"{% endif %} />
+                              </form></td>
+                              {% assign tempList = sizelist | append: size %}
+                              {% assign tempList = tempList | append: ' ' %}
+                              {% assign sizelist = tempList %}
+                            {% endunless %}
+                          {% endfor %}
+                        </tr></table>
+                        {% endif %}
+                      {% endfor %}
+                      </div><!-- end of .centered -->
+                    </div><!-- end of .caption -->
+               </div> <!-- hidden -->
+             </div>
+          </div>
+          <noscript>
+          <div class="reveal">
+            <img class="grid-product__image" src="{{ product.featured_image.src | img_url: '1024x' }}" alt="{{ product.featured_image.alt | escape }}">
+          </div>
+          </noscript>
+        {% endif %}
+      </a>
+      {% if sold_out %}
+        <div class="grid-product__sold-out">
+          <p>{% include 'LS_5906464808_locales', LS_locales_item: 'products.product.sold_out_html',   %}{% if LS_5906464808_locales_value == '' %}{{ 'products.product.sold_out_html' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</p>
+        </div>
+      {% elsif on_sale %}
+        <div class="grid-product__on-sale">
+          {% capture saved_amount %}{{ product.compare_at_price | minus: product.price | money_without_trailing_zeros }}{% endcapture %}
+          <p>{% include 'LS_5906464808_locales', LS_locales_item: 'products.general.save_html',  saved_amount: saved_amount  %}{% if LS_5906464808_locales_value == '' %}{{ 'products.general.save_html' | t: saved_amount: saved_amount }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</p>
+        </div>
+      {% endif %}
+    </div>
+
+    <a href="{{ product.url | within: collection }}" class="grid-product__meta">
+    <div style="width: 100%;">
+
+        {% assign colorlist = '' %}
+        {% assign productColor = 'UNSET' %}
+        {% for option in product.options %}
+          {% if option == 'Color' %}
+            {% assign index = forloop.index0 %}
+            {% for variant in product.variants %}
+              {% capture color %}{{ variant.options[index] }}{% endcapture %}
+              {% assign productColor = color %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+
+      <div style="overflow: hidden; white-space: nowrap;"><span class="grid-product__title" style="overflow: hidden; white-space: nowrap;">{% include 'LS_5906464808_title', item: product %}{{ LS_5906464808_item_title  }}</span></div>
+      <p class="product-color-text">{{ productColor }}</p>
+      <span class="grid-product__price-wrap">
+        <span class="grid-product__price">
+          {% if on_sale %}
+            <span class="visually-hidden">{% include 'LS_5906464808_locales', LS_locales_item: 'products.general.sale_price',   %}{% if LS_5906464808_locales_value == '' %}{{ 'products.general.sale_price' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+          {% else %}
+             <span class="visually-hidden">{% include 'LS_5906464808_locales', LS_locales_item: 'products.general.regular_price',   %}{% if LS_5906464808_locales_value == '' %}{{ 'products.general.regular_price' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+          {% endif %}
+          {% if product.price_varies %}
+            {% if LS_5906464808_curr and shop.metafields.langshop['currSwitcherType'] and shop.metafields.langshop['currSwitcherType'] != "disabled" %}{% include 'LS_5906464808_curr_converter', LS_price: product.price_min, LS_format: 'money_without_trailing_zeros' %}{{ LS_5906464808_curr_converter }}{% else %}{{ product.price_min | money_without_trailing_zeros }}{% endif %}
+            <span class="icon-fallback-text">
+              <span class="icon icon-plus grid-product__price-min" aria-hidden="true"></span>
+              <span class="fallback-text">+</span>
+            </span>
+          {% else %}
+            <span {% if on_sale %}style="color: red;"{% endif %}>{% if LS_5906464808_curr and shop.metafields.langshop['currSwitcherType'] and shop.metafields.langshop['currSwitcherType'] != "disabled" %}{% include 'LS_5906464808_curr_converter', LS_price: product.price, LS_format: 'money_without_trailing_zeros' %}{{ LS_5906464808_curr_converter }}{% else %}{{ product.price | money_without_trailing_zeros }}{% endif %} </span>
+            {% if on_sale %}
+              <span class="product-price-to-compare">{% if LS_5906464808_curr and shop.metafields.langshop['currSwitcherType'] and shop.metafields.langshop['currSwitcherType'] != "disabled" %}{% include 'LS_5906464808_curr_converter', LS_price: product.compare_at_price, LS_format: 'money_without_trailing_zeros' %}{{ LS_5906464808_curr_converter }}{% else %}{{ product.compare_at_price | money_without_trailing_zeros }}{% endif %}</span> 
+            {% endif %}
+          {% endif %}
+        </span>
+      </span>
+      
+      {% comment %} 
+      STAR RATING - added by THOMAS 
+      
+      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+      {% endcomment %}
+      
+      {% capture LS_locales_settings_key %}{{ section.id }}.product_vendor_enable{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.product_vendor_enable  or LS_5906464808_settings_value != blank %}
+        <p class="grid-product__vendor">{{ product.vendor }}</p>
+      {% endif %}
+      <!--
+      <p style="min-height: 25px;">
+        {% for option in product.options %}
+          {% if option == 'Farbe' %}
+            {% assign index = forloop.index0 %}
+            {% assign colorlist = '' %}
+            {% assign color = '' %}
+            {% for variant in product.variants %}
+              {% capture color %}{{ variant.options[index] }}{% endcapture %}
+              {% unless colorlist contains color %}
+                <img src="{{ color | downcase | append: '.gif' | asset_url }}" width="16" height="16" />
+                {% assign tempList = colorlist | append: color %}
+                {% assign tempList = tempList | append: ' ' %}
+                {% assign colorlist = tempList %}
+              {% endunless %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </p>
+      -->
+    </div>
+    </a>
+  </div>
+</div>

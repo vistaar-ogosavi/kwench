@@ -1,0 +1,23 @@
+{% comment %}
+  Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
+{% endcomment %}
+
+
+{% for product in collection.products %}
+    {% if product.title contains product_title %}
+      {% assign product_title_s = product.title | split: "| "  %}
+      <div data-value="{{ product_title_s[1] | escape }}" class="swatch-element color {{ product_title_s[1] | downcase }} available custom_color_choose">
+        <div class="tooltip">
+          <span class="tooltiptext">{{ product_title_s[1] }}</span>
+        </div>
+      </div>
+
+      <input id="swatch-1-{{ product_title_s[1] | downcase }}" type="radio" name="option-1" value="{{ product_title_s[1] | escape }}" checked=""> 
+      <label for="swatch-1-{{ product_title_s[1] | downcase }}" style="background-color: {{ product_title_s[1] | downcase }};">
+        <a href="{{collection.url | append:product.url}}" >        
+          <span>&nbsp;&nbsp;&nbsp;</span>
+        </a>
+        <!-- <img class="crossed-out" src="//cdn.shopify.com/s/files/1/0077/8649/6080/t/2/assets/soldout.png?15822371274988690314" /> -->
+      </label>
+    {% endif %}
+{% endfor %}

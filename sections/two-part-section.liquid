@@ -1,0 +1,102 @@
+<div id="section4">
+    <div class="feature-row">
+        <div class="feature-row__item">
+        <div class="section4_left_wrapper"  >
+      <img src="{{ section.settings.left_content_wrapper | img_url: 'master' }}" style="width:100%"/>
+
+                <div class="left_content_wrapper " style="color:{{ section.settings.left_content_color}} ">
+                    <div class="title_left"> {{section.settings.left_content_caption}}<br>
+                     <div class=" black btn">
+                        <a href="{{section.settings.left_content_url}}" style="color:{{section.settings.left_btn_text_color}}" >explore</a>
+                    </div>
+                    </div>
+                    <br>
+                   
+                </div>
+        </div>
+        </div>
+        <div class="feature-row__item last">
+         <div class="section4_right_wrapper" >
+      <img src="{{ section.settings.right_content_wrapper | img_url: 'master' }}" style="width:100%"/>
+               
+             <div class="right_content_wrapper ">
+                 <div class="title_right " style="color:{{ section.settings.right_content_color}}">{{section.settings.right_content_caption}} <br> 
+                     <div class=" black btn">
+                        <a href="{{section.settings.right_content_url}}" style="color:{{section.settings.right_btn_text_color}}" >explore</a>
+                </div>             
+                    </div>
+                    <br>
+                
+            </div>
+      </div>
+      </div>
+   </div>
+</div>
+{% schema %}
+{
+  "name": " Two part section",
+  "settings":[
+          {
+            "id":"left_content_wrapper",
+            "type":"image_picker",
+            "label":"Left block image"
+          },
+           {
+            "id":"left_content_caption",
+            "type":"text",
+            "label":"Left block caption"
+          },
+          {
+            "id":"left_content_url",
+            "type":"url",
+            "label":"Left block url"
+          },
+           {
+            "id":"left_content_color",
+            "type":"color",
+            "label":"color"
+          },
+            {
+            "id":"left_btn_text_color",
+            "type":"color",
+             "label":"Text color"
+          },
+          {
+            "id":"right_content_wrapper",
+            "type":"image_picker",
+            "label":"Right block image"
+          },
+          {
+            "id":"right_content_caption",
+            "type":"text",
+            "label":"Right block caption"
+          },
+            {
+            "id":"right_content_url",
+            "type":"url",
+            "label":"Right block url"
+          },
+           {
+            "id":"right_content_color",
+            "type":"color",
+            "label":"color"
+          },
+           {
+            "id":"right_btn_text_color",
+            "type":"color",
+            "label":"Text color"
+          }
+         ],
+  "presets": [{
+      "name": "Two part section",
+      "category": "Collection"
+      
+    }]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

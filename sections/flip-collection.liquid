@@ -1,0 +1,224 @@
+<div id="section_flip_box"> 
+                <div class="feature-row__item  custom_row1 flip_row flip_row_heading ">
+                        <div class="flip_content_text">
+                               Just Arrived                                                    
+                        </div>
+                </div>
+                <div class="feature-row">
+                            
+                <div class="feature-row__item feature-row__item_mobile_half flip_row ">
+                    {% assign product_id1 = section.settings.product1 %}
+                               {% comment %} {{ all_products[product_id].images | json }} {% endcomment %}
+                  <a href="{{ all_products[product_id1].url }}" >
+                        <div class="flip_box">
+                        <div class="flip_box_inner">
+                            <div class="flip_img1 flip_img">
+                           
+                            
+                      
+                      
+                            <img src="{{  all_products[product_id1].images[0] | img_url: 'large' }}" alt="{{ product.title | escape  }}" class="new-product-image"  />
+                            <img src="{{  all_products[product_id1].images[1] | img_url: 'large' }}" alt="{{ product.title | escape  }}" class="new-product-image_back"  /> 
+
+                            </div>
+                       
+                            <p>{{ all_products[product_id1].title }}<br>{{ all_products[product_id1].price | money }}</p>                      
+                           
+                         </div>
+                         </div>
+                     
+                    </a>      
+                </div>
+                
+                <div class="feature-row__item feature-row__item_mobile_half flip_row ">
+                    {% assign product_id2 = section.settings.product2 %}
+                               {% comment %} {{ all_products[product_id].images | json }} {% endcomment %}
+                  <a href="{{ all_products[product_id2].url }}" >
+                        <div class="flip_box">
+                        <div class="flip_box_inner">
+                            <div class="flip_img1 flip_img">
+                           
+                            
+                      
+                      
+                            <img src="{{  all_products[product_id2].images[0] | img_url: 'large' }}" alt="{{ product.title | escape  }}" class="new-product-image"  />
+                            <img src="{{  all_products[product_id2].images[1] | img_url: 'large' }}" alt="{{ product.title | escape  }}" class="new-product-image_back"  /> 
+
+                            </div>
+                        <p>{{ all_products[product_id2].title }}<br>{{ all_products[product_id2].price | money }}</p>
+
+                           
+                         </div>
+                         </div>
+                       
+                                                 
+                    </a>      
+                </div>
+                
+                <div class="feature-row__item feature-row__item_mobile_half flip_row  ">
+                    {% assign product_id3= section.settings.product3 %}
+                               {% comment %} {{ all_products[product_id].images | json }} {% endcomment %}
+                  <a href="{{ all_products[product_id3].url }}" >
+                        <div class="flip_box">
+                        <div class="flip_box_inner">
+                            <div class="flip_img1 flip_img">
+                           
+                            
+                      
+                      
+                            <img src="{{  all_products[product_id3].images[0] | img_url: 'large' }}" alt="{{ product.title | escape  }}" class="new-product-image"  />
+                            <img src="{{  all_products[product_id3].images[1] | img_url: 'large' }}" alt="{{ product.title | escape  }}" class="new-product-image_back"  /> 
+
+                            </div>
+                         <p>{{ all_products[product_id3].title }}<br>{{ all_products[product_id3].price | money }}</p>
+
+                         </div>
+                         
+                         </div>
+                       
+                      
+                                                 
+                    </a>      
+                </div>
+
+                <div class="feature-row__item feature-row__item_mobile_half flip_row ">
+                    {% assign product_id4= section.settings.product4 %}
+                               {% comment %} {{ all_products[product_id].images | json }} {% endcomment %}
+                  <a href="{{ all_products[product_id4].url }}" >
+                        <div class="flip_box">
+                        <div class="flip_box_inner">
+                            <div class="flip_img1 flip_img">
+                           
+                            
+                      
+                      
+                            <img src="{{  all_products[product_id4].images[0] | img_url: 'large' }}" alt="{{ product.title | escape  }}" class="new-product-image"  />
+                            <img src="{{  all_products[product_id4].images[1] | img_url: 'large' }}" alt="{{ product.title | escape  }}" class="new-product-image_back"  /> 
+
+                            </div>
+                         <p>{{ all_products[product_id4].title }}<br>{{ all_products[product_id4].price | money }}</p>
+
+                         </div>
+                         
+                         </div>
+                       
+                      
+                                                 
+                    </a>      
+                </div>
+               
+            
+                {% comment %} {% for product in collections.home-flip.products  %}
+             
+                <div class="feature-row__item feature-row__item_mobile_half flip_row ">
+                  <a href="{{ product.url }}" >
+                        <div class="flip_box">
+                        <div class="flip_box_inner">
+                            <div class="flip_img1 flip_img">
+                            {% assign i = 1 %}
+                            {% for image in product.images %}
+                               {% assign i = i | plus: 1 %}
+                              {% comment %} {% if i == 1 %}
+                       
+                             <img src=" {{ image | img_url: 'medium' }}" alt="{{ product.title | escape  }}" class="new-product-image"  />
+
+                             {% endif %}
+                            {% if i == 2 %}
+                             <img src=" {{ image | img_url: 'medium' }}" alt="{{ product.title | escape  }}" class="new-product-image_back"  />
+                    
+                            {%else%}
+                             {% break %}
+                             {% endif %}
+                             {% endcomment %}
+                             {% if i == 2 %}
+                              <img src=" {{ image | img_url: 'large' }}" alt="{{ product.title | escape  }}" class="new-product-image"  />
+                             
+                             {% endif %}
+                               {% if i == 3 %}
+                              <img src=" {{ image | img_url: 'large' }}" alt="{{ product.title | escape  }}" class="new-product-image_back"  />                            
+                             {% endif %}
+
+                            
+                      
+                           {% endfor %}
+                            {% comment %} <img src="{{ product.images.first | img_url: 'large' }}" alt="{{ product.title | escape  }}" class="new-product-image"  /> {% endcomment %}
+                            {% comment %} <img src="{{ product.images.second | img_url: 'large' }}" alt="{{ product.title | escape  }}" class="new-product-image_back"  /> {% endcomment %}
+
+                            {% comment %} <img src="https://image.ibb.co/kUcqhf/vital-seamless-4.jpg" class="new-product-image" alt="clothes">
+                            <img src="https://image.ibb.co/cMk5oA/vital-pink-seamlesss-leggings-womens-4.jpg" class="new-product-image_back" alt="clothes">                             {% endcomment %}
+                            </div>
+                           
+                         </div>
+                         </div>
+                        <p>{{ product.title }}<br>{{ product.price | money }}</p>
+                        
+                                                 
+                    </a>      
+                </div>
+               
+                {% endfor %} {% endcomment %}
+             
+               
+        
+     </div>
+</div>
+{% comment %} {% for product in collection.all_products %}
+    {% if product.handle contains 'neo-hoodie' %}
+      {{true}}
+        <img src="{{ collection | img_url: 'large' }}" alt="{{ collection.image.alt }}" />
+      {% else %}
+    {% endif %}
+{% endfor %} {% endcomment %}
+
+{% comment %} {% for product in collections.home-flip.products  %}
+{{Abc}}
+ <img src="{{ product | img_url: 'large' }}" alt="{{ collection.title | escape  }}" />
+{% endfor %} {% endcomment %}
+
+ {% comment %} {% for collection in collections %}
+      {% if collection.image %}
+        <img src="{{ collection | img_url: 'large' }}" alt="{{ collection.image.alt }}" />
+      {% else %}
+        <img src="{{ collection.products.first | img_url: 'large' }}" alt="{{ collection.title | escape  }}" />
+      {% endif %}
+{% endfor %} 
+</div> {% endcomment %}
+
+
+{% schema %}
+{
+  "name": " Featured Products",
+  "settings":[   {
+      "type": "product",
+      "id": "product1",
+      "label": "Select first product"
+    },
+     {
+      "type": "product",
+      "id": "product2",
+      "label": "Select second product"
+    },
+     {
+      "type": "product",
+      "id": "product3",
+      "label": "Select third product"
+    },
+    {
+      "type": "product",
+      "id": "product4",
+      "label": "Select fourth product"
+    }         
+         ],
+  "presets": [{
+      "name": "Flip box products",
+      "category": "Collection"
+      
+    }] 
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

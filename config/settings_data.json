@@ -1,0 +1,838 @@
+{
+  "current": {
+    "color_body_bg": "#ffffff",
+    "color_headings": "#222323",
+    "color_body_text": "#000000",
+    "color_borders": "#1c1d1d",
+    "color_button_text": "#ffffff",
+    "color_primary": "#151515",
+    "color_secondary": "#1da5de",
+    "color_product_background": "#f6f6f6",
+    "color_sale_tag": "#ff0000",
+    "color_input": "#f6f6f6",
+    "color_newsletter": "#f6f6f6",
+    "color_drawer_background": "#1c1d1d",
+    "color_drawer_text": "#ffffff",
+    "color_drawer_border": "#343535",
+    "color_drawer_button": "#1da5de",
+    "color_drawer_button_text": "#ffffff",
+    "type_header_family": "Google_Lato_700_sans",
+    "type_header_base_size": "30px",
+    "type_header_border_thickness": "2px",
+    "type_accent_family": "'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+    "type_accent_transform": true,
+    "type_accent_spacing": true,
+    "type_accent_subheadings": true,
+    "type_base_family": "'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+    "type_base_size": "14px",
+    "type_base_italize_titles": true,
+    "cart_type": "page",
+    "cart_notes_enable": false,
+    "share_image": "",
+    "social_facebook_link": "https:\/\/www.facebook.com\/kwenchwear\/",
+    "social_twitter_link": "https:\/\/twitter.com\/kwenchwear",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/kwenchwear\/",
+    "social_snapchat_link": "",
+    "social_google_plus_link": "https:\/\/plus.google.com\/105113738212365684401",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "social_fancy_link": "",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": false,
+    "favicon": "",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#00d6ff",
+    "checkout_button_color": "#000000",
+    "checkout_error_color": "#ff6d6d",
+    "checkout_banner_background_color": "#fff",
+    "checkout_call_to_action_color": "#a26b25",
+    "checkout_use_header_image": false,
+    "collection_products_grid": "collage",
+    "customer_layout": "customer_area",
+    "favicon_enable": false,
+    "product_vendor_enable": false,
+    "social_sharing_style": "clean",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "main_menu_link_list": "main-menu",
+          "logo": "shopify:\/\/shop_images\/kwench-logo_300-dpi-02-1024x521_180x_c40a002c-91a3-4d49-927c-840a507a9dc9.png",
+          "logo-inverted": "",
+          "logo_max_width": "120",
+          "search": "modal",
+          "show_announcement": false,
+          "home_page_only": false,
+          "text": "Announce something here",
+          "link": "",
+          "color_bg": "#ffffff",
+          "color_text": "#ffffff"
+        }
+      },
+      "slideshow": {
+        "type": "slideshow",
+        "settings": {
+          "hero_home_auto": true,
+          "home_hero_auto_speed": "10000",
+          "slide_text_color": "#fefefe",
+          "slide_button_label_color": "#fbfbfb",
+          "slide_button_background_color": "#1da5de"
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "heading": "Subscribe to our newsletter",
+          "subheading": "A short sentence describing what someone will receive by subscribing"
+        }
+      },
+      "drawer-menu": {
+        "type": "drawer-menu",
+        "settings": {
+          "drawer_top_link_list": "main-menu",
+          "drawer_bottom_link_list": "",
+          "drawer_search_enable": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_link_list": "footer"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "collection_products_grid": "grid",
+          "collection_sort_enable": false,
+          "collection_tags_enable": false,
+          "product_vendor_enable": false
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "zoom_enable": true,
+          "social_sharing_products": true,
+          "product_vendor_enable": true,
+          "image_layout": "stacked",
+          "quantity_enabled": true,
+          "product_selector": "radio",
+          "add_to_cart_button_size": "large"
+        }
+      },
+      "1512226243990": {
+        "type": "newsletter",
+        "settings": {
+          "heading": "Subscribe to our newsletter",
+          "subheading": "We will use your email to send you special offers, useful tips for fitness enthusiasts and invitations to exclusive events. You can unsubscribe at any time - obviously."
+        }
+      },
+      "related-products": {
+        "type": "related-products",
+        "settings": {
+          "show_related_products": true,
+          "related_title": "Other people looked at",
+          "related_grid_num": "4",
+          "related_grid_row": "1"
+        }
+      },
+      "collection-image-template": {
+        "type": "collection-image-template",
+        "settings": {
+          "collection_products_grid": "grid",
+          "collection_tags_enable": false,
+          "product_vendor_enable": false
+        }
+      },
+      "1528097216291": {
+        "type": "featured-video",
+        "disabled": true,
+        "settings": {
+          "heading": "#Teamkwench",
+          "video_url": "https:\/\/youtu.be\/jsEnaWmFxiQ"
+        }
+      },
+      "1537445447805": {
+        "type": "advanced-content",
+        "blocks": {
+          "1537445447805-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"gfw-instashow\"> <\/div><script src=\"https:\/\/greenfrogweb.com\/instashow\/instashow.js\" data-shop=\"kwench.myshopify.com\"><\/script>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "1537445447805-0"
+        ],
+        "settings": {}
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical"
+        }
+      },
+      "1542610247293": {
+        "type": "advanced-content",
+        "disabled": true,
+        "blocks": {
+          "1542707302048": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"section_tag\"> \n            <div class=\"section_tag_wrapper\">\n                <div class=\"section_tag_text_content\">\n                    WEBSITE IS FOR EDUCATIONAL PURPOSES ONLY\n               <\/div>\n\n            <\/div>\n        \n <\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          },
+          "1542610247293-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"section1\">\n    <div class=\"container banner\">\n        <div class=\"banner_btn_wrapper\">\n            <div class=\"banner_head\">\n            just add energy\n            <\/div>\n            <br>\n            <div class=\"banner_caption\">Energy + Seamless is engineered to perform and designed to flatter<\/div>\n            <br>\n            <div class=\"btn\">\n            <a href=\"\">Explore<\/a>\n            <\/div>\n        <\/div>\n    <\/div>\n    \n<\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          },
+          "1542792760288": {
+            "type": "html",
+            "settings": {
+              "code": "<div class=\"banner_btn_wrapper_mobile\">\n    <div class=\"banner_head\">\n    just add energy\n    <\/div>\n    <br>\n    <div class=\"banner_caption\">Energy + Seamless is engineered to perform and designed to flatter<\/div>\n    <br>\n    <div class=\"btn\">\n    <a href=\"\">Explore<\/a>\n    <\/div>\n<\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "1542707302048",
+          "1542610247293-0",
+          "1542792760288"
+        ],
+        "settings": {}
+      },
+      "1542791508756": {
+        "type": "advanced-content",
+        "disabled": true,
+        "blocks": {
+          "1542791508756-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"section_flip_box\"> \n            <div class=\"feature-row\">\n\n\n                <div class=\"feature-row__item feature-row__item_mobile_half custom_row1 flip_row \">\n                        <div class=\"flip_content_text\">\n                                NEW  RELEASES\n                        <\/div>\n                <\/div>\n                <div class=\"feature-row__item feature-row__item_mobile_half flip_row \">\n                        <div class=\"flip_box\">\n                        <div class=\"flip_box_inner\">\n                            <div class=\"flip_img1 flip_img\">\n                            <img src=\"https:\/\/image.ibb.co\/kUcqhf\/vital-seamless-4.jpg\" class=\"new-product-image\" alt=\"clothes\">\n                            <img src=\"https:\/\/image.ibb.co\/cMk5oA\/vital-pink-seamlesss-leggings-womens-4.jpg\" class=\"new-product-image_back\" alt=\"clothes\">                            \n                            <\/div>\n                           \n                         <\/div>\n                         <\/div>\n                        <p>Vital Seamless Leggings<\/p>\n                        <p>Blue <br> $50<\/p>\n                         \n                        \n                         \n                <\/div>\n                <div class=\"feature-row__item feature-row__item_mobile_half flip_row \">\n                    \n                        <div class=\"flip_box\">\n                        <div class=\"flip_box_inner\">\n                            <div class=\"flip_img2 flip_img \">\n                            <img src=\"https:\/\/image.ibb.co\/kUcqhf\/vital-seamless-4.jpg\" class=\"new-product-image\" alt=\"clothes\">\n                            <img src=\"https:\/\/image.ibb.co\/cMk5oA\/vital-pink-seamlesss-leggings-womens-4.jpg\" class=\"new-product-image_back\" alt=\"clothes\">\n\n                            <\/div>\n                           \n                       <\/div>\n                       <\/div>\n                       <p>Vital Seamless Leggings<\/p>\n                       <p>Blue <br> $50<\/p>   \n                        \n                <\/div>\n                <div class=\"feature-row__item feature-row__item_mobile_half flip_row \">\n                        <div class=\"flip_box\">\n                        <div class=\"flip_box_inner\">\n                            <div class=\"flip_img3 flip_img\">\n                                    <img src=\"https:\/\/image.ibb.co\/kUcqhf\/vital-seamless-4.jpg\" class=\"new-product-image\" alt=\"clothes\">\n                                  <img src=\"https:\/\/image.ibb.co\/cMk5oA\/vital-pink-seamlesss-leggings-womens-4.jpg\" class=\"new-product-image_back\" alt=\"clothes\">\n                            <\/div>\n                           \n                        <\/div>\n                        <\/div>\n                        <p>Vital Seamless Leggings<\/p>\n                        <p>Blue <br> $50<\/p>\n                       \n                <\/div>\n               \n    \n        \n        <\/div>\n<\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "1542791508756-0"
+        ],
+        "settings": {}
+      },
+      "1542791570096": {
+        "type": "advanced-content",
+        "disabled": true,
+        "blocks": {
+          "1542791570096-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"section2\"> \n            <div class=\"section2_wrapper\">\n                <div class=\"section2_text_content\">\n                 \n                  <div class=\"btn btn_custom\">\n                        <a href=\"\" class=\"text-link\">Explore<\/a>\n                        <\/div>\n               <\/div>\n\n            <\/div>\n        \n        <\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          },
+          "1542797682739": {
+            "type": "html",
+            "settings": {
+              "code": "<div class=\"section2_text_content_mobile\">\n                 \n                  <div class=\"btn btn_custom\">\n                        <a href=\"\" class=\"text-link\">Explore<\/a>\n                        <\/div>\n        <\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "1542791570096-0",
+          "1542797682739"
+        ],
+        "settings": {}
+      },
+      "1542791642587": {
+        "type": "advanced-content",
+        "disabled": true,
+        "blocks": {
+          "1542791642587-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"section3\"> \n            <div class=\"section3_wrapper\">\n                <div class=\"section3_text_content\">\n                  <div class=\"section3_title\">\n                        STYLE OVERSIZED<br>\n                        STYLE EMPHASISED<br>\n\n                  <\/div>  \n                  <div class=\"section3_caption\">\n                    Full of character,the Oversized collection oozes urban style\n                  <\/div>\n                  <div class=\"btn btn_custom\">\n                        <a href=\"\" class=\"text-link\">Explore<\/a>\n                        <\/div>\n               <\/div>\n\n            <\/div>\n        \n        <\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          },
+          "1542792980285": {
+            "type": "html",
+            "settings": {
+              "code": "<div class=\"section3_text_content_mobile\">\n                  <div class=\"section3_title\">\n                        STYLE OVERSIZED<br>\n                        STYLE EMPHASISED<br>\n\n                  <\/div>  \n                  <div class=\"section3_caption\">\n                    Full of character,the Oversized collection oozes urban style\n                  <\/div>\n                  <div class=\"btn btn_custom\">\n                        <a href=\"\" class=\"text-link\">Explore<\/a>\n                        <\/div>\n               <\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "1542791642587-0",
+          "1542792980285"
+        ],
+        "settings": {}
+      },
+      "1542791727048": {
+        "type": "advanced-content",
+        "disabled": true,
+        "blocks": {
+          "1542791727048-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"section4\">\n    <div class=\"feature-row\">\n        <div class=\"feature-row__item\">\n        <div class=\"section4_left_wrapper\">\n                <div class=\"left_content_wrapper \">\n                    <div class=\"title_left\">Shop<br>Mens\n                    <\/div>\n                    <br>\n                    <div class=\" black btn\">\n                        explore\n                    <\/div>\n                <\/div>\n        <\/div>\n      \n        <\/div>\n        <div class=\"feature-row__item last\">\n         <div class=\"section4_right_wrapper\">\n               \n             <div class=\"right_content_wrapper \">\n                 <div class=\"title_right\">\n                     Shop<br>\n                     Womens                     \n                    <\/div>\n                    <br>\n                <div class=\" black btn\">\n                    explore\n                <\/div>\n            <\/div>\n    \n        <\/div>\n        <\/div>\n        <\/div>\n        <\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "1542791727048-0"
+        ],
+        "settings": {}
+      },
+      "1542791782577": {
+        "type": "advanced-content",
+        "disabled": true,
+        "blocks": {
+          "1542791782577-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"section5\"> \n            <div class=\"section5_wrapper\">\n                <div class=\"section5_text_content\">\n                  <div class=\"section5_title\">\n                        STUDENT <br>\n                        DISCOUNT<br>\n                        \n                  <\/div>  \n                  <div class=\"section5_caption\">\n                        Get 10% OFF your order with Student Beans.\n                  <\/div>\n                  <div class=\"btn btn_custom\">\n                        <a href=\"\" class=\"text-link\">Read more<\/a>\n                        <\/div>\n               <\/div>\n\n            <\/div>\n        \n        <\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          },
+          "1542793078197": {
+            "type": "html",
+            "settings": {
+              "code": "<div class=\"section5_text_content_mobile\">\n                  <div class=\"section5_title\">\n                        STUDENT <br>\n                        DISCOUNT<br>\n                        \n                  <\/div>  \n                  <div class=\"section5_caption\">\n                        Get 10% OFF your order with Student Beans.\n                  <\/div>\n                  <div class=\"btn btn_custom\">\n                        <a href=\"\" class=\"text-link\">Read more<\/a>\n                <\/div>\n        <\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "1542791782577-0",
+          "1542793078197"
+        ],
+        "settings": {}
+      },
+      "content-pro": {
+        "type": "content-pro",
+        "settings": {
+          "main-head": ""
+        }
+      },
+      "1543231474011": {
+        "type": "custom-slider",
+        "settings": {
+          "image_banner": "shopify:\/\/shop_images\/banner-lstest-2.png",
+          "image_banner_mobile": "shopify:\/\/shop_images\/kwench-home-mobile-1.jpg",
+          "main-head": "We define Strength as the journey",
+          "heading_color": "#ffffff",
+          "banner_caption": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+          "banner_caption_color": "#ffffff",
+          "banner_btn_link": "shopify:\/\/collections\/women",
+          "banner_btn_color": "#ffffff",
+          "banner_btn_text": "shop now",
+          "banner_btn_bg_color": "#1ea5de",
+          "vertical_position": "20",
+          "content_position": "left"
+        }
+      },
+      "1543299425526": {
+        "type": "custom-tag",
+        "settings": {
+          "tag1_text": "Buy One Men's Tshirt & Get 50% Off on Shorts",
+          "color_text1": "",
+          "tag2_text": "FREE US RETURNS",
+          "color_text2": "",
+          "tag3_text": "FREE SHIPPING WHEN YOU SPEND MORE THAN 70$*",
+          "color_text3": ""
+        }
+      },
+      "1543308790469": {
+        "type": "custom-slider",
+        "disabled": true,
+        "settings": {
+          "image_banner": "shopify:\/\/shop_images\/DSC_0492_2_0eaec504-0cc5-40a9-add2-9a9f1514e069.jpg",
+          "image_banner_mobile": "",
+          "main-head": "",
+          "heading_color": "",
+          "banner_caption": "",
+          "banner_caption_color": "",
+          "banner_btn_link": "",
+          "banner_btn_color": "",
+          "banner_btn_text": "",
+          "banner_btn_bg_color": "",
+          "vertical_position": "",
+          "content_position": "left"
+        }
+      },
+      "1543309004609": {
+        "type": "custom-slider",
+        "settings": {
+          "image_banner": "shopify:\/\/shop_images\/banner-men4.png",
+          "image_banner_mobile": "shopify:\/\/shop_images\/kwench-home-mobile-2.jpg",
+          "main-head": "Be Comfortable",
+          "heading_color": "#fdffff",
+          "banner_caption": "Work-out hard with snug-fit wear",
+          "banner_caption_color": "#fdffff",
+          "banner_btn_link": "shopify:\/\/collections\/women",
+          "banner_btn_color": "#ffffff",
+          "banner_btn_text": "Shop Now",
+          "banner_btn_bg_color": "#1ea5de",
+          "vertical_position": "40",
+          "content_position": "right"
+        }
+      },
+      "1543311075194": {
+        "type": "two-part-section",
+        "disabled": true,
+        "settings": {
+          "left_content_wrapper": "shopify:\/\/shop_images\/33.png",
+          "left_content_caption": "Shop<br>Women’s",
+          "left_content_url": "shopify:\/\/collections\/women",
+          "left_content_color": "#151515",
+          "left_btn_text_color": "#f6f6f6",
+          "right_content_wrapper": "shopify:\/\/shop_images\/44.png",
+          "right_content_caption": "Shop<br>Men’s",
+          "right_content_url": "shopify:\/\/collections\/men",
+          "right_content_color": "#151515",
+          "right_btn_text_color": "#f6f6f6"
+        }
+      },
+      "1543311178266": {
+        "type": "custom-slider",
+        "settings": {
+          "image_banner": "shopify:\/\/shop_images\/woman-baner-1.png",
+          "image_banner_mobile": "shopify:\/\/shop_images\/kwench-home-mobile-3_65b6411e-17c5-4dd1-a6da-7267eac5f676.png",
+          "main-head": "Collection to make you stand out",
+          "heading_color": "#ffffff",
+          "banner_caption": "Choose a Hoody which can match your bold moves",
+          "banner_caption_color": "#ffffff",
+          "banner_btn_link": "shopify:\/\/collections\/women",
+          "banner_btn_color": "#ffffff",
+          "banner_btn_text": "shop now",
+          "banner_btn_bg_color": "#1ea5de",
+          "vertical_position": "38",
+          "content_position": "left"
+        }
+      },
+      "1543383566420": {
+        "type": "flip-box-product",
+        "disabled": true,
+        "settings": {}
+      },
+      "1543407663670": {
+        "type": "flip-collection",
+        "settings": {
+          "product1": "kinetic-tanks",
+          "product2": "hunk-stringer-4",
+          "product3": "vigor-jacket",
+          "product4": "mens-vest-gladiator-gunmetal"
+        }
+      },
+      "1543561937876": {
+        "type": "advanced-content",
+        "disabled": true,
+        "blocks": {
+          "1543561937876-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"insta-feed\"><\/div>",
+              "width": "100%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "1543561937876-0"
+        ],
+        "settings": {}
+      },
+      "1548669640423": {
+        "type": "grid-images",
+        "disabled": true,
+        "settings": {
+          "first_grid_image": "shopify:\/\/shop_images\/women-3.jpg",
+          "second_grid_image": "shopify:\/\/shop_images\/Eric-Jacket.jpg",
+          "side_grid_image": "shopify:\/\/shop_images\/India-launh-banner-for-website_720x_bb7298d3-d0f0-4ed4-ba29-408fd574b6f4.jpg",
+          "grid_bg": "shopify:\/\/shop_images\/pattern.jpg"
+        }
+      },
+      "1548673191414": {
+        "type": "two-part-blogs",
+        "settings": {
+          "main_image": "shopify:\/\/shop_images\/DSC_0547_92b7a18e-e5ca-4802-ad37-31fd90f2a77e.jpg",
+          "article_id": "strength\/where-are-you-hiding-the-real-you",
+          "article_id2": "strength\/mapping-your-way-to-holistic-strength"
+        }
+      },
+      "1550126221551": {
+        "type": "single-grid-sections",
+        "settings": {
+          "first_grid_image": "shopify:\/\/shop_images\/women-shop.png",
+          "second_grid_image": "shopify:\/\/shop_images\/men-shop.png",
+          "side_grid_image": "",
+          "grid_bg": "shopify:\/\/shop_images\/pattern.jpg"
+        }
+      }
+    },
+    "content_for_index": [
+      "1543299425526",
+      "1543231474011",
+      "1543407663670",
+      "1543383566420",
+      "1542610247293",
+      "1542791508756",
+      "1543308790469",
+      "1543309004609",
+      "1528097216291",
+      "1550126221551",
+      "1548669640423",
+      "1543311075194",
+      "1543311178266",
+      "1548673191414",
+      "1542791570096",
+      "1542791642587",
+      "1542791727048",
+      "1542791782577",
+      "1537445447805",
+      "1512226243990",
+      "1543561937876"
+    ]
+  },
+  "presets": {
+    "Classic": {
+      "cart_type": "drawer",
+      "cart_notes_enable": false,
+      "checkout_accent_color": "#a26b25",
+      "checkout_banner_background_color": "#fff",
+      "checkout_button_color": "#000000",
+      "checkout_call_to_action_color": "#a26b25",
+      "checkout_use_header_image": false,
+      "collection_products_grid": "collage",
+      "color_body_bg": "#ffffff",
+      "color_body_text": "#222323",
+      "color_borders": "#1c1d1d",
+      "color_button_text": "#ffffff",
+      "color_drawer_background": "#1c1d1d",
+      "color_drawer_border": "#343535",
+      "color_drawer_button": "#a26b25",
+      "color_drawer_button_text": "#ffffff",
+      "color_drawer_text": "#ffffff",
+      "color_headings": "#222323",
+      "color_input": "#f6f6f6",
+      "color_newsletter": "#f6f6f6",
+      "color_primary": "#1c1d1d",
+      "color_product_background": "#f7f7f7",
+      "color_sale_tag": "#990000",
+      "color_secondary": "#a26b25",
+      "customer_layout": "customer_area",
+      "favicon_enable": false,
+      "product_vendor_enable": false,
+      "share_facebook": true,
+      "share_pinterest": true,
+      "share_twitter": true,
+      "social_sharing_style": "clean",
+      "type_accent_family": "Google_Montserrat_400_sans",
+      "type_accent_spacing": true,
+      "type_accent_transform": true,
+      "type_accent_subheadings": true,
+      "type_base_family": "Google_Arapey_400_serif",
+      "type_base_italize_titles": true,
+      "type_base_size": "16px",
+      "type_header_base_size": "30px",
+      "type_header_border_thickness": "1px",
+      "type_header_family": "Google_Old+Standard+TT_400_serif",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "show_announcement": true,
+            "color_bg": "#1c1d1d",
+            "color_text": "#ffffff"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "slide",
+              "settings": {}
+            },
+            "slideshow-1": {
+              "type": "slide",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ],
+          "settings": {}
+        },
+        "featured-products": {
+          "type": "featured-products",
+          "settings": {
+            "home_featured_products": "frontpage"
+          }
+        },
+        "featured-content": {
+          "type": "featured-content",
+          "settings": {}
+        },
+        "featured-collections": {
+          "type": "featured-collections",
+          "blocks": {
+            "featured-collections-0": {
+              "type": "collection",
+              "settings": {}
+            },
+            "featured-collections-1": {
+              "type": "collection",
+              "settings": {}
+            },
+            "featured-collections-2": {
+              "type": "collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "featured-collections-0",
+            "featured-collections-1",
+            "featured-collections-2"
+          ],
+          "settings": {}
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "featured-content",
+        "featured-collections",
+        "featured-products",
+        "newsletter"
+      ]
+    },
+    "Playful": {
+      "color_body_bg": "#ffffff",
+      "color_body_text": "#565656",
+      "color_borders": "#5dd2b4",
+      "color_button_text": "#003b34",
+      "color_primary": "#5dd2b4",
+      "color_secondary": "#058677",
+      "color_product_background": "#fff4f6",
+      "color_sale_tag": "#e80970",
+      "color_input": "#f6f6f6",
+      "color_newsletter": "#bde9f2",
+      "color_drawer_background": "#360f5f",
+      "color_drawer_text": "#ffffff",
+      "color_drawer_border": "#50297a",
+      "color_drawer_button": "#5dd2b4",
+      "color_drawer_button_text": "#360f5f",
+      "color_headings": "#321863",
+      "type_header_family": "Google_Quicksand_700_sans",
+      "type_header_base_size": "38px",
+      "type_header_border_thickness": "1px",
+      "type_accent_family": "Google_Roboto_700_sans",
+      "type_accent_transform": true,
+      "type_accent_spacing": true,
+      "type_accent_subheadings": false,
+      "type_base_family": "'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+      "type_base_size": "17px",
+      "type_base_italize_titles": false,
+      "cart_type": "drawer",
+      "cart_notes_enable": true,
+      "social_facebook_link": "",
+      "social_twitter_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_snapchat_link": "",
+      "social_google_plus_link": "",
+      "social_tumblr_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "social_fancy_link": "",
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fff4f6",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Roboto",
+      "checkout_accent_color": "#0d8d7e",
+      "checkout_button_color": "#5dd2b4",
+      "checkout_error_color": "#f01130",
+      "checkout_banner_background_color": "#fff",
+      "checkout_call_to_action_color": "#a26b25",
+      "checkout_use_header_image": false,
+      "collection_products_grid": "collage",
+      "customer_layout": "customer_area",
+      "favicon_enable": false,
+      "product_vendor_enable": false,
+      "social_sharing_style": "clean",
+      "sections": {
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "1495823280244": {
+              "type": "slide",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1495823280244"
+          ],
+          "settings": {
+            "hero_home_auto": false,
+            "home_hero_auto_speed": "5000"
+          }
+        },
+        "featured-products": {
+          "type": "featured-products",
+          "settings": {
+            "home_featured_products": "frontpage",
+            "collection_products_grid": "collage"
+          }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {}
+        },
+        "drawer-menu": {
+          "type": "drawer-menu",
+          "settings": {
+            "drawer_top_link_list": "main-menu",
+            "drawer_bottom_link_list": "footer",
+            "drawer_search_enable": false
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "main_menu_link_list": "main-menu",
+            "logo_max_width": "260",
+            "search": "modal",
+            "show_announcement": false,
+            "color_bg": "#290c49",
+            "color_text": "#ffffff"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "footer_link_list": "footer"
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "collection_products_grid": "grid",
+            "collection_tags_enable": false,
+            "product_vendor_enable": false
+          }
+        },
+        "1494860348200": {
+          "type": "featured-row",
+          "settings": {
+            "layout": "right"
+          }
+        },
+        "1494894035034": {
+          "type": "featured-row",
+          "settings": {
+            "layout": "left"
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "zoom_enable": false,
+            "social_sharing_products": true,
+            "product_vendor_enable": false
+          }
+        },
+        "1496078102297": {
+          "type": "advanced-content",
+          "blocks": {
+            "1496078102297-0": {
+              "type": "html",
+              "settings": {
+                "code": "<div style=\"text-align:center;\">\n<h1 class=\"h1\">Use HTML to format your text so it can be easily read.<\/h1>This text can be used to share information about your brand with customers.<\/div>",
+                "width": "100%",
+                "alignment": "top-middle"
+              }
+            }
+          },
+          "block_order": [
+            "1496078102297-0"
+          ],
+          "settings": {}
+        },
+        "1496177901425": {
+          "type": "advanced-content",
+          "blocks": {
+            "1496177901425-0": {
+              "type": "html",
+              "settings": {
+                "code": "<div style=\"width:745px;text-align: center; margin: 0 auto;\">This text can be used to share information about your brand with customers.<\/div>",
+                "width": "100%",
+                "alignment": "top-middle"
+              }
+            }
+          },
+          "block_order": [
+            "1496177901425-0"
+          ],
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "1496177901425",
+        "featured-products",
+        "newsletter",
+        "1496078102297",
+        "1494860348200",
+        "1494894035034"
+      ]
+    }
+  }
+}

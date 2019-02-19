@@ -1,0 +1,34 @@
+{% include 'LS_5906464808_global' %}
+<!-- /snippets/social-sharing.liquid -->
+{% capture LS_locales_settings_key %}social_sharing_style{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{% assign shareButtonStyle = settings.social_sharing_style %}{% else %}{% assign shareButtonStyle = LS_5906464808_settings_value  %}{% endif %}
+
+<div class="social-sharing {{ shareButtonStyle }}">
+
+  {% capture LS_locales_settings_key %}share_facebook{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.share_facebook  or LS_5906464808_settings_value != blank %}
+    <a target="_blank" href="//www.facebook.com/sharer.php?u={{ shop.url | append: share_permalink }}" class="share-facebook" title="{% include 'LS_5906464808_locales', LS_locales_item: 'general.social.alt_text.share_on_facebook',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.social.alt_text.share_on_facebook' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+      <span class="icon icon-facebook" aria-hidden="true"></span>
+      <span class="share-title" aria-hidden="true">{% include 'LS_5906464808_locales', LS_locales_item: 'general.social.share_on_facebook',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.social.share_on_facebook' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+      <span class="visually-hidden">{% include 'LS_5906464808_locales', LS_locales_item: 'general.social.alt_text.share_on_facebook',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.social.alt_text.share_on_facebook' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+    </a>
+  {% endif %}
+
+  {% capture LS_locales_settings_key %}share_twitter{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.share_twitter  or LS_5906464808_settings_value != blank %}
+    <a target="_blank" href="//twitter.com/share?text={{ share_title | url_param_escape }}&amp;url={{ shop.url | append: share_permalink }}" class="share-twitter" title="{% include 'LS_5906464808_locales', LS_locales_item: 'general.social.alt_text.share_on_twitter',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.social.alt_text.share_on_twitter' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+      <span class="icon icon-twitter" aria-hidden="true"></span>
+      <span class="share-title" aria-hidden="true">{% include 'LS_5906464808_locales', LS_locales_item: 'general.social.share_on_twitter',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.social.share_on_twitter' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+      <span class="visually-hidden">{% include 'LS_5906464808_locales', LS_locales_item: 'general.social.alt_text.share_on_twitter',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.social.alt_text.share_on_twitter' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+    </a>
+  {% endif %}
+
+  {% capture LS_locales_settings_key %}share_pinterest{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if settings.share_pinterest  or LS_5906464808_settings_value != blank %}
+    <a target="_blank" href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_permalink }}&amp;media={{ share_image | img_url: '1024x1024' }}&amp;description={{ share_title | url_param_escape }}" class="share-pinterest" title="{% include 'LS_5906464808_locales', LS_locales_item: 'general.social.alt_text.share_on_pinterest',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.social.alt_text.share_on_pinterest' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}">
+      <span class="icon icon-pinterest" aria-hidden="true"></span>
+      <span class="share-title" aria-hidden="true">{% include 'LS_5906464808_locales', LS_locales_item: 'general.social.share_on_pinterest',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.social.share_on_pinterest' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+      <span class="visually-hidden">{% include 'LS_5906464808_locales', LS_locales_item: 'general.social.alt_text.share_on_pinterest',   %}{% if LS_5906464808_locales_value == '' %}{{ 'general.social.alt_text.share_on_pinterest' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}</span>
+    </a>
+  {% endif %}
+
+</div>

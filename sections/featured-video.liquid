@@ -1,0 +1,53 @@
+{% include 'LS_5906464808_global' %}
+<div class="wrapper">
+  {% capture LS_locales_settings_key %}{{ section.id }}.heading{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.heading != blank or LS_5906464808_settings_value != blank %}
+    <div class="section-header text-center">
+      <h2 class="h1 section-header__title">{% capture LS_locales_settings_key %}{{ section.id }}.heading{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.heading | escape }}{% else %}{{ LS_5906464808_settings_value | escape  }}{% endif %}</h2>
+      <hr class="hr--small">
+    </div>
+  {% endif %}
+  <div class="grid">
+    <div class="grid__item one-whole">
+      <div class="video-wrapper">
+        {% capture LS_locales_settings_key %}{{ section.id }}.video_url{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
+{%  if section.settings.video_url == blank and LS_5906464808_settings_value == blank %}
+          <iframe src="//www.youtube.com/embed/_9VUPq3SxOc?rel=0&showinfo=0&vq=720" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+        {% else %}
+          {% if section.settings.video_url.type == "youtube" %}
+            <iframe src="//www.youtube.com/embed/{% capture LS_locales_settings_key %}{{ section.id }}.video_url.id{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.video_url.id }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %}?rel=0&showinfo=0&vq=720" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+          {% endif %}
+          {% if section.settings.video_url.type == "vimeo" %}
+            <iframe src="//player.vimeo.com/video/{% capture LS_locales_settings_key %}{{ section.id }}.video_url.id{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ section.settings.video_url.id }}{% else %}{{ LS_5906464808_settings_value  }}{% endif %}?color={% capture LS_locales_settings_key %}color_secondary{% endcapture %}{% include 'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}{% if LS_5906464808_settings_value == blank %}{{ settings.color_secondary | remove: "#" }}{% else %}{{ LS_5906464808_settings_value | remove: "#"  }}{% endif %}&byline=0&portrait=0&badge=0" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Video",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Video"
+      },
+      {
+        "type": "video_url",
+        "id": "video_url",
+        "label": "Video link",
+        "accept": ["youtube", "vimeo"]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Video",
+        "category": "Video"
+      }
+    ]
+  }
+{% endschema %}
