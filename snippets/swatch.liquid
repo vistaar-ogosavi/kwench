@@ -13,9 +13,9 @@
       </div>
 
       <input id="swatch-1-{{ product_title_s[1] | downcase }}" type="radio" name="option-1" value="{{ product_title_s[1] | escape }}" checked=""> 
-      <label for="swatch-1-{{ product_title_s[1] | downcase }}" style="background-color: {{ product_title_s[1] | downcase }};">
+      <label for="swatch-1-{{ product_title_s[1] | downcase }}" style="background-color: {{ product_title_s[1] | downcase }};" class="box-bg">
         <a href="{{collection.url | append:product.url}}" >        
-          <span>&nbsp;&nbsp;&nbsp;</span>
+          <div class="color-select"></div>
         </a>
         <!-- <img class="crossed-out" src="//cdn.shopify.com/s/files/1/0077/8649/6080/t/2/assets/soldout.png?15822371274988690314" /> -->
       </label>
