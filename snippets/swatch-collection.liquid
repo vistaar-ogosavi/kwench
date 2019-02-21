@@ -1,0 +1,27 @@
+{% comment %}
+  Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
+{% endcomment %}
+
+<h1>hey! swatch2 here</h1>
+{% for product in collection.products %}
+       
+         {% assign foo = "bar" %}
+        {% assign producttitle=product.title | split: " | " %}
+        {% assign producttitlefirst = producttitle[0] | append: " | " %}
+        {% assign producttitlelast = producttitle[1] %}
+         {% comment %} <h1>{{ producttitlelast }}</h1> {% endcomment %}
+         
+    {% if product.title contains " | "  %}
+        <a href="{{ collection.url | producttitlelast }}" >        
+          <div class="color-box" style="height:20px;width:20px;  background-color:{{ producttitlelast }}" ></div>
+        </a>
+         
+    {% endif %}
+
+{% endfor %}
+<style>
+
+.color-box{
+display:inline-block;
+}
+</style>

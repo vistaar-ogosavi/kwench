@@ -177,7 +177,7 @@
       
         {% include 'breadcrumbs' %}
       {% unless template.name == "index" or template == "collection.image" %}
-      {% comment %} side-sticky content {% endcomment %}
+     {% comment %} sticky {% endcomment %}
         <div class="wrapper">
       {% endunless %}
         {{ content_for_layout }}
@@ -352,28 +352,27 @@ function goToGermanShop() {
 
 
 </body>
+
+{% comment %} stick content {% endcomment %}
 <style>
 .stick-content{
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
+    position: fixed;
+    top:158px;
+    left: 5%;
+    width: 25%;
+    text-align: left;
+    padding-left: 15px;
+
 
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script >
-  function checkOffset() {
-  var a=$(document).scrollTop()+window.innerHeight;
-  var b=$('#shopify-section-footer').offset().top;
-  if (a<b) {
-    $('.stick-content').css('bottom', '10px');
-  } else {
-    $('.stick-content').css('bottom', (10+(a-b))+'px');
-  }
-}
-$(document).ready(checkOffset);
-$(document).scroll(checkOffset);
+
+$(window).scroll(function(){
+    $(".stick-content").css("top",Math.max(0,158-$(this).scrollTop()));
+});
 
 </script>
 
