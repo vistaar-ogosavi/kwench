@@ -408,7 +408,7 @@
 
     <div class="grid__item product_options_wrapper product-single__meta--wrapper medium--three-twelfths large--three-twelfths">
       {% comment %} <div class="product-single__meta product_options product_option_custom"> {% endcomment %} 
-  {% comment %} for sticy changed {% endcomment %}
+     {% comment %} for sticy changed {% endcomment %}
       <div class=" product_options product_option_custom">
         {% capture LS_locales_settings_key %}{{ section.id }}.product_vendor_enable{% endcapture %}{% include
         'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
@@ -759,26 +759,30 @@ margin-top:0px;
   bottom: 0;
   top: auto;
 }
+.product-link,.product-single__add-to-cart{
+  display:none;
+}
 {% comment %} for shop now click for redirect {% endcomment %}
 
 </style>
 
 <script>
 $.get("http://ipinfo.io", function (response) {
-     console.log(response.country);
-     console.log(response.region);
+     {% comment %} console.log(response.country); {% endcomment %}
+     {% comment %} console.log(response.region); {% endcomment %}
 
      var countryshow = response.country;
-     if (countryshow == 'IN'){
-       $('.product-linkt').show();
+        console.log(countryshow);
+     if (countryshow === 'IN'){
+          $('.product-link').show();
           $('.product-single__add-to-cart').hide();
      }else{
-        $('.product-linkt').hide();
-      $('.product-single__add-to-cart').show();
+          $('.product-link').hide();
+          $('.product-single__add-to-cart').show();
      }
 }, "jsonp");
 
-var $amazon_btn = $( "<div class='product-link'><a class='btn btn-secondary text-link' href='https://www.amazon.in/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=kwench' target='_blank' title='Buy on amazon' rel='noopener noreferrer'>Buy on amazon</a></div>" );
+ var $amazon_btn = $( "<div class='product-link'><a class='btn btn-secondary text-link' href='https://www.amazon.in/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=kwench' target='_blank' title='Buy on amazon' rel='noopener noreferrer'>Buy on amazon</a></div>" );
 
  if( $('.product-single__description .product-link').length )         // use this if you are using id to check
 {

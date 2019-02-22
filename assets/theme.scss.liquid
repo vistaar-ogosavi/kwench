@@ -1026,7 +1026,6 @@ padding: 50px;
     font-family: Montserrat,Helvetica,Arial,sans-serif;
     font-weight: 300;
     text-transform: uppercase;
-    text-align:left;
       
     }
     li.logo-img{
@@ -1040,6 +1039,9 @@ padding: 50px;
     padding-bottom:20PX;
     color:#333;
     font-weight:500;
+    }
+    .text-center-padding{
+      padding:0 6%;
     }
     .footer_links {          
       a{
@@ -5633,6 +5635,9 @@ table#hover_table {
 }
 
 {% comment %} -------------------------sticky---------------------------- {% endcomment %}
+#CollectionSection{
+   min-height:500px;
+}
 .filter-btn{
     border: 1px solid;
     width: 150px;
@@ -5659,6 +5664,113 @@ table#hover_table {
     padding-left: 15px;
     
 }
+
+.accordion_head { 
+        background-color: transparent; 
+        color: #333;
+        cursor: pointer;
+        font-family: arial;
+        font-size: 14px;
+        margin: 0 auto;
+        padding: 7px 11px;
+        font-weight: bold;
+        width: 100%;
+        display: inline-block;
+        max-width: 1280px;
+        text-align: center;
+    }
+    .plusminus {
+        float: none;
+    }
+    .accordion_body {
+        border-top: 1px solid #eaeaea;
+        border-bottom: 1px solid #eaeaea;
+        display: inline-block;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto 20px auto;
+    }
+    .accordion_body ul {
+        margin: 15px 0;
+        text-align: center;
+    }
+    .accordion_body ul li {
+        display: inline;
+        padding: 0 10px;
+    }
+    .accordion_body ul li.active {
+        font-weight: bold;
+    }
+    .accordion_head.close {
+        margin: 0 auto;
+        display: table;
+    }
+    .filters-toolbar-wrapper {
+        display: none;
+    }
+    .x{
+      margin-left:5px;
+    }
+    .filter_heading{
+            font-family: "Roboto",Helvetica,Arial,sans-serif;
+            font-weight: 400;
+            font-size: 0.9em;
+            line-height: 1.8rem;
+            font-style: normal;
+            margin-top: 15px;
+            border-bottom: solid 1px #ebebeb;
+            width: 185px;
+            margin-bottom: 11px;
+            text-transform: uppercase;
+            }
+            .color-box-wrap{
+              width:200px;
+                  .color-box {
+                    border:solid 1px #000;
+                    width:30px;
+                    height:30px;
+                    display: inline-block;
+                    margin:2px;
+                  }
+                  .color-box a{
+                    background: transparent;
+                    color: transparent;
+                    padding: 8px 0px;
+            }
+                           
+            }
+            /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
+            .clearfix:before, .clearfix:after { content: ""; display: table; }
+            .clearfix:after { clear: both; }
+            .clearfix { zoom: 1; }
+            /* Subnavigation styles */
+            .subnav { 
+                clear: both;
+                list-style-type: none;
+                margin: 6px 0;
+                padding: 0;
+                display: inline-block;
+                width: 218px;
+              }          
+            .subnav li { display: inline-block; width: 99px; }
+            .subnav li a {
+              display: block;
+              height: 28px;
+              line-height: 28px;
+              padding: 0 7px;
+              -webkit-border-radius: 7px;
+              -moz-border-radius: 7px;
+              border-radius: 7px;
+              background: #eee;
+              margin: 0 7px 7px 0;
+              color: #666;
+            }
+            .subnav li a:hover, .subnav li.active a {
+              background: #666;
+              color: #fff;
+      }
+
+
 @media screen and (max-width: 768px){
   .filter-btn{
     border: 1px solid;

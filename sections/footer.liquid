@@ -269,7 +269,7 @@
       {% assign footer_column_width = 'large--one-quarter medium--one-half' %}
 
       {% if linklists[section.settings.footer_link_list].links.size > 0 %}
-        <div class="grid__item {{ footer_column_width }} text-center">
+        <div class="grid__item {{ footer_column_width }} text-center-padding">
           {% comment %} <h3 class="footer-title"><ls-static-5050140></ls-static-5050140></h3> {% endcomment %}
          <div class="footer-title"> SHOP</div>
            <li class="footer_links"><a href="/collections/men">MEN</a></li>
@@ -303,7 +303,7 @@
         </div>
       {% endif %}
 
-      <div class="grid__item {{ footer_column_width }} {% if num_footer_columns == 1 %}text-center{% endif %} text-center">
+      <div class="grid__item {{ footer_column_width }} {% if num_footer_columns == 1 %}text-center{% endif %} text-center-padding">
         <div class="footer-title"><ls-static-3072308> USER EXPERIENCE</ls-static-3072308></div>
         <ul class="no-bullets site-footer__linklist">
                  <li class="footer_links"><a href="">CONTACT</a></li>
@@ -335,7 +335,7 @@
       </div>
 
       {% if footer_social_enable %}
-        <div class="grid__item {{ footer_column_width }} text-center">
+        <div class="grid__item {{ footer_column_width }} text-center-padding">
 <!--             <h3 class="footer-title"><ls-static-8442813></ls-static-8442813></h3> -->
 
          <div class="footer-title"><ls-static-8442813>SOCIAL </ls-static-8442813></div>
@@ -442,7 +442,7 @@
         </div>
       {% endif %}
 
-      <div class="grid__item {{ footer_column_width }} {% if num_footer_columns == 1 %}text-center{% endif %} text-center">
+      <div class="grid__item {{ footer_column_width }} {% if num_footer_columns == 1 %}text-center{% endif %} text-center-padding">
        <ul class="no-bullets site-footer__linklist">
        {% include 'gtranslate' %}
         <div class="footer-title"><ls-static-9233480>MORE ABOUT KWENCH</ls-static-9233480></div>
@@ -494,7 +494,7 @@
           </ul>
       </div>
 
-      <div class="grid__item text-center">
+      <div class="grid__item text-center-padding">
         {% unless shop.enabled_payment_types == empty %}
           {% assign payment_icons_available = 'amazon_payments,american_express,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' %}
           <ul class="inline-list payment-icons">
