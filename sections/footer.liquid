@@ -494,7 +494,8 @@
           </ul>
       </div>
 
-      <div class="grid__item text-center-padding">
+{%- comment -%} commented for footer payment icon {%- endcomment -%}
+      {%- comment -%} <div class="grid__item text-center-padding">
         {% unless shop.enabled_payment_types == empty %}
           {% assign payment_icons_available = 'amazon_payments,american_express,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' %}
           <ul class="inline-list payment-icons">
@@ -510,6 +511,63 @@
             {% endfor %}
           </ul>
         {% endunless %}
+        <p>&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: '/' }} - {{ powered_by_link }}</p>
+      </div> {%- endcomment -%}
+
+{%- comment -%} payment icon {%- endcomment -%}
+
+       <div class="grid__item text-center">
+        
+          
+          <ul class="inline-list payment-icons">
+            
+              
+                <li>
+                  <span class="icon-fallback-text">
+                    <span class="icon icon-american_express" aria-hidden="true"></span>
+                    <span class="fallback-text">american express</span>
+                  </span>
+                </li>
+              
+            
+              
+                <li>
+                  <span class="icon-fallback-text">
+                    <span class="icon icon-apple_pay" aria-hidden="true"></span>
+                    <span class="fallback-text">apple pay</span>
+                  </span>
+                </li>
+              
+            
+              
+                <li>
+                  <span class="icon-fallback-text">
+                    <span class="icon icon-master" aria-hidden="true"></span>
+                    <span class="fallback-text">master</span>
+                  </span>
+                </li>
+              
+            
+              
+                <li>
+                  <span class="icon-fallback-text">
+                    <span class="icon icon-paypal" aria-hidden="true"></span>
+                    <span class="fallback-text">paypal</span>
+                  </span>
+                </li>
+              
+            
+              
+                <li>
+                  <span class="icon-fallback-text">
+                    <span class="icon icon-visa" aria-hidden="true"></span>
+                    <span class="fallback-text">visa</span>
+                  </span>
+                </li>
+              
+            
+          </ul>
+        
         <p>&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: '/' }} - {{ powered_by_link }}</p>
       </div>
     </div>
