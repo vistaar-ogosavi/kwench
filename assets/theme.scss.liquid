@@ -5631,7 +5631,7 @@ table#hover_table {
 
 {% comment %}  translator {% endcomment %}
 #gtranslate_wrapper{
-     display:none !important;
+     
 }
 
 {% comment %} -------------------------sticky---------------------------- {% endcomment %}
@@ -5648,6 +5648,8 @@ table#hover_table {
 }
 .filter-close-btn{
   display:none;
+  font-size: 20px;
+  margin-top: 3px;
 }
 .template-collection .main-content .wrapper{
     max-width: unset !important;
@@ -5800,11 +5802,13 @@ table#hover_table {
     margin: unset;
 }
 .show-slide-sticky{
-
-    transform: translateX(0px);
+    transform: translateX(120px);
     transition: transform 1s;
     z-index: 99;
-    background: rgb(255, 255, 255);
+    background: #fff;
+    height: 100%;
+    position: fixed;
+    box-shadow: 1px 1px 1px;
 }
 
 }
