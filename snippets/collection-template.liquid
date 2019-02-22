@@ -173,9 +173,10 @@
 
   </div>
 {% elsif section.settings.collection_products_grid == 'grid' %}
+<div class=" filter-btn">  <i class="fa fa-filter" aria-hidden="true"></i> Filter products </div>
 
     <div class="stick-content">
-     
+    <div class="filter-close-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
       
       <div class="filter_heading">
                      Show by color
@@ -331,3 +332,14 @@
 
 {% endpaginate %}
 {% comment %}{% for product in collection.products %}{% include 'LS_5906464808_product_obj', product: product %}{% endfor %}{% endcomment %}
+
+<script>
+$(".filter-btn").click(function(){
+    $(".stick-content").toggleClass("show-slide-sticky");
+    
+});
+$(".filter-close-btn").click(function(){
+    $(".stick-content").toggleClass("show-slide-sticky");
+});
+
+</script>
