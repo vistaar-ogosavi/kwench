@@ -1,0 +1,25 @@
+{% include 'LS_5906464808_global' %}
+<!-- /templates/page.liquid -->
+<div class="container-fluid about_banner">
+     {% section 'about-page-section' %}
+     <header class="section-header text-center page-layout-2-heading">
+      <h1>{% include 'LS_5906464808_title', item: page %}{{ LS_5906464808_item_title  }}</h1>
+    </header>
+
+     
+    <div class="page-layout-2-content-wrapper">      
+        <div class="rte rte--nomargin rte--indented-images page-layout-2-content">
+      
+        DISTINCTIVE AND STYLISH, IT IS MADE FROM HIGH QUALITY BREATHABLE MATERIALS AND TAILORED FOR TODAY’S FITNESS ENTHUSIASTS.
+        </div>
+      </div>
+ 
+</div>
+ <div class="container-fluid about_main_content_wrapper">
+    <div class="row">
+        <div class="col-sm-8 ml-auto mr-auto">
+         {% include 'LS_5906464808_content', item: page %}{{ LS_5906464808_item_content  }} 
+        </div>
+    </div>
+ </div>
+{% comment %} {% section 'slideshow' %} {% endcomment %}

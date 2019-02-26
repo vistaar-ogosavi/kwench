@@ -444,14 +444,14 @@
 
       <div class="grid__item {{ footer_column_width }} {% if num_footer_columns == 1 %}text-center{% endif %} text-center-padding">
        <ul class="no-bullets site-footer__linklist">
-       {% include 'gtranslate' %}
+      
         <div class="footer-title"><ls-static-9233480>MORE ABOUT KWENCH</ls-static-9233480></div>
          <ul class="no-bullets site-footer__linklist">
                  <li class="footer_links"><a href="">ABOUT US</a></li>    
                  <li class="footer_links"><a href="">Impressum</a></li>
                  <li class="footer_links"><a href="">Dataprotection</a></li>
-
          </ul>
+          {% include 'gtranslate' %}
         
         {% comment %} commented for while {% endcomment %}
       {% comment %} <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="contact-form"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓">

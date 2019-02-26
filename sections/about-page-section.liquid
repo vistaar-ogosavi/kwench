@@ -1,0 +1,34 @@
+
+    
+ 
+    
+
+        <img class="image-banner-deskstop" src="{{ section.settings.about_image | img_url: 'master' }}" style="width:100%"/>
+
+         
+
+
+
+{% schema %} 
+{
+  "name": " About page banner image",
+  "settings":[
+          {
+            "id":"about_image",
+            "type":"image_picker",
+            "label":" Main image"
+          }          
+          
+         ],
+  "presets": [{
+      "name": "About page banner image",
+      "category": "Collection"
+      
+    }]
+}
+{% endschema %}
+
+
+{% javascript %}
+
+{% endjavascript %}

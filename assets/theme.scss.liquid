@@ -5631,7 +5631,12 @@ table#hover_table {
 
 {% comment %}  translator {% endcomment %}
 #gtranslate_wrapper{
-     
+     position:relative !important;
+     left:unset !important;
+     right:unset !important;
+     img{
+       margin:1px;
+     }
 }
 
 {% comment %} -------------------------sticky---------------------------- {% endcomment %}
@@ -5811,4 +5816,89 @@ table#hover_table {
     box-shadow: 1px 1px 1px;
 }
 
+}
+
+{% comment %} ------------------------------About and page layout2 -------------------------------------{% endcomment %}
+#about-us{
+  .main-content .wrapper{
+    width:100%;
+    max-width:unset;
+  }
+}
+.about_banner{
+  position:relative;
+  padding-left:0;
+  padding-right:0;
+.page-layout-2-content-wrapper{
+    position: absolute;
+    top: 63%;
+    background: #fff;
+    width: 53vw;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 34px;
+    background: #1ea5deed;
+    .page-layout-2-content{
+        font-family: Roboto,Helvetica,Arial,sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        text-decoration: none;
+        border: 4px solid #fff;
+        padding: 11%;
+        color: #fff;
+        text-align:center;
+        position:relative;
+        overflow:hidden;
+        &:before{
+          position: absolute;
+          content: "";
+          left: -26px;
+          top: 40%;
+          width: 50px;
+          height: 50px;
+          background: white;
+          border-radius: 50%;
+        }
+          &:after{
+          position: absolute;
+          content: "";
+          right: -26px;
+          top: 40%;
+          width: 50px;
+          height: 50px;
+          background: white;
+          border-radius: 50%;
+        }
+    }
+    
+}
+.page-layout-2-heading{
+        position: absolute;
+        top: 38%;
+        h1{
+        transform: scale(1, 1);
+        color: #fff;
+        text-shadow: none;
+        font-size: 38px;
+        font-family: 'Righteous', cursive;
+        text-transform: uppercase;
+        font-weight: 500;
+        position: relative;
+        top: 20px
+        }
+    }
+
+}
+.about_main_content_wrapper{
+    margin-top: 10%;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-decoration: none;
+    border: 4px solid #fff;
+    padding: 0 4%;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
 }
