@@ -6,8 +6,9 @@
 <div class="row">
 {% for link in linklists.blogs.links %}
      
-  {% assign blog = link.object %}
+ {% assign blog = link.object %}
  {% for article in blog.articles %}
+
 
     
     <div class="col-sm-4">
@@ -20,7 +21,11 @@
             </div>
             <div class="blog-title-wrap">
             {{ blog.title }}
+                    <div class="blog-count-wrap">
+                    {{ blog.articles_count }}
+                    </div>
             </div>
+           
             </div>
         </div>
         </a>
