@@ -1,0 +1,39 @@
+
+
+<div class="container">
+
+ 
+<div class="row">
+{% for link in linklists.blogs.links %}
+  {% assign blog = link.object %}
+ {% for article in blog.articles %}
+
+    
+    <div class="col-sm-4">
+        <a href="{{ blog.url }}">
+          <div class="category-wrap">
+            {{ blog.title }}
+        </div>
+        </a>
+    </div>
+ 
+
+
+
+  {% endfor %} 
+  {% endfor %}
+
+</div>
+
+</div>
+
+<style>
+.category-wrap{
+    background: red;
+    margin: 15px 0;
+    padding: 20px;
+    text-align: center;
+}
+</style>
+
+
