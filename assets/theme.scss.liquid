@@ -98,12 +98,6 @@ hr{
   .mobile-icon{
      font-size: 24px;
   }
- .site-nav_item_user-mobile{
-    float: none;
-  }
-  .site-nav_item_cart-mobile{
-    top: 17px;
-  }
 }
 }
  /*----------------------------------------breadcrumb----------------------------------------------------------------------*/
@@ -183,13 +177,13 @@ position:unset;
   .grid-product__title{
     font-size:14px !important;
   }
-   .product-title-mobile{
+   {% comment %} .product-title-mobile{
     white-space: pre-wrap !important;
   }
 
   .product-mobile-grid{
     min-height: 330px;  
-}
+} {% endcomment %}
 }
 /*----------------------------------------------------------- navbar------------------------------------------------------------ */
  #AccessibleNav{
@@ -207,7 +201,7 @@ position:unset;
 {% comment %} .site-nav__item:nth-child(4),.site-nav__item:nth-child(5){
 float:right;
 } {% endcomment %}
-.site-nav__item_search_link{
+.site-nav__item_search_link,.site-nav__item_user_link{
   float:right;
 }
 .site-nav__item_cart{
@@ -4581,9 +4575,9 @@ button.mfp-arrow {
   font-family: "Work Sans",sans-serif;
 }
 
-.product-title-desktop {
+{% comment %} .product-title-desktop {
    white-space: normal !important;
-}
+} {% endcomment %}
 
 .grid-product__vendor {
   @include accentFontStack;
