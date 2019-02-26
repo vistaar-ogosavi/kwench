@@ -94,6 +94,17 @@ hr{
 .mobile-nav__item a{
     font-size:15px;
   }
+  .site-nav--mobile{
+  .mobile-icon{
+     font-size: 24px;
+  }
+ .site-nav_item_user-mobile{
+    float: none;
+  }
+  .site-nav_item_cart-mobile{
+    top: 17px;
+  }
+}
 }
  /*----------------------------------------breadcrumb----------------------------------------------------------------------*/
 
@@ -172,6 +183,13 @@ position:unset;
   .grid-product__title{
     font-size:14px !important;
   }
+   .product-title-mobile{
+    white-space: pre-wrap !important;
+  }
+
+  .product-mobile-grid{
+    min-height: 330px;  
+}
 }
 /*----------------------------------------------------------- navbar------------------------------------------------------------ */
  #AccessibleNav{
@@ -4563,6 +4581,10 @@ button.mfp-arrow {
   font-family: "Work Sans",sans-serif;
 }
 
+.product-title-desktop {
+   white-space: normal !important;
+}
+
 .grid-product__vendor {
   @include accentFontStack;
   letter-spacing: 0.2em;
@@ -5795,7 +5817,7 @@ table#hover_table {
     bottom:0;
     transform: translateX(371px);
     transition: transform 1s;
-    position: absolute;
+    position: fixed;
     z-index: 9999;
     background: rgb(255, 255, 255);
     width:100%;

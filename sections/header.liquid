@@ -247,11 +247,28 @@
                   </span>
                   <span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}"></span>
                 </a> {% endcomment %}
+                <li class="site-nav__item site-nav__expanded-item site-nav__item_search_link site-nav_item_user-mobile">
+                    <a class="site-nav__link site-nav__link--icon" href="/account">
+                      <span class="icon-fallback-text">
+                        <span class="icon icon-customer mobile-icon" aria-hidden="true"></span>
+                        <span class="fallback-text">
+                          {% if customer %}
+                            {% include 'LS_5906464808_locales', LS_locales_item: 'layout.customer.account',   %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.customer.account' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}
+                          {% else %}
+                            {% include 'LS_5906464808_locales', LS_locales_item: 'layout.customer.log_in',   %}{% if LS_5906464808_locales_value == '' %}{{ 'layout.customer.log_in' | t }}{% else %}{{ LS_5906464808_locales_value  }}{% endif %}
+                          {% endif %}
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+
+                    <li class="site-nav__item  site-nav__item_cart site-nav_item_cart-mobile">
                    <a href="/cart" class="cart-page-link">
-                  <span class="icon icon-cart header-bar__cart-icon" aria-hidden="true"></span>
-                  <span class="cart-count cart-count-mobile  header-bar__cart-count{% if cart.item_count == 0 %} hidden-count{% endif %}">{{ cart.item_count }}
+                  <span class="icon icon-cart header-bar__cart-icon mobile-icon" aria-hidden="true"></span>
+                  <span class="cart-count cart-count-mobile header-bar__cart-count{% if cart.item_count == 0 %} hidden-count{% endif %}">{{ cart.item_count }}
                   </span>
                    </a>
+                </li>
               </div>
             </div>
           </div>

@@ -40,7 +40,7 @@
 {% capture img_wrapper_id %}ProductImageWrapper-{{ product.featured_image.id }}{% endcapture %}
 {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-<div class="grid__item grid-product {{ grid_item_width }}{% if sold_out %} is-sold-out{% endif %} grid__item__override">
+<div class="grid__item grid-product product-mobile-grid {{ grid_item_width }}{% if sold_out %} is-sold-out{% endif %} grid__item__override">
   <div class="grid-product__wrapper">
     <div class="grid-product__image-wrapper">
       <a class="grid-product__image-link" href="{{ product.url | within: collection }}">
@@ -135,7 +135,7 @@
           {% endif %}
         {% endfor %}
 
-      <div style="overflow: hidden; white-space: nowrap;"><span class="grid-product__title" style="overflow: hidden; white-space: nowrap;">{% include 'LS_5906464808_title', item: product %}{{ LS_5906464808_item_title  }}</span></div>
+      <div style="overflow: hidden; white-space: nowrap;"><span class="grid-product__title product-title-mobile product-title-desktop" style="overflow: hidden; white-space: nowrap;">{% include 'LS_5906464808_title', item: product %}{{ LS_5906464808_item_title  }}</span></div>
       <p class="product-color-text">{{ productColor }}</p>
       <span class="grid-product__price-wrap">
         <span class="grid-product__price">
