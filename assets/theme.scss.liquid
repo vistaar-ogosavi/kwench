@@ -5891,14 +5891,41 @@ table#hover_table {
 
 }
 .about_main_content_wrapper{
-    margin-top: 10%;
+    margin-top: 180px;
     font-family: Roboto,Helvetica,Arial,sans-serif;
     font-weight: 300;
     font-size: 20px;
     text-decoration: none;
-    border: 4px solid #fff;
     padding: 0 4%;
     text-align: left;
     position: relative;
     overflow: hidden;
+}
+
+@media screen and (max-width: 768px){
+.about_banner {
+  .page-layout-2-content-wrapper{
+    position: unset;
+    top: 63%;
+    width: auto;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 34px;
+    background: #1ea5deed;
+  }
+  .page-layout-2-heading{
+    color: #000;
+    text-shadow: none;
+    position: unset;
+    top: 20px;
+    h1{
+      color:#000;
+      text-align:center;
+    }
+  }
+}
+.about_main_content_wrapper{
+ margin-top:40px;
+}
 }
