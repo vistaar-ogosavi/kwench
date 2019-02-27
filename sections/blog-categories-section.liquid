@@ -2,39 +2,40 @@
 
 <div class="container">
 
+<header class="blog-page-heading">
+      <h1>BLOG TOPICS</h1>
+</header>
  
 <div class="row">
 {% for link in linklists.blogs.links %}
      
  {% assign blog = link.object %}
- {% for article in blog.articles %}
+
 
 
     
     <div class="col-sm-4">
-        <a href="{{ blog.url }}">
+        <a class="link-container-category" href="{{ blog.url }}">
         
           <div class="category-wrap">
           <div class="row">
             <div class="link-title-wrap">
              {{ link.title }}
             </div>
-            <div class="blog-title-wrap">
-            {{ blog.title }}
-                    <div class="blog-count-wrap">
-                    {{ blog.articles_count }}
+            <div class="category-details">
+                    <div class="blog-title-wrap">
+                    {{ blog.title }}
                     </div>
-            </div>
-           
+                    <div class="blog-count-wrap">
+                    {{ blog.articles_count }}  posts
+                    </div>
+            </div>     
             </div>
         </div>
         </a>
     </div>
  
 
-
-
-  {% endfor %} 
   {% endfor %}
 
 </div>
@@ -48,8 +49,15 @@
     background-color: #fff;
     padding: 1em;
     margin-bottom: 20px;
-    -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s;
+}
+.category-wrap:hover{
+    transform:scale(1.1);
+}
+.link-container-category:hover{
+    text-decoration:none;
 }
 .link-title-wrap{
     width: 100px;
@@ -58,7 +66,33 @@
 }
 .link-title-wrap .fa {
     font-size: 70px;
-}    
+    color:#b9b4b4;
+}
+.blog-title-wrap{
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: #1ea5de;
+    text-decoration: none;
+} 
+.blog-count-wrap{
+    color: #b9b4b4;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 17px;  
+}
+.blog-page-heading h1{
+    transform: scale(1, 1);
+    color: #000;
+    text-shadow: none;
+    font-size: 32px;
+    font-family: 'Righteous', cursive;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    top: 20px;
+    margin-bottom:50px;
+} 
 </style>
 
 
