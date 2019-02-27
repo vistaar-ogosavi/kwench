@@ -243,7 +243,8 @@
          {% if collection.title == 'Mens' %}
          <li class="active" ><a href="/collections/men">Men</a></li>
           <li><a href="/collections/womens">Women</a></li>
-         {% else %}
+         {% endif %}
+         {%if collection.title == 'Womens' %}
           <li ><a href="/collections/men">Men</a></li>
           <li class="active" ><a href="/collections/womens">Women</a></li>
          {% endif %}

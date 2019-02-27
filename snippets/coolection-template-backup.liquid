@@ -39,8 +39,8 @@
         To provide a 'catch-all' link at the top of the list,
         check against the collection.handle, product type, and vendor.
       {% endcomment %}
-      <ul class="subnav clearfix">
-    <li{% unless current_tags %} class="active"{% endunless %}>
+     <ul class="subnav clearfix">
+    <li {% unless current_tags %} class="active"{% endunless %}>
     {% if collection.handle %}
     <a href="/collections/{{ collection.handle }}{% if collection.sort_by %}?sort_by={{ collection.sort_by }}{% endif %}">All</a>
     {% elsif collection.current_type %}
@@ -87,7 +87,7 @@
 }
 </style>
       <ul class="tags tags--collection inline-list">
-        <li{% unless current_tags %} class="tag--active"{% endunless %}>
+        <li {% unless current_tags %} class="tag--active"{% endunless %}>
           {% comment %}
             Good for /collections/all collection and regular collections
           {% endcomment %}
