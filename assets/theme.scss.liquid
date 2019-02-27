@@ -1120,7 +1120,7 @@ padding: 50px;
     .size-chart-open-popup,button[type="submit"]{
         width:252px;
       }
-   
+      
     input[type="number"]{
       width:193px;    
     }
@@ -1212,6 +1212,31 @@ padding: 50px;
    margin-bottom:0px;
  }
 }
+
+{%- comment -%} Size Chart  {%- endcomment -%}
+.size-chart-popup{
+  margin: 10px 0;
+}
+ 
+table.bottom{
+width: 495px;
+}
+
+table.all-top{
+width: 495px;
+}
+
+
+@media screen and (max-width:768px){
+table.bottom{
+width: 100%;
+}
+
+table.all-top{
+width: 100%;
+}
+}
+{%- comment -%} Size Chart end  {%- endcomment -%}
 
 @media screen and (max-width:768px){
  
@@ -4282,6 +4307,7 @@ $slick-opacity-not-active: 0.25;
 .product-form__item{
   margin-bottom: 13px;
 }
+
 
 /*================ Module | Product Lightbox ================*/
 

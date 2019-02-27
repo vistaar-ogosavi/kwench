@@ -546,7 +546,7 @@
 
   {% comment %} quantity hidden {% endcomment %}
 
-              {% comment %} {% capture LS_locales_settings_key %}{{ section.id }}.quantity_enabled{% endcapture %}{% include
+       {% comment %} {% capture LS_locales_settings_key %}{{ section.id }}.quantity_enabled{% endcapture %}{% include
               'LS_5906464808_settings', LS_settings_item: LS_locales_settings_key %}
               {% if section.settings.quantity_enabled or LS_5906464808_settings_value != blank %}
               <div class="product-single__quantity">
@@ -563,13 +563,19 @@
               Sizechart Button added by Thomas
               {% endcomment %}
 
-
-
- {% comment %} size hidden {% endcomment %}
+  {% comment %} size hidden {% endcomment %}
               {% comment %} {% if product.options contains 'Size' %}
               <a class="btn size-chart-open-popup" href="#size-chart">See size chart</a>
               {% endif %} {% endcomment %}
 {% comment %} size hidden  end{% endcomment %}
+
+
+              <div class="size-chart-popup">
+                {% if product.options contains 'Size' %}
+                   <a class="btn size-chart-open-popup" href="#chart-popup">See size chart</a>
+                {% endif %}
+              </div>
+
               <div class="product-single__add-to-cart">
                 {% include 'LS_5906464808_options', product: product %}
                 <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="btn add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} add-to-cart--full-width{% endif %}"
@@ -723,8 +729,203 @@ REVIEWS AND RATINGS APP - added by Thomas
 {% comment %}
 Styling for Sizechart Button - added by Thomas
 {% endcomment %}
-<div id="size-chart" class="mfp-hide">
+{%- comment -%} theme size chart popup {%- endcomment -%}
+{%- comment -%} <div id="size-chart" class="mfp-hide">
   {{ pages.size-chart.content }}
+</div> {%- endcomment -%}
+
+
+<div id="chart-popup" class="mfp-hide">
+<h2 style="text-align: left;">Size Chart</h2>
+<div style="text-align: left;"></div>
+<p style="text-align: left;">At Kwench Wear we know that the Right Fit is extremely important. Our Size guide offers maximum information for you to choose the right product according to your body type. We have a range of different fits including Comfort, Body Fits, Loose Fits for our T-shirts and Tops &amp; Tapered and Slim fits for the bottoms. If your size is on the borderline of two size specs, choose the smaller size for a tighter fit or a larger size for loose fit. This is especially true for the Body Fits and Slim Fit products.</p>
+<p style="text-align: left;">Our Womens tops include our range of t-shirts, tanks and jackets. Be sure to get the correct size for your measurements. If your measurements for chest and waist correspond to two different suggested sizes, order the size indicated by your chest measurement.</p>
+<p style="text-align: left;">If for our range of tracksuit bottoms, shorts and workout leggings, your measurements for hips and waist correspond to two different suggested sizes, order the one indicated by your hip measurement.</p>
+<h3 style="text-align: left;">
+<br>MENS - ALL TOPS</h3>
+<table class="table-responsive all-top">
+<tbody>
+<tr>
+<td style="width: 130px;">
+<h4>SIZE</h4>
+</td>
+<td style="width: 130px;">
+<h4>CHEST</h4>
+</td>
+<td style="width: 128px;">
+<h4>WAIST</h4>
+</td>
+<td style="width: 88px;">
+<h4>HIP</h4>
+</td>
+</tr>
+<tr>
+<td style="width: 130px;">S</td>
+<td style="width: 130px;">38</td>
+<td style="width: 128px;">30</td>
+<td style="width: 88px;">34</td>
+</tr>
+<tr>
+<td style="width: 130px;">M</td>
+<td style="width: 130px;">40</td>
+<td style="width: 128px;">32</td>
+<td style="width: 88px;">36</td>
+</tr>
+<tr>
+<td style="width: 130px;">L</td>
+<td style="width: 130px;">42</td>
+<td style="width: 128px;">34</td>
+<td style="width: 88px;">38</td>
+</tr>
+<tr>
+<td style="width: 130px;">XL</td>
+<td style="width: 130px;">44</td>
+<td style="width: 128px;">36</td>
+<td style="width: 88px;">40</td>
+</tr>
+<tr>
+<td style="width: 130px;">XXL</td>
+<td style="width: 130px;">46</td>
+<td style="width: 128px;">38</td>
+<td style="width: 88px;">42</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: left;"> </div>
+<div style="text-align: left;"><meta charset="utf-8"></div>
+<h3 style="text-align: left;"></h3>
+<h3 style="text-align: left;">MENS - BOTTOMS</h3>
+<div style="text-align: left;">
+<table class="table-responsive bottom">
+<tbody>
+<tr>
+<td style="width: 131px;">
+<h4>SIZE</h4>
+</td>
+<td style="width: 136px;">
+<h4>WAIST</h4>
+</td>
+<td style="width: 228px;">
+<h4>HIP</h4>
+</td>
+</tr>
+<tr>
+<td style="width: 131px;">S</td>
+<td style="width: 136px;">30</td>
+<td style="width: 228px;">36</td>
+</tr>
+<tr>
+<td style="width: 131px;">M</td>
+<td style="width: 136px;">32</td>
+<td style="width: 228px;">39</td>
+</tr>
+<tr>
+<td style="width: 131px;">L</td>
+<td style="width: 136px;">34</td>
+<td style="width: 228px;">41</td>
+</tr>
+<tr>
+<td style="width: 131px;">XL</td>
+<td style="width: 136px;">36</td>
+<td style="width: 228px;">43</td>
+</tr>
+<tr>
+<td style="width: 131px;">XXL</td>
+<td style="width: 136px;">38</td>
+<td style="width: 228px;">45</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="text-align: left;"> </div>
+<div style="text-align: left;"><meta charset="utf-8"></div>
+<h3 style="text-align: left;"></h3>
+<h3 style="text-align: left;">WOMENS - ALL TOPS</h3>
+<div style="text-align: left;">
+<table class="table-responsive all-top">
+<tbody>
+<tr>
+<td style="width: 131px;">
+<h4>SIZE</h4>
+</td>
+<td style="width: 125px;">
+<h4>CHEST</h4>
+</td>
+<td style="width: 125px;">
+<h4>WAIST</h4>
+</td>
+<td style="width: 96px;">
+<h4>HIP</h4>
+</td>
+</tr>
+<tr>
+<td style="width: 131px;">XS</td>
+<td style="width: 125px;">33</td>
+<td style="width: 125px;">24</td>
+<td style="width: 96px;">34</td>
+</tr>
+<tr>
+<td style="width: 131px;">S</td>
+<td style="width: 125px;">35</td>
+<td style="width: 125px;">26</td>
+<td style="width: 96px;">36</td>
+</tr>
+<tr>
+<td style="width: 131px;">M</td>
+<td style="width: 125px;">37</td>
+<td style="width: 125px;">28</td>
+<td style="width: 96px;">38</td>
+</tr>
+<tr>
+<td style="width: 131px;">L</td>
+<td style="width: 125px;">39</td>
+<td style="width: 125px;">30</td>
+<td style="width: 96px;">40</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="text-align: left;"> </div>
+<div style="text-align: left;"><meta charset="utf-8"></div>
+<h3 style="text-align: left;"></h3>
+<h3 style="text-align: left;">WOMENS - BOTTOMS</h3>
+<div style="text-align: left;">
+<table class="table-responsive bottom">
+<tbody>
+<tr>
+<td style="width: 130px;">
+<h4>SIZE</h4>
+</td>
+<td style="width: 130px;">
+<h4>WAIST</h4>
+</td>
+<td style="width: 232px;">
+<h4>HIP</h4>
+</td>
+</tr>
+<tr>
+<td style="width: 130px;">XS</td>
+<td style="width: 130px;">24</td>
+<td style="width: 232px;">39</td>
+</tr>
+<tr>
+<td style="width: 130px;">S</td>
+<td style="width: 130px;">26</td>
+<td style="width: 232px;">41</td>
+</tr>
+<tr>
+<td style="width: 130px;">M</td>
+<td style="width: 130px;">28</td>
+<td style="width: 232px;">43</td>
+</tr>
+<tr>
+<td style="width: 130px;">L</td>
+<td style="width: 130px;">30</td>
+<td style="width: 232px; text-align: left;">45</td>
+</tr>
+</tbody>
+</table>
+</div>  
 </div>
 <style>
   #size-chart {
@@ -735,6 +936,14 @@ Styling for Sizechart Button - added by Thomas
     margin-left: auto;
     margin-right: auto;
   }
+   #chart-popup{
+    border: 2px #555 solid;
+    background-color: #ffffff;
+    padding: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    }
 .product-link{
     width: 260px;
     height:46px;
